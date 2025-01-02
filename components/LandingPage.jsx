@@ -1,4 +1,6 @@
-export default function Lock() {
+import ToggleButton from "./ToggleButton";
+
+export default function LandingPage() {
   return (
     <div className="flex flex-col h-screen justify-between bg-white text-black font-sans">
       {/* Header Section */}
@@ -14,23 +16,25 @@ export default function Lock() {
 
       <main className="flex">
         {/* Side Panels */}
-        <div className="bg-black text-white items-center desktop:w-[157px] desktop:h-[489px] rounded-r-xl">
-          <p className="-rotate-90 w-[157px]">
-            UPLOAD FILES OR FOLDERS BY DROPPING THEM ANYWHERE IN THIS WINDOW
-          </p>
-        </div>
+        <ToggleButton />
 
         {/* Main Content */}
         <div className="flex-1 flex flex-col justify-center items-center tracking-wider">
-          <h1 className="text-[62px] font-semibold">LET'S DO</h1>
-          <h2 className="text-[190px]">THIS</h2>
-          <p className="mt-4 text-sm text-gray-500 text-center">
-            UPLOAD FILES OR FOLDERS BY DROPPING THEM ANYWHERE IN THIS WINDOW
-          </p>
+          <div className="justify-items-end">
+            <h1 className="text-[62px] font-semibold">LET'S DO</h1>
+            <h2 className="text-[190px]">THIS</h2>
+            <p className="mt-4 text-sm text-gray-500 text-center">
+              UPLOAD FILES OR FOLDERS BY DROPPING THEM ANYWHERE IN THIS WINDOW
+            </p>
+          </div>
         </div>
 
         <div className="bg-black text-white items-center justify-items-center desktop:w-[157px] desktop:h-[489px] rounded-l-xl">
-          <img src="/assets/logo.png" alt="logo" />
+          <img
+            src="/assets/logo.png"
+            alt="logo"
+            className="translate-y-[210%]"
+          />
         </div>
       </main>
 

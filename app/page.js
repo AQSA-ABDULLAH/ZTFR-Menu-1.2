@@ -1,14 +1,10 @@
-import Lock from "@/components/Lock";
-import Meeting from "@/components/Meeting";
-import Sidebar from "@/components/Sidebar";
+import LandingPage from "@/components/LandingPage";
 
 
 export default function Home() {
   return (
     <div className="">
-    {/* <Lock /> */}
-    {/* <Meeting /> */}
-    <Sidebar />
+      <LandingPage />
     </div>
   );
 }
