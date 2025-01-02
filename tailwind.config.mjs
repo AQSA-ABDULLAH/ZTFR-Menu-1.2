@@ -11,6 +11,15 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        lato: ["Lato", "sans-serif"],
+      },
+      colors: {
+        gold: "#BE9F56",
+      },
+      screens: {
+        'desktop': '1700px',
+      },
     },
   },
   plugins: [],
