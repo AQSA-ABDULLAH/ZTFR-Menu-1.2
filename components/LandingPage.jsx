@@ -1,7 +1,16 @@
+"use client";
+
+import React, { useState } from "react";
 import ToggleButton from "./ToggleButton";
 import UploadCard from "./UploadCard";
 
 export default function LandingPage() {
+  const [showUploadCard, setShowUploadCard] = useState(false);
+
+  const handleToggleClick = () => {
+    setShowUploadCard(!showUploadCard);
+  };
+
   return (
     <div className="flex flex-col h-screen justify-between bg-white text-black font-sans">
       {/* Header Section */}
@@ -17,8 +26,12 @@ export default function LandingPage() {
 
       <main className="flex">
         {/* Side Panels */}
-        {/* <ToggleButton /> */}
-        <UploadCard />
+        {!showUploadCard && (
+          <div onClick={handleToggleClick}>
+            <ToggleButton />
+          </div>
+        )}
+        {showUploadCard && <UploadCard />}
 
         {/* Main Content */}
         <div className="flex-1 flex flex-col justify-center items-center tracking-wider">
@@ -59,3 +72,4 @@ export default function LandingPage() {
     </div>
   );
 }
+
