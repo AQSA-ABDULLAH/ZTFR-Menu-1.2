@@ -1,29 +1,77 @@
+"use client"; // To enable client-side hooks
+
+import React, { useState } from "react";
+import { FiUpload } from "react-icons/fi";
+
 export default function UploadCard() {
+  const [fileNames, setFileNames] = useState([]);
+
+  const handleFileUpload = (event) => {
+    const files = Array.from(event.target.files); // Get selected files
+    setFileNames((prevFileNames) => [
+      ...prevFileNames,
+      ...files.map((file) => file.name),
+    ]); // Append new file names to the existing list
+  };
+
+  const triggerFileInput = () => {
+    document.getElementById("file-upload").click(); // Programmatically trigger file input
+  };
+
+  const getLink = () => {
+    console.log("Get Link");
+  };
+
   return (
-    <div className="bg-black text-white w-[250px] h-[360px] lg:w-[314px] lg:h-[450px] desktop:h-[489px] rounded-[20px] absolute top-[50%] left-[150px] lg:left-[240px] translate-x-[-50%] translate-y-[-50%]">
+    <div className="bg-black text-white w-[280px] h-[360px] 2xl:w-[314px] lg:h-[450px] 2xl:h-[489px] rounded-[20px] absolute top-[50%] left-[150px] lg:left-[240px] translate-x-[-50%] translate-y-[-50%]">
       {/* Top Icon */}
-      <div className="absolute bg-white no-drag p-2 left-[-1px] top-[-1px]">
-        <img src="/assets/Path 27378.png" alt="add-icon" className="" />
+      <div
+        className="absolute bg-white no-drag p-2 left-[-1px] top-[-1px] cursor-pointer"
+        onClick={triggerFileInput}
+      >
+        <img
+          src="/assets/Path 27378.png"
+          alt="add-icon"
+          className="max-2xl:w-16"
+        />
       </div>
+      {/* Hidden File Input */}
+      <input
+        type="file"
+        id="file-upload"
+        style={{ display: "none" }}
+        multiple
+        onChange={handleFileUpload}
+      />
 
       <div className="absolute pl-8 pt-4 left-16 no-drag tracking-[2px]">
         <div className="flex justify-between w-[200px] text-[14px] uppercase">
-          <p>Upload file</p>
-          <img src="/assets/lock-icon.png" alt="lock" />
+          <p className="text-[13px] 2xl:text-[15px]">Upload file</p>
+          <img src="/assets/lock-icon.png" alt="lock" className="w-11 pr-7" />
         </div>
-        <p className="text-[40px]">OR</p>
-        <div className="absolute right-0">SELECT A FOLDER</div>
+        <p className="text-[35px] 2xl:text-[40px]">OR</p>
+        <div className="absolute right-7 text-[13px] 2xl:text-[15px]">
+          SELECT A FOLDER
+        </div>
       </div>
 
-      {/* Scrollable Section */}
+      {/* Scrollable Section to Display File Names */}
       <div className="absolute top-[125px] lg:top-[200px] pl-8 translate-y-[-50%] overflow-y-scroll overflow-x-hidden w-[95%] no-drag">
-        <div className="h-[70px] lg:h-[110px] space-y-1"></div>
+        {fileNames.length > 0 ? (
+          fileNames.map((fileName, index) => (
+            <p key={index} className="text-sm text-white">
+              {fileName}
+            </p>
+          ))
+        ) : (
+          <div className="text-sm text-gray-500">No files selected</div>
+        )}
       </div>
 
       {/* Input Fields */}
       <div className="mt-[190px] lg:mt-[270px] desktop:mt-[300px] flex flex-col gap-y-6">
         {/* Title Input */}
-        <div className="pl-8 relative pr-4">
+        <div className="pl-4 relative pr-4">
           <input
             type="text"
             id="title"
@@ -39,7 +87,7 @@ export default function UploadCard() {
         </div>
 
         {/* Note Input */}
-        <div className="pl-8 relative animate__transition pr-4">
+        <div className="pl-4 relative pr-4">
           <textarea
             id="note"
             placeholder="NOTE"
@@ -55,21 +103,22 @@ export default function UploadCard() {
       </div>
 
       {/* Bottom Button */}
-      <div className="relative flex items-center justify-center cursor-pointer">
-        <button className="absolute left-[220px] lg:left-[285px] top-4 no-drag">
-          <svg
-            stroke="currentColor"
-            fill="currentColor"
-            strokeWidth="0"
-            viewBox="0 0 24 24"
-            className="text-[30px] mr-4 animate__transition"
-            height="1em"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path fill="none" d="M0 0h24v24H0z"></path>
-            <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path>
-          </svg>
+      <div className="relative flex justify-center cursor-pointer">
+        {fileNames.length > 0 && (
+          <div className=" flex gap-3 items-center mt-2">
+            <FiUpload className="text-3xl" />
+
+            <button className="text-[30px] uppercase" onClick={getLink}>
+              Get Link
+            </button>
+          </div>
+        )}
+        <button className="absolute right-5 2xl:left-[285px] top-4 no-drag">
+          <img
+            src="/assets/Group 5526.png"
+            alt=""
+            className="lg:max-2xl:w-[6px]"
+          />
         </button>
       </div>
     </div>
