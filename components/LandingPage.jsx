@@ -1,4 +1,5 @@
 import ToggleButton from "./ToggleButton";
+import UploadCard from "./UploadCard";
 
 export default function LandingPage() {
   return (
@@ -16,7 +17,8 @@ export default function LandingPage() {
 
       <main className="flex">
         {/* Side Panels */}
-        <ToggleButton />
+        {/* <ToggleButton /> */}
+        <UploadCard />
 
         {/* Main Content */}
         <div className="flex-1 flex flex-col justify-center items-center tracking-wider">
@@ -29,11 +31,11 @@ export default function LandingPage() {
           </div>
         </div>
 
-        <div className="bg-black text-white items-center justify-items-center desktop:w-[157px] desktop:h-[489px] rounded-l-xl">
+        <div className="bg-black text-white justify-items-center w-[50px] lg:w-[50px] h-[400px] desktop:h-[489px] rounded-l-xl">
           <img
             src="/assets/logo.png"
             alt="logo"
-            className="translate-y-[210%]"
+            className="translate-y-[170%]"
           />
         </div>
       </main>
