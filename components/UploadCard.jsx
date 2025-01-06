@@ -1,10 +1,12 @@
-"use client"; // To enable client-side hooks
+"use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FiUpload } from "react-icons/fi";
 
 export default function UploadCard() {
   const [fileNames, setFileNames] = useState([]);
+  const [position, setPosition] = useState({ x: 100, y: 100 }); // Default position
+  const [dragging, setDragging] = useState(false); // State for dragging
 
   const handleFileUpload = (event) => {
     const files = Array.from(event.target.files); // Get selected files
@@ -22,8 +24,55 @@ export default function UploadCard() {
     console.log("Get Link");
   };
 
+  // Handle Mouse Down
+  const handleMouseDown = (e) => {
+    setDragging(true);
+    setPosition((prevPosition) => ({
+      ...prevPosition,
+      startX: e.clientX - prevPosition.x,
+      startY: e.clientY - prevPosition.y,
+    }));
+  };
+
+  // Handle Mouse Move
+  const handleMouseMove = (e) => {
+    if (!dragging) return;
+    setPosition({
+      x: e.clientX - position.startX,
+      y: e.clientY - position.startY,
+    });
+  };
+
+  // Stop Dragging
+  const handleMouseUp = () => {
+    setDragging(false);
+  };
+
+  // Add global event listeners for drag
+  useEffect(() => {
+    if (dragging) {
+      document.addEventListener("mousemove", handleMouseMove);
+      document.addEventListener("mouseup", handleMouseUp);
+    } else {
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
+    }
+
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
+    };
+  }, [dragging]);
+
   return (
-    <div className="bg-black text-white w-[280px] h-[360px] 2xl:w-[314px] lg:h-[450px] 2xl:h-[489px] rounded-[20px] absolute top-[50%] left-[150px] lg:left-[240px] translate-x-[-50%] translate-y-[-50%]">
+    <div
+      className="bg-black text-white w-[280px] h-[360px] 2xl:w-[314px] lg:h-[450px] 2xl:h-[489px] rounded-[20px] fixed cursor-pointer"
+      style={{
+        top: `${position.y}px`,
+        left: `${position.x}px`,
+      }}
+      onMouseDown={handleMouseDown} // Start dragging
+    >
       {/* Top Icon */}
       <div
         className="absolute bg-white no-drag p-2 left-[-1px] top-[-1px] cursor-pointer"
@@ -55,18 +104,34 @@ export default function UploadCard() {
         </div>
       </div>
 
-      {/* Scrollable Section to Display File Names */}
-      <div className="absolute top-[125px] lg:top-[200px] pl-8 translate-y-[-50%] overflow-y-scroll overflow-x-hidden w-[95%] no-drag">
-        {fileNames.length > 0 ? (
-          fileNames.map((fileName, index) => (
-            <p key={index} className="text-sm text-white">
-              {fileName}
-            </p>
-          ))
-        ) : (
-          <div className="text-sm text-gray-500">No files selected</div>
-        )}
+      <div className="absolute translate-y-[1200%] 2xl:translate-x-[1%] translate-x-[38%]">
+        <p className="whitespace-nowrap rotate-90 font-bold text-black text-[10px] tracking-[2px]">
+          ADVANCED ENCRYPTION STANDARD (AES) 256-BIT
+        </p>
       </div>
+
+      {/* Scrollable Section to Display File Names */}
+      <section>
+  
+    {fileNames.length > 0 ? (
+      fileNames.map((fileName, index) => (
+        <div className="absolute top-[125px] lg:top-[176px] pl-8 h-[180px] translate-y-[-50%] overflow-y-scroll overflow-x-hidden w-[95%] no-drag scrollbar-hide">
+        <p key={index} className="text-sm text-white">{fileName}</p>
+        </div>
+      ))
+    ) : (
+      <div className="absolute right-[-5rem] top-[30%]">
+        <div className="flex text-[40px]">
+          <p>UP TO  <span className="text-black ml-3">1TB</span></p>
+        </div>
+        <div className="absolute right-24 text-[20px] mt-[10px]">
+          <span>FREE</span>
+        </div>
+      </div>
+    )}
+</section>
+
+    
 
       {/* Input Fields */}
       <div className="mt-[190px] lg:mt-[270px] desktop:mt-[300px] flex flex-col gap-y-6">

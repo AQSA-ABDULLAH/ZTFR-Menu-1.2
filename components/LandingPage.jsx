@@ -3,12 +3,18 @@
 import React, { useState } from "react";
 import ToggleButton from "./ToggleButton";
 import UploadCard from "./UploadCard";
+import Sidebar from "./Sidebar";
 
 export default function LandingPage() {
   const [showUploadCard, setShowUploadCard] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(false); // State for the sidebar
 
   const handleToggleClick = () => {
     setShowUploadCard(!showUploadCard);
+  };
+
+  const handleSidebarToggle = () => {
+    setShowSidebar(!showSidebar); // Toggle sidebar visibility
   };
 
   return (
@@ -24,27 +30,40 @@ export default function LandingPage() {
         </div>
       </header>
 
-      <main className="flex">
+      <main className="flex gap-[22rem] 2xl:gap-[30rem] desktop:gap-[38rem] relative">
+        {/* Sidebar */}
+        {showSidebar && (
+          <div className="absolute left-0 top-0 z-50 w-[300px]">
+            <Sidebar />
+          </div>
+        )}
+
         {/* Side Panels */}
+        <div className="justify-center">
         {!showUploadCard && (
           <div onClick={handleToggleClick}>
             <ToggleButton />
           </div>
         )}
         {showUploadCard && <UploadCard />}
+        </div>
 
         {/* Main Content */}
-        <div className="flex-1 flex flex-col justify-items-end justify-center items-center tracking-wider">
+        <div className="flex-1 flex flex-col justify-items-end justify-center tracking-wider">
           <div className="justify-items-end">
             <h1 className="text-[42px] 2xl:text-[62px] tracking-[12px] leading-3">LET'S DO</h1>
             <h2 className="text-[100px] 2xl:text-[190px] tracking-[32px]">THIS</h2>
             <p className="text-[9px] 2xl:text-[12px] tracking-[2px]">
-            UPLOAD FILES OR FOLDERS BY DROPPING THEM ANYWHERE IN THIS WINDOW
-          </p>
+              UPLOAD FILES OR FOLDERS BY DROPPING THEM ANYWHERE IN THIS WINDOW
+            </p>
           </div>
         </div>
 
-        <div className="bg-black text-white flex items-center justify-center w-[50px] lg:w-[50px] h-[400px] 2xl:h-[489px] rounded-l-xl">
+        {/* Sidebar Toggle Button */}
+        <div
+          className="bg-black text-white flex items-center justify-center w-[50px] lg:w-[50px] h-[400px] 2xl:h-[489px] rounded-l-xl cursor-pointer"
+          onClick={handleSidebarToggle} // Add click handler
+        >
           <img src="/assets/logo.png" alt="logo" />
         </div>
       </main>
@@ -60,11 +79,12 @@ export default function LandingPage() {
         </div>
         <div>
           <p>
-            ZITRANSFER USER ADVANCE ENCRPTION STANDARD (AES) 256-BIT TO PROTECT
-            THE CONFISENTIALITY OF THE DATA YOU UPLOAD
+            ZITRANSFER USER ADVANCE ENCRYPTION STANDARD (AES) 256-BIT TO PROTECT
+            THE CONFIDENTIALITY OF THE DATA YOU UPLOAD
           </p>
         </div>
       </footer>
     </div>
   );
 }
+
