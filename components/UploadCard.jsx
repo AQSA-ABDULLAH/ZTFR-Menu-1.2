@@ -6,25 +6,54 @@ import { FiUpload } from "react-icons/fi";
 export default function UploadCard() {
   const [fileNames, setFileNames] = useState([]);
   const [position, setPosition] = useState({ x: 100, y: 100 }); // Default position
-  const [dragging, setDragging] = useState(false); // State for dragging
+  const [dragging, setDragging] = useState(false);
+
+  // Determine default position based on screen size
+  useEffect(() => {
+    const updateDefaultPosition = () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
+      if (width >= 1536) {
+        // 2xl screens
+        setPosition({ x: 90, y: 180 });
+      } else if (width >= 1280) {
+        // xl screens
+        setPosition({ x: 80, y: 100 });
+      } else if (width >= 1024) {
+        // lg screens
+        setPosition({ x: 200, y: 120 });
+      } else {
+        // Mobile screens
+        setPosition({ x: 50, y: 100 });
+      }
+    };
+
+    updateDefaultPosition();
+
+    // Listen for screen size changes (responsive behavior)
+    window.addEventListener("resize", updateDefaultPosition);
+    return () => {
+      window.removeEventListener("resize", updateDefaultPosition);
+    };
+  }, []);
 
   const handleFileUpload = (event) => {
-    const files = Array.from(event.target.files); // Get selected files
+    const files = Array.from(event.target.files);
     setFileNames((prevFileNames) => [
       ...prevFileNames,
       ...files.map((file) => file.name),
-    ]); // Append new file names to the existing list
+    ]);
   };
 
   const triggerFileInput = () => {
-    document.getElementById("file-upload").click(); // Programmatically trigger file input
+    document.getElementById("file-upload").click();
   };
 
   const getLink = () => {
     console.log("Get Link");
   };
 
-  // Handle Mouse Down
   const handleMouseDown = (e) => {
     setDragging(true);
     setPosition((prevPosition) => ({
@@ -34,7 +63,6 @@ export default function UploadCard() {
     }));
   };
 
-  // Handle Mouse Move
   const handleMouseMove = (e) => {
     if (!dragging) return;
     setPosition({
@@ -43,12 +71,10 @@ export default function UploadCard() {
     });
   };
 
-  // Stop Dragging
   const handleMouseUp = () => {
     setDragging(false);
   };
 
-  // Add global event listeners for drag
   useEffect(() => {
     if (dragging) {
       document.addEventListener("mousemove", handleMouseMove);
@@ -71,17 +97,17 @@ export default function UploadCard() {
         top: `${position.y}px`,
         left: `${position.x}px`,
       }}
-      onMouseDown={handleMouseDown} // Start dragging
+      onMouseDown={handleMouseDown}
     >
       {/* Top Icon */}
       <div
-        className="absolute bg-white no-drag p-2 left-[-1px] top-[-1px] cursor-pointer"
+        className="absolute bg-white no-drag p-2 left-[-2px] top-[-2px] cursor-pointer"
         onClick={triggerFileInput}
       >
         <img
           src="/assets/Path 27378.png"
           alt="add-icon"
-          className="max-2xl:w-16"
+          className="max-2xl:w-14"
         />
       </div>
       {/* Hidden File Input */}
@@ -93,45 +119,47 @@ export default function UploadCard() {
         onChange={handleFileUpload}
       />
 
-      <div className="absolute pl-8 pt-4 left-16 no-drag tracking-[2px]">
+      <div className="absolute pl-8 pt-4 left-12 2xl:left-16 no-drag tracking-[2px]">
         <div className="flex justify-between w-[200px] text-[14px] uppercase">
-          <p className="text-[13px] 2xl:text-[15px]">Upload file</p>
+          <p className="text-[12px] 2xl:text-[15px]">Upload file</p>
           <img src="/assets/lock-icon.png" alt="lock" className="w-11 pr-7" />
         </div>
-        <p className="text-[35px] 2xl:text-[40px]">OR</p>
-        <div className="absolute right-7 text-[13px] 2xl:text-[15px]">
+        <p className="text-[30px] 2xl:text-[40px]">OR</p>
+        <div className="absolute right-4 2xl:right-7 text-[12px] 2xl:text-[15px]">
           SELECT A FOLDER
         </div>
       </div>
 
-      <div className="absolute translate-y-[1200%] 2xl:translate-x-[1%] translate-x-[38%]">
-        <p className="whitespace-nowrap rotate-90 font-bold text-black text-[10px] tracking-[2px]">
+      <div className="absolute xl:translate-y-[1160%] 2xl:translate-y-[1060%] xl:translate-x-[84%] 2xl:translate-x-[62.5%] translate-x-[38%]">
+        <p className="whitespace-nowrap rotate-90 font-bold text-black text-[7px] 2xl:text-[10px] tracking-[1px]">
           ADVANCED ENCRYPTION STANDARD (AES) 256-BIT
         </p>
       </div>
 
       {/* Scrollable Section to Display File Names */}
-      <section>
-  
-    {fileNames.length > 0 ? (
-      fileNames.map((fileName, index) => (
-        <div className="absolute top-[125px] lg:top-[176px] pl-8 h-[180px] translate-y-[-50%] overflow-y-scroll overflow-x-hidden w-[95%] no-drag scrollbar-hide">
-        <p key={index} className="text-sm text-white">{fileName}</p>
-        </div>
-      ))
-    ) : (
-      <div className="absolute right-[-5rem] top-[30%]">
-        <div className="flex text-[40px]">
-          <p>UP TO  <span className="text-black ml-3">1TB</span></p>
-        </div>
-        <div className="absolute right-24 text-[20px] mt-[10px]">
-          <span>FREE</span>
-        </div>
-      </div>
-    )}
-</section>
-
-    
+      <section className="h-[4px]">
+        {fileNames.length > 0 ? (
+          fileNames.map((fileName, index) => (
+            <div
+              key={index} // Add the key prop here
+              className="absolute top-[125px] lg:top-[176px] pl-8 translate-y-[-50%] overflow-y-scroll overflow-x-hidden w-[95%] no-drag scrollbar-hide"
+            >
+              <p className="text-sm text-white">{fileName}</p>
+            </div>
+          ))
+        ) : (
+          <div className="absolute right-[-4rem] 2xl:right-[-5rem] top-[30%] tracking-wider">
+            <div className="flex text-[30px] 2xl:text-[40px]">
+              <p>
+                UP TO <span className="text-black ml-5 2xl:ml-3">1TB</span>
+              </p>
+            </div>
+            <div className="absolute right-24 text-[15px] 2xl:text-[20px] mt-[10px] tracking-[2px]">
+              <span>FREE</span>
+            </div>
+          </div>
+        )}
+      </section>
 
       {/* Input Fields */}
       <div className="mt-[190px] lg:mt-[270px] desktop:mt-[300px] flex flex-col gap-y-6">
@@ -173,7 +201,7 @@ export default function UploadCard() {
           <div className=" flex gap-3 items-center mt-2">
             <FiUpload className="text-3xl" />
 
-            <button className="text-[30px] uppercase" onClick={getLink}>
+            <button className="text-[18px] 2xl:text-[30px] uppercase" onClick={getLink}>
               Get Link
             </button>
           </div>

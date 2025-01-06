@@ -51,9 +51,9 @@ export default function LandingPage() {
         {/* Main Content */}
         <div className="flex-1 flex flex-col justify-items-end justify-center tracking-wider">
           <div className="justify-items-end">
-            <h1 className="text-[42px] 2xl:text-[62px] tracking-[12px] leading-3">LET'S DO</h1>
-            <h2 className="text-[100px] 2xl:text-[190px] tracking-[32px]">THIS</h2>
-            <p className="text-[9px] 2xl:text-[12px] tracking-[2px]">
+            <h1 className="text-[42px] desktop:text-[62px] tracking-[12px] leading-3">LET'S DO</h1>
+            <h2 className="text-[100px] desktop:text-[190px] tracking-[32px]">THIS</h2>
+            <p className="text-[9px] desktop:text-[12px] tracking-[2px]">
               UPLOAD FILES OR FOLDERS BY DROPPING THEM ANYWHERE IN THIS WINDOW
             </p>
           </div>
