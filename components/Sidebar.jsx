@@ -58,33 +58,34 @@ function Sidebar() {
   };
 
   return (
-    <div className="bg-black fixed text-white top-0 right-0 h-[100vh] w-[960px] p-5">
-      <header className="flex justify-between">
-        <div className="flex">
-          <img src="/assets/Path 27323.png" alt="close" />
-          <p>MENU</p>
-        </div>
-      </header>
+    <div className="bg-[#000000] fixed text-white top-0 right-0 h-[100vh] w-[960px] p-5">
       <div className="flex flex-row">
         <div className="w-[16rem]">
+          <div className="flex mb-4 gap-8 tracking-[2px]">
+            <img src="/assets/Path 27323.png" alt="close" />
+            <p>MENU</p>
+          </div>
           <Slider {...verticalCarouselSettings}>
             <div>
-              <img src="/assets/Group 6408.png" alt="image" />
+              <img src="/assets/Group 6411.png" alt="image" className="mb-4" />
             </div>
             <div>
-              <img src="/assets/Group 6407.png" alt="image" />
+              <img src="/assets/Group 6408.png" alt="image" className="mb-4" />
             </div>
             <div>
-              <img src="/assets/Group 6407.png" alt="image" />
+              <img src="/assets/Group 6410.png" alt="image" className="mb-4" />
+            </div>
+            <div>
+              <img src="/assets/Group 6409.png" alt="image" className="mb-4" />
             </div>
           </Slider>
         </div>
 
         <div className="items-end">
-          <div className="flex justify-between">
-            <div>
+          <div className="flex justify-between gap-20">
+            <div className="flex flex-col items-center justify-center">
               <img src="/assets/Group 6113.png" alt="logo" />
-              <img src="/assets/Group 6421.png" alt="image" />
+              <img src="/assets/Group 6421.png" alt="image" className=" my-5" />
             </div>
             <div className="flex flex-col justify-between items-end">
               <div className="flex">
@@ -104,7 +105,11 @@ function Sidebar() {
           </div>
           <div className="flex items-center gap-10">
             <img src="/assets/Group 6422.png" alt="image" />
-            <img src="/assets/Group 6420.png" alt="image" className="h-[10rem]" />
+            <img
+              src="/assets/Group 6420.png"
+              alt="image"
+              className="h-[10rem]"
+            />
           </div>
         </div>
       </div>
