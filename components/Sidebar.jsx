@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 function Sidebar() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true); // State to manage sidebar visibility
+
   const carouselSettings = {
     infinite: true,
     speed: 2000,
@@ -57,12 +59,21 @@ function Sidebar() {
     ],
   };
 
+  if (!isSidebarOpen) {
+    return null; // Don't render the sidebar if it is closed
+  }
+
   return (
     <div className="bg-black bg-opacity-90 fixed text-white top-0 right-0 h-[100vh] w-[960px] p-5">
       <div className="flex flex-row">
         <div className="w-[16rem]">
           <div className="flex mb-4 gap-8 tracking-[2px]">
-            <img src="/assets/Path 27323.png" alt="close" />
+            <img
+              src="/assets/Path 27323.png"
+              alt="close"
+              onClick={() => setIsSidebarOpen(false)} // Close the sidebar when clicked
+              className="cursor-pointer"
+            />
             <p>MENU</p>
           </div>
           <Slider {...verticalCarouselSettings}>
