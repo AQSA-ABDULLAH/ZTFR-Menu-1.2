@@ -58,7 +58,7 @@ function Sidebar() {
   };
 
   return (
-    <div className="bg-[#000000] fixed text-white top-0 right-0 h-[100vh] w-[960px] p-5">
+    <div className="bg-black bg-opacity-90 fixed text-white top-0 right-0 h-[100vh] w-[960px] p-5">
       <div className="flex flex-row">
         <div className="w-[16rem]">
           <div className="flex mb-4 gap-8 tracking-[2px]">
@@ -88,8 +88,12 @@ function Sidebar() {
               <img src="/assets/Group 6421.png" alt="image" className=" my-5" />
             </div>
             <div className="flex flex-col justify-between items-end">
-              <div className="flex">
-                <img src="/assets/Group 2867.png" alt="user-icon" />
+              <div className="flex gap-10 items-center">
+                <img
+                  src="/assets/Group 2867.png"
+                  alt="user-icon"
+                  className="h-7"
+                />
                 <img src="/assets/Group 5511.png" alt="UK-Flag" />
               </div>
               <p>FEATURES</p>
