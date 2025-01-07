@@ -11,7 +11,10 @@ function Sidebar() {
         <div>
           <img src="/assets/Group 6113.png" alt="logo" />
         </div>
-        <p>IMAGE</p>
+        <div className="flex gap-4">
+          <img src="/assets/Group 2867.png" alt="user-icon" />
+          <img src="/assets/Group 5511.png" alt="UK-Flag" />
+        </div>
       </header>
       <div className="flex flex-row p-3">
         <div className="flex flex-col space-y-3">
