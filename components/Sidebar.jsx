@@ -6,12 +6,13 @@ import "slick-carousel/slick/slick-theme.css";
 function Sidebar() {
   const carouselSettings = {
     infinite: true,
-    speed: 700,
+    speed: 2000, // Longer duration for smoother horizontal scrolling
     slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 0,
-    arrows: false, // Removes next and back buttons
+    autoplaySpeed: 0, // Continuous scrolling
+    arrows: false,
+    cssEase: "linear", // Smooth scrolling effect
     responsive: [
       {
         breakpoint: 768,
@@ -30,14 +31,16 @@ function Sidebar() {
 
   const verticalCarouselSettings = {
     infinite: true,
-    speed: 700,
+    speed: 2000, 
     slidesToShow: 3,
     slidesToScroll: 1,
     vertical: true,
     verticalSwiping: true,
     autoplay: true,
-    autoplaySpeed: 0,
-    arrows: false, // Removes next and back buttons
+    autoplaySpeed: 0, 
+    arrows: false,
+    cssEase: "linear", 
+    rtl: true, 
     responsive: [
       {
         breakpoint: 768,
@@ -55,22 +58,22 @@ function Sidebar() {
   };
 
   return (
-    <div className="bg-black fixed text-white top-0 right-0 min-h-screen w-[960px]">
-      <header className="flex justify-between px-3 pt-3">
-        <div className="flex gap-4">
+    <div className="bg-black fixed text-white top-0 right-0 h-[100vh] w-[960px] p-4">
+      <header className="flex justify-between">
+        <div className="flex">
           <img src="/assets/Path 27323.png" alt="close" />
           <p>MENU</p>
         </div>
         <div>
           <img src="/assets/Group 6113.png" alt="logo" />
         </div>
-        <div className="flex gap-4">
+        <div className="flex">
           <img src="/assets/Group 2867.png" alt="user-icon" />
           <img src="/assets/Group 5511.png" alt="UK-Flag" />
         </div>
       </header>
-      <div className="flex flex-row p-3">
-        <div className="p-3 w-[16rem]">
+      <div className="flex flex-row">
+        <div className="w-[16rem]">
           <Slider {...verticalCarouselSettings}>
             <div>
               <img src="/assets/Group 6408.png" alt="image" />
@@ -85,7 +88,7 @@ function Sidebar() {
         </div>
 
         <div>
-          <div className="flex p-3 space-x-3">
+          <div className="flex">
             <img src="/assets/Group 6421.png" alt="image" />
             <div className="flex flex-col justify-between">
               <p>FEATURES</p>
@@ -99,14 +102,14 @@ function Sidebar() {
               <p>NEWSROOM/PRESS</p>
             </div>
           </div>
-          <div className="flex px-3 space-x-6">
+          <div className="flex">
             <img src="/assets/Group 6422.png" alt="image" />
             <img src="/assets/Group 6420.png" alt="image" />
           </div>
         </div>
       </div>
 
-      <div className="p-3">
+      <div className="">
         <Slider {...carouselSettings}>
           <div>
             <img src="/assets/Group 6408.png" alt="image" />
@@ -122,10 +125,17 @@ function Sidebar() {
           </div>
         </Slider>
       </div>
+
+      <footer className="flex justify-between">
+        <p>FOUNDARION</p>
+        <p>TERMS | PRIVACY</p>
+        <img src="/assets/Group 6382.png" alt="logo" />
+      </footer>
     </div>
   );
 }
 
 export default Sidebar;
+
 
 
