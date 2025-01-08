@@ -70,45 +70,45 @@ function Sidebar() {
   }
 
   return (
-    <div className="bg-black bg-opacity-90 fixed text-white top-0 right-0 h-[100vh] xl:w-[580px] desktop:w-[960px] p-5">
+    <div className="bg-black bg-opacity-90 fixed text-white top-0 right-0 h-[100vh] xl:w-[620px] 2xl:w-[960px] p-5">
       <div className="flex flex-row">
-        <div className="w-[12rem] 2xl:w-[16rem]">
-          <div className="flex mb-4 gap-8 tracking-[2px]">
+        <div className="w-[9rem] 2xl:w-[16rem]">
+          <div className="flex items-center mb-4 gap-8 tracking-[2px]">
             <img
               src="/assets/Path 27323.png"
               alt="close"
               onClick={() => setIsSidebarOpen(false)}
-              className="cursor-pointer"
+              className="cursor-pointer w-3 h-3 2xl:w-6 2xl:h-6"
             />
-            <p>MENU</p>
+            <p className="text-[12px] 2xl:text-[14px]">MENU</p>
           </div>
           <Slider {...verticalCarouselSettings}>
             <div>
               <img
                 src="/assets/Group 6411.png"
                 alt="image"
-                className="mb-4 xl:max-desktop:w-28 xl:max-desktop:h-28"
+                className="mb-4 xl:max-2xl:w-28 xl:max-2xl:h-28"
               />
             </div>
             <div>
               <img
                 src="/assets/Group 6408.png"
                 alt="image"
-                className="mb-4 xl:max-desktop:w-28 xl:max-desktop:h-28"
+                className="mb-4 xl:max-2xl:w-28 xl:max-2xl:h-28"
               />
             </div>
             <div>
               <img
                 src="/assets/Group 6410.png"
                 alt="image"
-                className="mb-4 xl:max-desktop:w-28 xl:max-desktop:h-28"
+                className="mb-4 xl:max-2xl:w-28 xl:max-2xl:h-28"
               />
             </div>
             <div>
               <img
                 src="/assets/Group 6409.png"
                 alt="image"
-                className="mb-4 xl:max-desktop:w-28 xl:max-desktop:h-28"
+                className="mb-4 xl:max-2xl:w-28 xl:max-2xl:h-28"
               />
             </div>
           </Slider>
@@ -117,21 +117,21 @@ function Sidebar() {
         <div className="items-end">
           <div className="flex justify-between gap-20">
             <div className="flex flex-col items-center justify-center">
-              <img src="/assets/Group 6113.png" alt="logo" />
+              <img src="/assets/Group 6113.png" alt="logo" className="xl:max-2xl:w-44" />
               <img
                 src="/assets/Group 6421.png"
                 alt="image"
-                className=" my-5 xl:max-desktop:w-40 xl:max-desktop:h-40"
+                className=" my-5 xl:max-2xl:w-[14.5rem] xl:max-2xl:h-[14.5rem]"
               />
             </div>
-            <div className="flex flex-col justify-between items-end xl:text-[12px] text-[16px] tracking-[2px]">
+            <div className="flex flex-col justify-between items-end xl:text-[10px] 2xl:text-[16px] tracking-[2px]">
               <div className="flex gap-10 items-center">
                 <img
                   src="/assets/Group 2867.png"
                   alt="user-icon"
-                  className="h-7"
+                  className="h-4 2xl:h-7"
                 />
-                <img src="/assets/Group 5511.png" alt="UK-Flag" />
+                <img src="/assets/Group 5511.png" alt="UK-Flag" className="xl:max-2xl:w-7" />
               </div>
               <p>FEATURES</p>
               <p>PRODUCTS</p>
@@ -148,12 +148,12 @@ function Sidebar() {
             <img
               src="/assets/Group 6422.png"
               alt="image"
-              className="xl:max-desktop:w-58 xl:max-desktop:h-40"
+              className="xl:max-2xl:w-58 xl:max-2xl:h-32"
             />
             <img
               src="/assets/Group 6420.png"
               alt="image"
-              className="h-[10rem]"
+              className="xl:h-[6.5rem] 2xl:h-[10rem]"
             />
           </div>
         </div>
@@ -165,39 +165,39 @@ function Sidebar() {
             <img
               src="/assets/Group 6408.png"
               alt="image"
-              className="xl:max-desktop:w-28 xl:max-desktop:h-28"
+              className="xl:max-2xl:w-28 xl:max-2xl:h-28"
             />
           </div>
           <div>
             <img
               src="/assets/Group 6407.png"
               alt="image"
-              className="xl:max-desktop:w-28 xl:max-desktop:h-28"
+              className="xl:max-2xl:w-28 xl:max-2xl:h-28"
             />
           </div>
           <div>
             <img
               src="/assets/Group 6406.png"
               alt="image"
-              className="xl:max-desktop:w-28 xl:max-desktop:h-28"
+              className="xl:max-2xl:w-28 xl:max-2xl:h-28"
             />
           </div>
           <div>
             <img
               src="/assets/Group 6405.png"
               alt="image"
-              className="xl:max-desktop:w-28 xl:max-desktop:h-28"
+              className="xl:max-2xl:w-28 xl:max-2xl:h-28"
             />
           </div>
         </Slider>
       </div>
 
-      <footer className="absolute bottom-0 flex items-center tracking-[2px]">
+      <footer className="flex items-center text-[10px] 2xl:text-[13px] tracking-[2px]">
         <div>
-          <p>TERMS | PRIVACY</p>
+          <p className="text-[12px] 2xl:text-[16px]">TERMS | PRIVACY</p>
         </div>
         <div className="flex-1 flex justify-end">
-          <img src="/assets/Group 6382.png" alt="logo" className="w-65" />
+          <img src="/assets/Group 6382.png" alt="logo" className="w-40 2xl:w-65" />
         </div>
       </footer>
     </div>
