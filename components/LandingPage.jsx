@@ -64,15 +64,15 @@ export default function LandingPage() {
         )}
 
         {/* Main Content */}
-        <div className="hidden flex-1 md:flex flex-col justify-items-end justify-center tracking-wider">
-          <div className="justify-items-end">
-            <h1 className="text-[42px] desktop:text-[62px] tracking-[12px] leading-3">
+        <div className=" flex-1 flex flex-col justify-items-end justify-center tracking-wider ">
+          <div className="md:justify-items-end justify-items-center">
+            <h1 className="text-[16px] md:text-[42px] desktop:text-[62px] pr-6 tracking-[3px] md:tracking-[12px] leading-3">
               LET'S DO
             </h1>
-            <h2 className="text-[100px] desktop:text-[190px] tracking-[32px]">
+            <h2 className="text-[50px] md:text-[100px] desktop:text-[190px] tracking-[10px] md:tracking-[32px]">
               THIS
             </h2>
-            <p className="text-[9px] desktop:text-[12px] tracking-[2px]">
+            <p className="text-[8px] max-md:w-[80%] text-center md:text-[10px] desktop:text-[12px] tracking-[2px]">
               UPLOAD FILES OR FOLDERS BY DROPPING THEM ANYWHERE IN THIS WINDOW
             </p>
           </div>
@@ -89,14 +89,14 @@ export default function LandingPage() {
 
       {/* Footer */}
       <footer className="text-[10px] flex justify-between px-2 pb-2">
-        <div>
+        <div className="hidden md:block">
           <p>© ZITRANSFER 2023</p>
           <div className="flex gap-5">
             <p> All Rights Reserved </p>
             <p>ZITRANSFER IS PART OF THE ZIMO GROUP</p>
           </div>
         </div>
-        <div>
+        <div className="max-md:text-center max-md:pb-4">
           <p>
             ZITRANSFER USER ADVANCE ENCRYPTION STANDARD (AES) 256-BIT TO PROTECT
             THE CONFIDENTIALITY OF THE DATA YOU UPLOAD
