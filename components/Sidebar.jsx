@@ -82,9 +82,9 @@ function Sidebar() {
   }
 
   return (
-    <div className="bg-black bg-opacity-90 fixed text-white top-0 right-0 h-[100vh] w-screen xl:w-[620px] 2xl:w-[960px] p-5 z-30 flex flex-col">
+    <div className="bg-black bg-opacity-90 fixed text-white top-0 right-0 h-[100vh] w-screen xl:w-[620px] 2xl:w-[780px] desktop:w-[960px] p-5 z-30 flex flex-col">
       <div className="flex flex-row">
-        <div className="w-[9rem] 2xl:w-[16rem]">
+        <div className="w-[9rem] 2xl:w-[11rem] desktop:w-[16rem]">
           <div className="flex items-center mb-4 gap-8 tracking-[2px]">
             <img
               src="/assets/Path 27323.png"
@@ -124,8 +124,8 @@ function Sidebar() {
               />
               <img
                 src="/assets/Group 6421.png"
-                alt="image"
-                className=" my-5 xl:max-2xl:w-[14.5rem] xl:h-[14.5rem] 2xl:h-[18rem] desktop:h-[23rem]"
+                alt="middle-large-image"
+                className=" my-5 xl:max-2xl:w-[14.5rem] xl:h-[14.5rem] 2xl:h-[18.5rem] desktop:h-[23rem]"
               />
             </div>
             <div className="flex flex-col justify-between items-end text-[12px] md:text-[10px] 2xl:text-[16px] tracking-[2px] max-md:space-y-3">
@@ -152,16 +152,16 @@ function Sidebar() {
               <p>NEWSROOM/PRESS</p>
             </div>
           </div>
-          <div className="flex items-center gap-10 max-md:pt-4">
+          <div className="flex items-center gap-10 2xl:gap-16 max-md:pt-4">
             <img
               src="/assets/Group 6422.png"
               alt="image"
-              className="xl:max-2xl:w-58 xl:max-2xl:h-32 hidden md:block"
+              className="xl:max-2xl:w-58 xl:h-32 2xl:max-desktop:h-36 2xl:max-desktop:w-72 desktop:w-full desktop:h-full hidden md:block"
             />
             <img
               src="/assets/Group 6420.png"
-              alt="image"
-              className="h-[6.5rem] 2xl:h-[10rem]"
+              alt="double-image"
+              className="h-[6.5rem] 2xl:h-[7rem] desktop:h-[9.6rem]"
             />
           </div>
         </div>
@@ -182,7 +182,7 @@ function Sidebar() {
               <img
                 src={imagePath}
                 alt={`slider-image-${index}`}
-                className="max-md:w-24 max-md:h-24 md:w-28 md:h-28 desktop:w-48 desktop:h-48"
+                className="max-md:w-24 max-md:h-24 md:w-28 md:h-28 2xl:w-36 2xl:h-36 desktop:w-48 desktop:h-48"
               />
             </div>
           ))}
