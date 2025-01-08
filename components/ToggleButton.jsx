@@ -2,7 +2,7 @@ import React from "react";
 
 function ToggleButton() {
   return (
-    <div className="bg-black text-white w-[50px] md:w-[60px] lg:w-[120px] 2xl:w-[157px] h-[330px] md:h-[400px] 2xl:h-[489px] rounded-r-[20px] relative cursor-pointer z-50 tracking-[2px]">
+    <div className="bg-black text-white w-[50px] md:w-[60px] lg:w-[120px] 2xl:w-[157px] h-[330px] md:h-[400px] 2xl:h-[489px] rounded-r-[20px] relative cursor-pointer z-20 tracking-[2px]">
       {/* Icon */}
       <div className="absolute top-[20px] md:top-[57px] lg:top-[30px] left-[35px] md:left-[45px] lg:left-[120px]">
         <img src="/assets/lock-icon.png" alt="lock" className="w-2" />
