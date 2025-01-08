@@ -42,7 +42,7 @@ export default function LandingPage() {
         </div>
       </header>
 
-      <main className="flex max-lg:justify-between items-center lg:gap-[18rem] xl:gap-[22rem] 2xl:gap-[30rem] desktop:gap-[38rem] relative">
+      <main className="flex max-lg:justify-between items-center lg:gap-[18rem] xl:gap-[22rem] 2xl:gap-[30rem] desktop:gap-[36rem] relative">
         {/* Sidebar */}
         {showSidebar && (
           <div className="absolute left-0 top-0">

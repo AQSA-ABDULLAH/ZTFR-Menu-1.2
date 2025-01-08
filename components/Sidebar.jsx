@@ -9,13 +9,19 @@ function Sidebar() {
   const carouselSettings = {
     infinite: true,
     speed: 2000,
-    slidesToShow: 5,
+    slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 0,
     arrows: false,
     cssEase: "linear",
     responsive: [
+      {
+        breakpoint: 1366,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
       {
         breakpoint: 768,
         settings: {
@@ -40,7 +46,7 @@ function Sidebar() {
   const verticalCarouselSettings = {
     infinite: true,
     speed: 2000,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
     vertical: true,
     verticalSwiping: true,
@@ -51,9 +57,15 @@ function Sidebar() {
     rtl: true,
     responsive: [
       {
+        breakpoint: 1536,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
         breakpoint: 1366,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 3,
         },
       },
       {
@@ -84,34 +96,20 @@ function Sidebar() {
           </div>
           <section className="hidden md:block">
             <Slider {...verticalCarouselSettings}>
-              <div>
-                <img
-                  src="/assets/Group 6411.png"
-                  alt="image"
-                  className="max-md:w-24 max-md:h-24 md:w-28 md:h-28 2xl:w-40 2xl:h-40"
-                />
-              </div>
-              <div>
-                <img
-                  src="/assets/Group 6408.png"
-                  alt="image"
-                  className="max-md:w-24 max-md:h-24 md:w-28 md:h-28 2xl:w-40 2xl:h-40"
-                />
-              </div>
-              <div>
-                <img
-                  src="/assets/Group 6410.png"
-                  alt="image"
-                  className="max-md:w-24 max-md:h-24 md:w-28 md:h-28 2xl:w-40 2xl:h-40"
-                />
-              </div>
-              <div>
-                <img
-                  src="/assets/Group 6409.png"
-                  alt="image"
-                  className="max-md:w-24 max-md:h-24 md:w-28 md:h-28 2xl:w-40 2xl:h-40"
-                />
-              </div>
+              {[
+                "/assets/Group 6411.png",
+                "/assets/Group 6408.png",
+                "/assets/Group 6410.png",
+                "/assets/Group 6409.png",
+              ].map((imagePath, index) => (
+                <div key={index}>
+                  <img
+                    src={imagePath}
+                    alt={`slider-image-${index}`}
+                    className="max-md:w-24 max-md:h-24 md:w-28 md:h-28 2xl:w-32 2xl:h-32 desktop:w-44 desktop:h-44 mb-5"
+                  />
+                </div>
+              ))}
             </Slider>
           </section>
         </div>
@@ -127,7 +125,7 @@ function Sidebar() {
               <img
                 src="/assets/Group 6421.png"
                 alt="image"
-                className=" my-5 xl:max-2xl:w-[14.5rem] xl:max-2xl:h-[14.5rem]"
+                className=" my-5 xl:max-2xl:w-[14.5rem] xl:h-[14.5rem] 2xl:h-[18rem] desktop:h-[23rem]"
               />
             </div>
             <div className="flex flex-col justify-between items-end text-[12px] md:text-[10px] 2xl:text-[16px] tracking-[2px] max-md:space-y-3">
@@ -170,50 +168,24 @@ function Sidebar() {
       </div>
 
       {/* Carousel section */}
-      <div className="flex-grow pt-16 md:pt-4">
+      <div className="flex-grow pt-16 md:pt-3">
         <Slider {...carouselSettings}>
-          <div>
-            <img
-              src="/assets/Group 6408.png"
-              alt="image"
-              className="max-md:w-24 max-md:h-24 md:w-28 md:h-28 2xl:w-40 2xl:h-40"
-            />
-          </div>
-          <div>
-            <img
-              src="/assets/Group 6407.png"
-              alt="image"
-              className="max-md:w-24 max-md:h-24 md:w-28 md:h-28 2xl:w-40 2xl:h-40"
-            />
-          </div>
-          <div>
-            <img
-              src="/assets/Group 6406.png"
-              alt="image"
-              className="max-md:w-24 max-md:h-24 md:w-28 md:h-28 2xl:w-40 2xl:h-40"
-            />
-          </div>
-          <div>
-            <img
-              src="/assets/Group 6405.png"
-              alt="image"
-              className="max-md:w-24 max-md:h-24 md:w-28 md:h-28 2xl:w-40 2xl:h-40"
-            />
-          </div>
-          <div>
-            <img
-              src="/assets/Group 6406.png"
-              alt="image"
-              className="max-md:w-24 max-md:h-24 md:w-28 md:h-28 2xl:w-40 2xl:h-40"
-            />
-          </div>
-          <div>
-            <img
-              src="/assets/Group 6405.png"
-              alt="image"
-              className="max-md:w-24 max-md:h-24 md:w-28 md:h-28 2xl:w-40 2xl:h-40"
-            />
-          </div>
+          {[
+            "/assets/Group 6408.png",
+            "/assets/Group 6407.png",
+            "/assets/Group 6406.png",
+            "/assets/Group 6405.png",
+            "/assets/Group 6406.png", // Repeated intentionally, based on your original code
+            "/assets/Group 6405.png", // Repeated intentionally, based on your original code
+          ].map((imagePath, index) => (
+            <div key={index}>
+              <img
+                src={imagePath}
+                alt={`slider-image-${index}`}
+                className="max-md:w-24 max-md:h-24 md:w-28 md:h-28 desktop:w-48 desktop:h-48"
+              />
+            </div>
+          ))}
         </Slider>
       </div>
 
