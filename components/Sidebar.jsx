@@ -70,7 +70,7 @@ function Sidebar() {
   }
 
   return (
-    <div className="bg-black bg-opacity-90 fixed text-white top-0 right-0 h-[100vh] xl:w-[620px] 2xl:w-[960px] p-5">
+    <div className="bg-black bg-opacity-90 fixed text-white top-0 right-0 h-[100vh] w-screen xl:w-[620px] 2xl:w-[960px] p-5">
       <div className="flex flex-row">
         <div className="w-[9rem] 2xl:w-[16rem]">
           <div className="flex items-center mb-4 gap-8 tracking-[2px]">
