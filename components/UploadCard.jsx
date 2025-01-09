@@ -19,7 +19,7 @@ export default function UploadCard() {
         setPosition({ x: 100, y: 280 });
       } else if (width >= 1280) {
         // xl screens
-        setPosition({ x: 80, y: 120 });
+        setPosition({ x: 120, y: 120 });
       } else if (width >= 1024) {
         // lg screens
         setPosition({ x: 200, y: 120 });
@@ -40,10 +40,12 @@ export default function UploadCard() {
 
   const handleFileUpload = (event) => {
     const files = Array.from(event.target.files);
-    setFileNames((prevFileNames) => [
-      ...prevFileNames,
-      ...files.map((file) => file.name),
-    ]);
+    const newFiles = files.map((file) => ({
+      name: file.name,
+      size: (file.size / (1024 * 1024)).toFixed(2) + " MB", // Convert size to MB
+      type: file.type || "unknown",
+    }));
+    setFileNames((prevFileNames) => [...prevFileNames, ...newFiles]);
   };
 
   const triggerFileInput = () => {
@@ -92,7 +94,7 @@ export default function UploadCard() {
 
   return (
     <div
-      className="bg-black text-white w-[240px] md:w-[290px] h-[360px] 2xl:w-[314px] lg:h-[420px] 2xl:h-[489px] rounded-[20px] fixed cursor-pointer"
+      className="bg-black text-white w-[240px] md:w-[300px] h-[360px] 2xl:w-[314px] lg:h-[420px] 2xl:h-[489px] rounded-[20px] fixed cursor-pointer"
       style={{
         top: `${position.y}px`,
         left: `${position.x}px`,
@@ -101,7 +103,7 @@ export default function UploadCard() {
     >
       {/* Top Icon */}
       <div
-        className="absolute bg-white no-drag p-2 left-[-2px] top-[-2px] cursor-pointer"
+        className="absolute bg-white no-drag p-3 xl:px-5 xl:py-5 left-[-2px] top-[-2px] cursor-pointer"
         onClick={triggerFileInput}
       >
         <img
@@ -119,24 +121,24 @@ export default function UploadCard() {
         onChange={handleFileUpload}
       />
 
-      <div className="absolute pl-8 pt-4 left-12 2xl:left-16 no-drag tracking-[2px]">
+      <div className="absolute pl-8 pt-4 left-12 xl:left-[70px] 2xl:left-16 no-drag tracking-[3px]">
         <div className="flex justify-between w-[200px] text-[14px] uppercase">
-          <p className="text-[10px] md:text-[12px] 2xl:text-[15px]">
+          <p className="text-[10px] md:text-[13px] 2xl:text-[15px] font-light">
             Upload file
           </p>
           <img
             src="/assets/lock-icon.png"
             alt="lock"
-            className="md:w-11 pr-12 md:pr-7"
+            className="md:w-9 pr-12 md:pr-5"
           />
         </div>
-        <p className="text-[22px] md:text-[30px] 2xl:text-[40px]">OR</p>
-        <div className="absolute right-12 md:right-4 2xl:right-7 text-[10px] md:text-[12px] 2xl:text-[15px]">
+        <p className="text-[22px] md:text-[40px] leading-[3.8rem] tracking-[4px]">OR</p>
+        <div className="absolute right-12 md:right-[1.4rem] 2xl:right-7 text-[10px] md:text-[13px] 2xl:text-[15px] font-light leading-[28px]">
           SELECT A FOLDER
         </div>
       </div>
 
-      <div className="absolute translate-y-[1400%] md:translate-y-[1160%] 2xl:translate-y-[1060%] xl:translate-x-[84%] 2xl:translate-x-[62.5%] translate-x-[98%]">
+      <div className="absolute translate-y-[1400%] md:translate-y-[1190%] 2xl:translate-y-[1060%] xl:translate-x-[89%] 2xl:translate-x-[62.5%] translate-x-[98%]">
         <p className="whitespace-nowrap rotate-90 font-bold text-black text-[5px] md:text-[7px] 2xl:text-[10px] tracking-[1px]">
           ADVANCED ENCRYPTION STANDARD (AES) 256-BIT
         </p>
@@ -146,24 +148,41 @@ export default function UploadCard() {
       <section className="">
         {fileNames.length > 0 ? (
           <div
-            className="absolute top-[125px] lg:top-[165px] pl-8 translate-y-[-50%] w-[95%] no-drag scrollbar-hide"
-            style={{ height: "110px", overflowY: "scroll" }} // Set a fixed height and enable scrolling
+            className="absolute top-[125px] lg:top-[180px] pl-8 translate-y-[-50%] w-[95%] no-drag scrollbar-hide tracking-[2px]"
+            style={{ height: "90px", overflowY: "scroll" }} // Set a fixed height and enable scrolling
           >
-            {fileNames.map((fileName, index) => (
-              <p key={index} className="text-sm text-white">
-                {fileName}
-              </p>
+            {fileNames.map((file, index) => (
+              <div
+                key={index}
+                className="flex flex-col text-sm text-white mb-1"
+              >
+                {/* File Icon */}
+                <div className="flex items-center leading-3">
+                  {file.type.includes("zip") ? (
+                    <span className="text-black pr-3">📁</span>
+                  ) : (
+                    <span></span>
+                  )}
+                  {/* File Name */}
+                  <p className="text-[10px]">{file.name}</p>
+                </div>
+
+                {/* File Details */}
+                <div className="flex items-center gap-4 opacity-70">
+                  <p className="text-[10px]">{file.size} - <span className="uppercase text-[10px]">{file.type}</span></p>
+                </div>
+              </div>
             ))}
           </div>
         ) : (
-          <div className="absolute right-[-2.3rem] md:right-[-4rem] 2xl:right-[-5rem] top-[30%] tracking-wider">
-            <div className="flex text-[18px] md:text-[30px] 2xl:text-[40px]">
+          <div className="absolute right-[-2.3rem] md:right-[-4.7rem] 2xl:right-[-5rem] top-[30%] tracking-wider">
+            <div className="flex text-[18px] md:text-[36px] 2xl:text-[40px]">
               <p>
                 UP TO{" "}
                 <span className="text-black ml-1 md:ml-5 2xl:ml-3">1TB</span>
               </p>
             </div>
-            <div className="absolute right-12 md:right-24 text-[10px] md:text-[15px] 2xl:text-[20px] mt-[10px] tracking-[2px]">
+            <div className="absolute right-12 md:right-24 text-[10px] md:text-[18px] 2xl:text-[20px] mt-[3px] tracking-[2px]">
               <span>FREE</span>
             </div>
           </div>
@@ -171,9 +190,9 @@ export default function UploadCard() {
       </section>
 
       {/* Input Fields */}
-      <div className="mt-[190px] lg:mt-[240px] desktop:mt-[300px] flex flex-col gap-y-6 tracking-widest">
+      <div className="mt-[200px] lg:mt-[240px] desktop:mt-[300px] flex flex-col gap-y-6 tracking-widest">
         {/* Title Input */}
-        <div className="pl-8 relative pr-4">
+        <div className="pl-8 relative pr-6">
           <input
             type="text"
             id="title"
@@ -189,7 +208,7 @@ export default function UploadCard() {
         </div>
 
         {/* Note Input */}
-        <div className="pl-8 relative pr-4">
+        <div className="pl-8 relative pr-6">
           <textarea
             id="note"
             placeholder="NOTE"
@@ -205,24 +224,24 @@ export default function UploadCard() {
       </div>
 
       {/* Bottom Button */}
-      <div className="relative flex justify-center cursor-pointer">
+      <div className="relative flex justify-center items-center cursor-pointer">
         {fileNames.length > 0 && (
-          <div className=" flex gap-3 items-center mt-2">
-            <FiUpload className="text-3xl" />
+          <div className=" flex gap-3 items-center mt-3">
+            <FiUpload className="text-xl 2xl:text-3xl" />
 
             <button
-              className="text-[18px] 2xl:text-[30px] uppercase"
+              className="text-[17px] 2xl:text-[30px] uppercase"
               onClick={getLink}
             >
               Get Link
             </button>
           </div>
         )}
-        <button className="absolute right-5 2xl:left-[285px] top-4 no-drag">
+        <button className="absolute right-6 2xl:left-[285px] top-4 no-drag">
           <img
             src="/assets/Group 5526.png"
             alt=""
-            className="w-[5px] lg:max-2xl:w-[6px]"
+            className="w-[5px] lg:max-2xl:w-[5px]"
           />
         </button>
       </div>
