@@ -94,7 +94,7 @@ export default function UploadCard() {
 
   return (
     <div
-      className="bg-black text-white w-[240px] md:w-[300px] h-[360px] 2xl:w-[314px] lg:h-[420px] 2xl:h-[489px] rounded-[20px] fixed cursor-pointer"
+      className="bg-black text-white w-[240px] md:w-[300px] h-[360px] 2xl:w-[320px] lg:h-[420px] 2xl:h-[489px] rounded-[20px] fixed cursor-pointer"
       style={{
         top: `${position.y}px`,
         left: `${position.x}px`,
@@ -121,8 +121,8 @@ export default function UploadCard() {
         onChange={handleFileUpload}
       />
 
-      <div className="absolute pl-8 pt-4 left-12 xl:left-[70px] 2xl:left-16 no-drag tracking-[3px]">
-        <div className="flex justify-between w-[200px] text-[14px] uppercase">
+      <div className="absolute pl-8 pt-4 left-12 xl:left-[70px] 2xl:left-[85px] no-drag tracking-[3px]">
+        <div className="flex justify-between w-[200px] 2xl:w-[210px] text-[14px] uppercase">
           <p className="text-[10px] md:text-[13px] 2xl:text-[15px] font-light">
             Upload file
           </p>
@@ -133,23 +133,23 @@ export default function UploadCard() {
           />
         </div>
         <p className="text-[22px] md:text-[40px] leading-[3.8rem] tracking-[4px]">OR</p>
-        <div className="absolute right-12 md:right-[1.4rem] 2xl:right-7 text-[10px] md:text-[13px] 2xl:text-[15px] font-light leading-[28px]">
+        <div className="absolute right-12 md:right-[1.4rem] 2xl:right-5 text-[10px] md:text-[13px] 2xl:text-[15px] font-light leading-[28px]">
           SELECT A FOLDER
         </div>
       </div>
 
-      <div className="absolute translate-y-[1400%] md:translate-y-[1190%] 2xl:translate-y-[1060%] xl:translate-x-[89%] 2xl:translate-x-[62.5%] translate-x-[98%]">
-        <p className="whitespace-nowrap rotate-90 font-bold text-black text-[5px] md:text-[7px] 2xl:text-[10px] tracking-[1px]">
+      <div className="absolute translate-y-[1400%] md:translate-y-[1190%] 2xl:translate-y-[1090%] xl:translate-x-[89%] 2xl:translate-x-[74.5%] translate-x-[98%]">
+        <p className="whitespace-nowrap rotate-90 font-bold text-black text-[5px] md:text-[7px] 2xl:text-[9px] tracking-[1px]">
           ADVANCED ENCRYPTION STANDARD (AES) 256-BIT
         </p>
       </div>
 
       {/* Scrollable Section to Display File Names */}
-      <section className="">
+      <section>
         {fileNames.length > 0 ? (
           <div
             className="absolute top-[125px] lg:top-[180px] pl-8 translate-y-[-50%] w-[95%] no-drag scrollbar-hide tracking-[2px]"
-            style={{ height: "90px", overflowY: "scroll" }} // Set a fixed height and enable scrolling
+            style={{ height: "90px", overflowY: "scroll" }}
           >
             {fileNames.map((file, index) => (
               <div
@@ -175,14 +175,14 @@ export default function UploadCard() {
             ))}
           </div>
         ) : (
-          <div className="absolute right-[-2.3rem] md:right-[-4.7rem] 2xl:right-[-5rem] top-[30%] tracking-wider">
+          <div className="absolute right-[-2.3rem] md:right-[-4.7rem] 2xl:right-[-5rem] top-[30%] 2xl:top-[27%] tracking-wider">
             <div className="flex text-[18px] md:text-[36px] 2xl:text-[40px]">
               <p>
                 UP TO{" "}
                 <span className="text-black ml-1 md:ml-5 2xl:ml-3">1TB</span>
               </p>
             </div>
-            <div className="absolute right-12 md:right-24 text-[10px] md:text-[18px] 2xl:text-[20px] mt-[3px] tracking-[2px]">
+            <div className="absolute right-12 md:right-24 text-[10px] md:text-[18px] 2xl:text-[20px] mt-[3px] 2xl:mt-[0px] tracking-[2px]">
               <span>FREE</span>
             </div>
           </div>
