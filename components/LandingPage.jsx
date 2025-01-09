@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import ToggleButton from "./ToggleButton";
 import UploadCard from "./UploadCard";
 import Sidebar from "./Sidebar";
@@ -8,6 +8,7 @@ import Sidebar from "./Sidebar";
 export default function LandingPage() {
   const [showUploadCard, setShowUploadCard] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false); // State for the sidebar
+  const uploadCardRef = useRef(null); // Reference for the UploadCard
 
   const handleToggleClick = () => {
     setShowUploadCard(!showUploadCard);
@@ -16,6 +17,26 @@ export default function LandingPage() {
   const handleSidebarToggle = () => {
     setShowSidebar(!showSidebar); // Toggle sidebar visibility
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      // Check if the click is outside the UploadCard
+      if (
+        uploadCardRef.current &&
+        !uploadCardRef.current.contains(event.target)
+      ) {
+        setShowUploadCard(false); // Close UploadCard
+      }
+    };
+
+    // Add event listener
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      // Cleanup event listener
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="flex flex-col h-screen justify-between bg-white text-black font-sans">
@@ -57,7 +78,7 @@ export default function LandingPage() {
           </div>
         )}
         {showUploadCard && (
-          <div>
+          <div ref={uploadCardRef}>
             <p className="md:hidden text-[1px]">t</p>
             <UploadCard />
           </div>
@@ -107,3 +128,4 @@ export default function LandingPage() {
     </div>
   );
 }
+
