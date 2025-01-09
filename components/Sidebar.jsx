@@ -190,17 +190,18 @@ function Sidebar() {
       </div>
 
       {/* Footer section */}
-      <footer className="mt-auto flex items-center text-[10px] 2xl:text-[13px] tracking-[2px]">
-        <div>
-          <p className="text-[12px] 2xl:text-[16px] hidden md:block">
+      <footer className="mt-auto flex justify-between items-center text-[10px] 2xl:text-[13px] tracking-[2px]">
+        <div className="flex-1 text-[1px] ">.</div>
+        <div className="flex-1 ">
+          <p className="text-[12px] 2xl:text-[16px] hidden md:block text-center">
             TERMS | PRIVACY
           </p>
         </div>
-        <div className="flex-1 flex justify-center md:justify-end">
+        <div className="flex-1 flex justify-end">
           <img
             src="/assets/Group 6382.png"
             alt="logo"
-            className="w-40 2xl:w-65"
+            className="w-40 2xl:w-60"
           />
         </div>
       </footer>
