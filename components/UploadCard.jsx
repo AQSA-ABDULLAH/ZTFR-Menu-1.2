@@ -137,29 +137,33 @@ export default function UploadCard() {
       </div>
 
       {/* Scrollable Section to Display File Names */}
-      <section className="h-[6px]">
-        {fileNames.length > 0 ? (
-          fileNames.map((fileName, index) => (
-            <div
-              key={index} // Add the key prop here
-              className="absolute top-[125px] lg:top-[176px] pl-8 translate-y-[-50%] overflow-y-scroll overflow-x-hidden w-[95%] no-drag scrollbar-hide"
-            >
-              <p className="text-sm text-white">{fileName}</p>
-            </div>
-          ))
-        ) : (
-          <div className="absolute right-[-2.3rem] md:right-[-4rem] 2xl:right-[-5rem] top-[30%] tracking-wider">
-            <div className="flex text-[18px] md:text-[30px] 2xl:text-[40px]">
-              <p>
-                UP TO <span className="text-black ml-1 md:ml-5 2xl:ml-3">1TB</span>
-              </p>
-            </div>
-            <div className="absolute right-12 md:right-24 text-[10px] md:text-[15px] 2xl:text-[20px] mt-[10px] tracking-[2px]">
-              <span>FREE</span>
-            </div>
-          </div>
-        )}
-      </section>
+      <section className="">
+  {fileNames.length > 0 ? (
+    <div
+      className="absolute top-[125px] lg:top-[167px] pl-8 translate-y-[-50%] w-[95%] no-drag scrollbar-hide"
+      style={{ height: '110px', overflowY: 'scroll' }} // Set a fixed height and enable scrolling
+    >
+      {fileNames.map((fileName, index) => (
+        <p key={index} className="text-sm text-white">
+          {fileName}
+        </p>
+      ))}
+    </div>
+  ) : (
+    <div className="absolute right-[-2.3rem] md:right-[-4rem] 2xl:right-[-5rem] top-[30%] tracking-wider">
+      <div className="flex text-[18px] md:text-[30px] 2xl:text-[40px]">
+        <p>
+          UP TO <span className="text-black ml-1 md:ml-5 2xl:ml-3">1TB</span>
+        </p>
+      </div>
+      <div className="absolute right-12 md:right-24 text-[10px] md:text-[15px] 2xl:text-[20px] mt-[10px] tracking-[2px]">
+        <span>FREE</span>
+      </div>
+    </div>
+  )}
+</section>
+
+
 
       {/* Input Fields */}
       <div className="mt-[190px] lg:mt-[270px] desktop:mt-[300px] flex flex-col gap-y-6">

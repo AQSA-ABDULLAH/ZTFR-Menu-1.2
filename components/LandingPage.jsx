@@ -20,24 +20,24 @@ export default function LandingPage() {
   return (
     <div className="flex flex-col h-screen justify-between bg-white text-black font-sans">
       {/* Header Section */}
-      <header className="flex justify-between items-center p-4">
+      <header className="flex justify-between items-center py-8 px-12">
         <div>
           <img
             src="/assets/ZTFR.png"
             alt="ztr-logo"
-            className="w-[3rem] md:max-2xl:w-[7rem]"
+            className="max-md:w-[3rem] md:max-2xl:w-[6rem]"
           />
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-6">
           <img
             src="/assets/user-icon.png"
             alt="user icon"
-            className="w-[0.9rem] md:max-2xl:w-[1.2rem]"
+            className="max-md:w-[0.9rem] md:max-2xl:w-[1rem]"
           />
           <img
             src="/assets/uk-flag.png"
             alt="UK Flag"
-            className="w-[2rem] md:max-2xl:w-[2.6rem]"
+            className="max-md:w-[2rem] md:max-2xl:w-[2.4rem]"
           />
         </div>
       </header>
@@ -80,7 +80,7 @@ export default function LandingPage() {
 
         {/* Sidebar Toggle Button */}
         <div
-          className="bg-black text-white flex items-center justify-center w-[26px] md:w-[50px] h-[150px] md:h-[400px] 2xl:h-[489px] rounded-l-xl cursor-pointer sm:flex"
+          className="bg-black text-white flex items-center justify-center w-[26px] h-[150px] md:w-[50px] 2xl:h-[213px] rounded-l-xl cursor-pointer sm:flex"
           onClick={handleSidebarToggle} // Add click handler
         >
           <img src="/assets/logo.png" alt="logo" className="max-md:h-12" />
@@ -88,15 +88,16 @@ export default function LandingPage() {
       </main>
 
       {/* Footer */}
-      <footer className="text-[10px] flex justify-between px-2 pb-2">
+      <footer className="text-[10px] flex justify-between px-12 pb-2">
         <div className="hidden md:block">
           <p>© ZITRANSFER 2023</p>
-          <div className="flex gap-5">
+          <div className="flex gap-4">
             <p> All Rights Reserved </p>
             <p>ZITRANSFER IS PART OF THE ZIMO GROUP</p>
           </div>
         </div>
-        <div className="max-md:text-center max-md:pb-4">
+        <div className="max-md:text-center max-md:pb-4 flex gap-1 items-center">
+          <img src="/assets/Path 27216.png" alt="lock" className="md:w-2 md:h-2 2xl:w-3 2xl:h-3" />
           <p>
             ZITRANSFER USER ADVANCE ENCRYPTION STANDARD (AES) 256-BIT TO PROTECT
             THE CONFIDENTIALITY OF THE DATA YOU UPLOAD
