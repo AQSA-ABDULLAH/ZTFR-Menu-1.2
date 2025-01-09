@@ -19,7 +19,7 @@ export default function UploadCard() {
         setPosition({ x: 100, y: 280 });
       } else if (width >= 1280) {
         // xl screens
-        setPosition({ x: 80, y: 100 });
+        setPosition({ x: 80, y: 120 });
       } else if (width >= 1024) {
         // lg screens
         setPosition({ x: 200, y: 120 });
@@ -92,7 +92,7 @@ export default function UploadCard() {
 
   return (
     <div
-      className="bg-black text-white w-[240px] md:w-[280px] h-[360px] 2xl:w-[314px] lg:h-[450px] 2xl:h-[489px] rounded-[20px] fixed cursor-pointer"
+      className="bg-black text-white w-[240px] md:w-[290px] h-[360px] 2xl:w-[314px] lg:h-[420px] 2xl:h-[489px] rounded-[20px] fixed cursor-pointer"
       style={{
         top: `${position.y}px`,
         left: `${position.x}px`,
@@ -121,8 +121,14 @@ export default function UploadCard() {
 
       <div className="absolute pl-8 pt-4 left-12 2xl:left-16 no-drag tracking-[2px]">
         <div className="flex justify-between w-[200px] text-[14px] uppercase">
-          <p className="text-[10px] md:text-[12px] 2xl:text-[15px]">Upload file</p>
-          <img src="/assets/lock-icon.png" alt="lock" className="md:w-11 pr-12 md:pr-7" />
+          <p className="text-[10px] md:text-[12px] 2xl:text-[15px]">
+            Upload file
+          </p>
+          <img
+            src="/assets/lock-icon.png"
+            alt="lock"
+            className="md:w-11 pr-12 md:pr-7"
+          />
         </div>
         <p className="text-[22px] md:text-[30px] 2xl:text-[40px]">OR</p>
         <div className="absolute right-12 md:right-4 2xl:right-7 text-[10px] md:text-[12px] 2xl:text-[15px]">
@@ -138,61 +144,60 @@ export default function UploadCard() {
 
       {/* Scrollable Section to Display File Names */}
       <section className="">
-  {fileNames.length > 0 ? (
-    <div
-      className="absolute top-[125px] lg:top-[167px] pl-8 translate-y-[-50%] w-[95%] no-drag scrollbar-hide"
-      style={{ height: '110px', overflowY: 'scroll' }} // Set a fixed height and enable scrolling
-    >
-      {fileNames.map((fileName, index) => (
-        <p key={index} className="text-sm text-white">
-          {fileName}
-        </p>
-      ))}
-    </div>
-  ) : (
-    <div className="absolute right-[-2.3rem] md:right-[-4rem] 2xl:right-[-5rem] top-[30%] tracking-wider">
-      <div className="flex text-[18px] md:text-[30px] 2xl:text-[40px]">
-        <p>
-          UP TO <span className="text-black ml-1 md:ml-5 2xl:ml-3">1TB</span>
-        </p>
-      </div>
-      <div className="absolute right-12 md:right-24 text-[10px] md:text-[15px] 2xl:text-[20px] mt-[10px] tracking-[2px]">
-        <span>FREE</span>
-      </div>
-    </div>
-  )}
-</section>
-
-
+        {fileNames.length > 0 ? (
+          <div
+            className="absolute top-[125px] lg:top-[165px] pl-8 translate-y-[-50%] w-[95%] no-drag scrollbar-hide"
+            style={{ height: "110px", overflowY: "scroll" }} // Set a fixed height and enable scrolling
+          >
+            {fileNames.map((fileName, index) => (
+              <p key={index} className="text-sm text-white">
+                {fileName}
+              </p>
+            ))}
+          </div>
+        ) : (
+          <div className="absolute right-[-2.3rem] md:right-[-4rem] 2xl:right-[-5rem] top-[30%] tracking-wider">
+            <div className="flex text-[18px] md:text-[30px] 2xl:text-[40px]">
+              <p>
+                UP TO{" "}
+                <span className="text-black ml-1 md:ml-5 2xl:ml-3">1TB</span>
+              </p>
+            </div>
+            <div className="absolute right-12 md:right-24 text-[10px] md:text-[15px] 2xl:text-[20px] mt-[10px] tracking-[2px]">
+              <span>FREE</span>
+            </div>
+          </div>
+        )}
+      </section>
 
       {/* Input Fields */}
-      <div className="mt-[190px] lg:mt-[270px] desktop:mt-[300px] flex flex-col gap-y-6">
+      <div className="mt-[190px] lg:mt-[240px] desktop:mt-[300px] flex flex-col gap-y-6 tracking-widest">
         {/* Title Input */}
-        <div className="pl-4 relative pr-4">
+        <div className="pl-8 relative pr-4">
           <input
             type="text"
             id="title"
             placeholder="TITLE"
-            className="w-full h-8 text-[10px] lg:text-[12px] bg-transparent focus:outline-none border-b-2 placeholder:!text-transparent placeholder:!opacity-0 no-drag"
+            className="peer w-full h-8 text-[10px] lg:text-[12px] bg-transparent focus:outline-none border-b-2 placeholder-transparent no-drag"
           />
           <label
             htmlFor="title"
-            className="opacity-50 absolute left-8 -top-5 input_text_size transition-all peer-placeholder-shown:opacity-100 peer-placeholder-shown:top-[0.4rem] peer-placeholder-shown:input_text_size peer-focus:-top-5 peer-focus:opacity-50 peer-focus:input_text_size"
+            className="opacity-50 absolute left-8 -top-5 text-[10px] lg:text-[12px] transition-all peer-placeholder-shown:opacity-100 peer-placeholder-shown:top-[0.4rem] peer-focus:-top-5 peer-focus:opacity-50"
           >
             TITLE
           </label>
         </div>
 
         {/* Note Input */}
-        <div className="pl-4 relative pr-4">
+        <div className="pl-8 relative pr-4">
           <textarea
             id="note"
             placeholder="NOTE"
-            className="h-14 lg:h-16 opacity-100 p-0 w-full bg-transparent resize-none placeholder-transparent focus:outline-none border-b-2 text-[10px] lg:text-[12px] no-drag scrollbar-hide overflow-y-auto"
+            className="peer h-14 lg:h-16 w-full bg-transparent resize-none placeholder-transparent focus:outline-none border-b-2 text-[10px] lg:text-[12px] no-drag scrollbar-hide overflow-y-auto"
           ></textarea>
           <label
             htmlFor="note"
-            className="opacity-50 absolute left-8 -top-5 input_text_size transition-all peer-placeholder-shown:opacity-100 peer-placeholder-shown:top-2 peer-placeholder-shown:input_text_size peer-focus:-top-5 peer-focus:opacity-50 peer-focus:input_text_size"
+            className="opacity-50 absolute left-8 -top-5 text-[10px] lg:text-[12px] transition-all peer-placeholder-shown:opacity-100 peer-placeholder-shown:top-[0.4rem] peer-focus:-top-5 peer-focus:opacity-50"
           >
             NOTE
           </label>
@@ -205,7 +210,10 @@ export default function UploadCard() {
           <div className=" flex gap-3 items-center mt-2">
             <FiUpload className="text-3xl" />
 
-            <button className="text-[18px] 2xl:text-[30px] uppercase" onClick={getLink}>
+            <button
+              className="text-[18px] 2xl:text-[30px] uppercase"
+              onClick={getLink}
+            >
               Get Link
             </button>
           </div>
