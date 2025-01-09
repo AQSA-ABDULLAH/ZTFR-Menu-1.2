@@ -147,10 +147,11 @@ export default function UploadCard() {
       {/* Scrollable Section to Display File Names */}
       <section>
         {fileNames.length > 0 ? (
-          <div
-            className="absolute top-[125px] lg:top-[180px] pl-8 translate-y-[-50%] w-[95%] no-drag scrollbar-hide tracking-[2px]"
-            style={{ height: "90px", overflowY: "scroll" }}
-          >
+         <div
+         className="absolute top-[125px] lg:top-[180px] 2xl:top-[200px] pl-8 translate-y-[-50%] w-[95%] no-drag scrollbar-hide tracking-[2px] 
+                    h-[90px] 2xl:h-[120px] overflow-y-scroll"
+       >
+       
             {fileNames.map((file, index) => (
               <div
                 key={index}
@@ -227,10 +228,10 @@ export default function UploadCard() {
       <div className="relative flex justify-center items-center cursor-pointer">
         {fileNames.length > 0 && (
           <div className=" flex gap-3 items-center mt-3">
-            <FiUpload className="text-xl 2xl:text-3xl" />
+            <FiUpload className="text-xl 2xl:text-2xl" />
 
             <button
-              className="text-[17px] 2xl:text-[30px] uppercase"
+              className="text-[17px] 2xl:text-[20px] uppercase tracking-[2px]"
               onClick={getLink}
             >
               Get Link
