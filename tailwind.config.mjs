@@ -18,8 +18,8 @@ export default {
         },
       },
       animation: {
-        slideIn: "slideIn 0.3s ease-in-out",
-        slideOut: "slideOut 0.3s ease-in-out",
+        slideIn: "slideIn 0.5s ease-in-out",
+        slideOut: "slideOut 0.5s ease-in-out",
       },
     },
   },
