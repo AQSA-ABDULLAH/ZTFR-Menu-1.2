@@ -135,7 +135,7 @@ function Sidebar({ isSidebarOpen, onClose }) {
         </div>
 
         <div className="items-end">
-          <div className="flex justify-between gap-20">
+          <div className="flex justify-between gap-20 max-md:ml-10 max-md:mt-[-2rem]">
             <div className="md:flex flex-col items-center justify-center hidden">
               <img
                 src="/assets/Group 6113.png"
@@ -217,7 +217,7 @@ function Sidebar({ isSidebarOpen, onClose }) {
             TERMS | PRIVACY
           </p>
         </div>
-        <div className="flex-1 flex justify-end">
+        <div className="md:flex-1 flex justify-end">
           <img
             src="/assets/Group 6382.png"
             alt="logo"
