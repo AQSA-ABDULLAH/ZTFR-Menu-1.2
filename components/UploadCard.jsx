@@ -138,7 +138,7 @@ export default function UploadCard() {
         </div>
       </div>
 
-      <div className="absolute translate-y-[1400%] md:translate-y-[1190%] 2xl:translate-y-[1090%] xl:translate-x-[89%] 2xl:translate-x-[74.5%] translate-x-[98%]">
+      <div className="absolute translate-y-[1400%] md:translate-y-[1190%] 2xl:translate-y-[1090%] xl:translate-x-[93%] 2xl:translate-x-[74.5%] translate-x-[98%]">
         <p className="whitespace-nowrap rotate-90 font-bold text-black text-[5px] md:text-[7px] 2xl:text-[9px] tracking-[1px]">
           ADVANCED ENCRYPTION STANDARD (AES) 256-BIT
         </p>
@@ -176,14 +176,14 @@ export default function UploadCard() {
             ))}
           </div>
         ) : (
-          <div className="absolute right-[-2.3rem] md:right-[-4.7rem] 2xl:right-[-5rem] top-[30%] 2xl:top-[27%] tracking-wider">
+          <div className="absolute right-[-2.3rem] md:right-[-4.7rem] 2xl:right-[-5.4rem] top-[30%] 2xl:top-[27%] tracking-wider">
             <div className="flex text-[18px] md:text-[36px] 2xl:text-[40px]">
               <p>
                 UP TO{" "}
-                <span className="text-black ml-1 md:ml-5 2xl:ml-3">1TB</span>
+                <span className="text-black ml-1 md:ml-5 2xl:ml-5">1TB</span>
               </p>
             </div>
-            <div className="absolute right-12 md:right-24 text-[10px] md:text-[18px] 2xl:text-[20px] mt-[3px] 2xl:mt-[0px] tracking-[2px]">
+            <div className="absolute right-12 md:right-24 2xl:right-[6.4rem] text-[10px] md:text-[18px] 2xl:text-[20px] mt-[3px] 2xl:mt-[0px] tracking-[2px]">
               <span>FREE</span>
             </div>
           </div>

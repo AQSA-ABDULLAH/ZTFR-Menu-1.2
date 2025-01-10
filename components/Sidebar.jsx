@@ -106,7 +106,7 @@ function Sidebar() {
                   <img
                     src={imagePath}
                     alt={`slider-image-${index}`}
-                    className="max-md:w-24 max-md:h-24 md:w-28 md:h-28 2xl:w-32 2xl:h-32 desktop:w-44 desktop:h-44 mb-5"
+                    className="max-md:w-24 max-md:h-24 md:w-28 md:h-28 2xl:w-32 2xl:h-32 desktop:w-52 desktop:h-52 mb-5"
                   />
                 </div>
               ))}
@@ -119,13 +119,13 @@ function Sidebar() {
             <div className="md:flex flex-col items-center justify-center hidden">
               <img
                 src="/assets/Group 6113.png"
-                alt="logo"
-                className="xl:max-2xl:w-44"
+                alt="ZIT logo"
+                className="xl:max-2xl:w-44 2xl:my-8"
               />
               <img
                 src="/assets/Group 6421.png"
                 alt="middle-large-image"
-                className=" my-5 xl:max-2xl:w-[14.5rem] xl:h-[14.5rem] 2xl:h-[18.5rem] desktop:h-[23rem]"
+                className=" my-5 xl:h-[14.5rem] 2xl:h-[18.5rem] desktop:h-[25rem]"
               />
             </div>
             <div className="flex flex-col justify-between items-end text-[12px] md:text-[10px] 2xl:text-[16px] tracking-[2px] max-md:space-y-3">
@@ -168,7 +168,7 @@ function Sidebar() {
       </div>
 
       {/* Carousel section */}
-      <div className="flex-grow pt-16 md:pt-3">
+      <div className="flex-grow pt-16 md:pt-3 2xl:pt-[24px]">
         <Slider {...carouselSettings}>
           {[
             "/assets/Group 6408.png",
@@ -182,7 +182,7 @@ function Sidebar() {
               <img
                 src={imagePath}
                 alt={`slider-image-${index}`}
-                className="max-md:w-24 max-md:h-24 md:w-28 md:h-28 2xl:w-36 2xl:h-36 desktop:w-48 desktop:h-48"
+                className="max-md:w-24 max-md:h-24 md:w-28 md:h-28 2xl:w-36 2xl:h-36 desktop:w-52 desktop:h-52"
               />
             </div>
           ))}
