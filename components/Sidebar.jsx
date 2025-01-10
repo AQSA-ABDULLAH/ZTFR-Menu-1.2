@@ -128,7 +128,7 @@ function Sidebar() {
                 className=" my-5 xl:h-[14.5rem] 2xl:h-[18.5rem] desktop:h-[25rem]"
               />
             </div>
-            <div className="flex flex-col justify-between items-end text-[12px] md:text-[10px] 2xl:text-[16px] tracking-[2px] max-md:space-y-3">
+            <div className="mt-8 flex flex-col justify-between items-end text-[12px] md:text-[10px] 2xl:text-[16px] tracking-[2px] max-md:space-y-3">
               <div className="flex gap-10 items-center">
                 <img
                   src="/assets/Group 2867.png"
@@ -161,14 +161,14 @@ function Sidebar() {
             <img
               src="/assets/Group 6420.png"
               alt="double-image"
-              className="h-[6.5rem] 2xl:h-[7rem] desktop:h-[9.6rem]"
+              className="h-[6.5rem] 2xl:h-[7rem] desktop:h-[9rem]"
             />
           </div>
         </div>
       </div>
 
       {/* Carousel section */}
-      <div className="flex-grow pt-16 md:pt-3 2xl:pt-[24px]">
+      <div className="flex-grow pt-16 md:pt-3 2xl:pt-[32px]">
         <Slider {...carouselSettings}>
           {[
             "/assets/Group 6408.png",

@@ -16,7 +16,7 @@ export default function UploadCard() {
 
       if (width >= 1536) {
         // 2xl screens
-        setPosition({ x: 100, y: 280 });
+        setPosition({ x: 130, y: 320 });
       } else if (width >= 1280) {
         // xl screens
         setPosition({ x: 120, y: 120 });

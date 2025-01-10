@@ -100,11 +100,25 @@ export default function LandingPage() {
         </div>
 
         {/* Sidebar Toggle Button */}
-        <div
-          className="bg-black text-white flex items-center justify-center w-[26px] h-[150px] md:w-[50px] 2xl:h-[213px] rounded-l-xl cursor-pointer sm:flex"
-          onClick={handleSidebarToggle} // Add click handler
-        >
-          <img src="/assets/logo.png" alt="logo" className="max-md:h-12" />
+        <div onClick={handleSidebarToggle}>
+          {!showUploadCard && (
+            <div
+              className="bg-black text-white flex items-center justify-center w-[26px] h-[150px] md:w-[50px] 2xl:h-[213px] rounded-l-xl cursor-pointer sm:flex"
+            >
+              <img src="/assets/logo.png" alt="logo" className="max-md:h-12" />
+            </div>
+          )}
+          {showUploadCard && (
+            <div
+              className="bg-black text-white flex items-center justify-center w-[26px] h-[150px] md:w-[50px] 2xl:h-[213px] rounded-l-xl cursor-pointer sm:flex"
+            >
+              <img
+                src="/assets/Path 36196.png"
+                alt="menu"
+                className="max-md:h-12"
+              />
+            </div>
+          )}
         </div>
       </main>
 
@@ -118,7 +132,11 @@ export default function LandingPage() {
           </div>
         </div>
         <div className="max-md:text-center max-md:pb-4 flex gap-1 items-center">
-          <img src="/assets/Path 27216.png" alt="lock" className="md:w-2 md:h-2 2xl:w-3 2xl:h-3" />
+          <img
+            src="/assets/Path 27216.png"
+            alt="lock"
+            className="md:w-2 md:h-2 2xl:w-3 2xl:h-3"
+          />
           <p>
             ZITRANSFER USER ADVANCE ENCRYPTION STANDARD (AES) 256-BIT TO PROTECT
             THE CONFIDENTIALITY OF THE DATA YOU UPLOAD
@@ -128,4 +146,3 @@ export default function LandingPage() {
     </div>
   );
 }
-
