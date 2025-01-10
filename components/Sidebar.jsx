@@ -140,7 +140,7 @@ function Sidebar({ isSidebarOpen, onClose }) {
               <img
                 src="/assets/Group 6113.png"
                 alt="ZIT logo"
-                className="xl:max-2xl:w-44 2xl:my-8"
+                className="xl:max-2xl:w-44 2xl:my-2 desktop:my-8"
               />
               <img
                 src="/assets/Group 6421.png"
