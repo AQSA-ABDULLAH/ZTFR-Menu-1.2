@@ -20,10 +20,11 @@ export default function LandingPage() {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      // Check if the click is outside the UploadCard
       if (
         uploadCardRef.current &&
-        !uploadCardRef.current.contains(event.target)
+        !uploadCardRef.current.contains(event.target) &&
+        !event.target.closest(".sidebar") &&
+        !event.target.closest(".sidebar-toggle")
       ) {
         setShowUploadCard(false); // Close UploadCard
       }
@@ -66,14 +67,14 @@ export default function LandingPage() {
       <main className="flex max-lg:justify-between items-center lg:gap-[18rem] xl:gap-[22rem] 2xl:gap-[30rem] desktop:gap-[36rem] relative">
         {/* Sidebar */}
         {showSidebar && (
-          <div className="absolute left-0 top-0">
+          <div className="absolute left-0 top-0 sidebar">
             <Sidebar />
           </div>
         )}
 
         {/* Side Panels */}
         {!showUploadCard && (
-          <div onClick={handleToggleClick}>
+          <div onClick={handleToggleClick} className="sidebar-toggle">
             <ToggleButton />
           </div>
         )}
@@ -85,7 +86,7 @@ export default function LandingPage() {
         )}
 
         {/* Main Content */}
-        <div className=" flex-1 flex flex-col justify-items-end justify-center tracking-wider ">
+        <div className="flex-1 flex flex-col justify-items-end justify-center tracking-wider">
           <div className="md:justify-items-end justify-items-center">
             <h1 className="text-[16px] md:text-[42px] desktop:text-[62px] pr-6 tracking-[3px] md:tracking-[12px] leading-3">
               LET'S DO
@@ -100,18 +101,14 @@ export default function LandingPage() {
         </div>
 
         {/* Sidebar Toggle Button */}
-        <div onClick={handleSidebarToggle}>
+        <div onClick={handleSidebarToggle} className="sidebar-toggle">
           {!showUploadCard && (
-            <div
-              className="bg-black text-white flex items-center justify-center w-[26px] h-[150px] md:w-[50px] 2xl:h-[213px] rounded-l-xl cursor-pointer sm:flex"
-            >
+            <div className="bg-black text-white flex items-center justify-center w-[26px] h-[150px] md:w-[50px] 2xl:h-[213px] rounded-l-xl cursor-pointer sm:flex">
               <img src="/assets/logo.png" alt="logo" className="max-md:h-12" />
             </div>
           )}
           {showUploadCard && (
-            <div
-              className="bg-black text-white flex items-center justify-center w-[26px] h-[150px] md:w-[50px] 2xl:h-[213px] rounded-l-xl cursor-pointer sm:flex"
-            >
+            <div className="bg-black text-white flex items-center justify-center w-[26px] h-[150px] md:w-[50px] 2xl:h-[213px] rounded-l-xl cursor-pointer sm:flex">
               <img
                 src="/assets/Path 36196.png"
                 alt="menu"
@@ -127,7 +124,7 @@ export default function LandingPage() {
         <div className="hidden md:block">
           <p>© ZITRANSFER 2023</p>
           <div className="flex gap-4">
-            <p> All Rights Reserved </p>
+            <p>All Rights Reserved</p>
             <p>ZITRANSFER IS PART OF THE ZIMO GROUP</p>
           </div>
         </div>
@@ -146,3 +143,4 @@ export default function LandingPage() {
     </div>
   );
 }
+
