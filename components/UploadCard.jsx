@@ -14,10 +14,13 @@ export default function UploadCard() {
       const width = window.innerWidth;
       const height = window.innerHeight;
 
-      if (width >= 1536) {
+      if (width >= 1920) {
         // 2xl screens
         setPosition({ x: 130, y: 320 });
-      } else if (width >= 1280) {
+      } else if (width >= 1536) {
+        // xl screens
+        setPosition({ x: 110, y: 200 });
+      }else if (width >= 1280) {
         // xl screens
         setPosition({ x: 120, y: 120 });
       } else if (width >= 1024) {
@@ -191,7 +194,7 @@ export default function UploadCard() {
       </section>
 
       {/* Input Fields */}
-      <div className="mt-[200px] lg:mt-[240px] desktop:mt-[300px] flex flex-col gap-y-6 tracking-widest">
+      <div className="mt-[200px] lg:mt-[240px] 2xl:mt-[300px] flex flex-col gap-y-6 tracking-widest">
         {/* Title Input */}
         <div className="pl-8 relative pr-6">
           <input
