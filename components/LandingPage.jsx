@@ -97,7 +97,7 @@ export default function LandingPage() {
             <h2 className="text-[50px] md:text-[100px] desktop:text-[190px] tracking-[10px] md:tracking-[32px]">
               THIS
             </h2>
-            <p className="text-[8px] max-md:w-[80%] text-center md:text-[10px] desktop:text-[12px] tracking-[2px]">
+            <p className="text-[7px] max-md:w-[76%] text-center md:text-[10px] desktop:text-[12px] tracking-[2px]">
               UPLOAD FILES OR FOLDERS BY DROPPING THEM ANYWHERE IN THIS WINDOW
             </p>
           </div>
@@ -106,16 +106,16 @@ export default function LandingPage() {
         {/* Sidebar Toggle Button */}
         <div onClick={handleSidebarToggle} className="sidebar-toggle">
           {!showUploadCard && (
-            <div className="bg-black text-white flex items-center justify-center w-[26px] h-[150px] md:w-[50px] 2xl:h-[213px] rounded-l-xl cursor-pointer sm:flex">
-              <img src="/assets/logo.png" alt="logo" className="max-md:h-12" />
+            <div className="bg-black text-white flex items-center justify-center w-[28px] h-[150px] md:w-[50px] 2xl:h-[213px] rounded-l-xl cursor-pointer sm:flex">
+              <img src="/assets/logo.png" alt="logo" className="max-md:h-12 mr-1" />
             </div>
           )}
           {showUploadCard && (
-            <div className="bg-black text-white flex items-center justify-center w-[26px] h-[150px] md:w-[50px] 2xl:h-[213px] rounded-l-xl cursor-pointer sm:flex">
+            <div className="bg-black text-white flex items-center justify-center w-[28px] h-[150px] md:w-[50px] 2xl:h-[213px] rounded-l-xl cursor-pointer sm:flex">
               <img
                 src="/assets/Path 36196.png"
                 alt="menu"
-                className="max-md:h-12"
+                className="max-md:h-12 mr-1"
               />
             </div>
           )}
@@ -123,7 +123,7 @@ export default function LandingPage() {
       </main>
 
       {/* Footer */}
-      <footer className="text-[10px] flex justify-between px-12 pb-2">
+      <footer className="text-[8px] 2xl:text-[10px] flex justify-between px-12 pb-2 tracking-widest">
         <div className="hidden md:block">
           <p>© ZITRANSFER 2023</p>
           <div className="flex gap-4">

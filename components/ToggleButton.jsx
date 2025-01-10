@@ -10,7 +10,7 @@ function ToggleButton() {
 
       {/* Upload text */}
       <div className="absolute top-[50%] translate-y-[-50%] translate-x-[-50%] left-[27px] lg:left-[60px] 2xl:left-[70px]">
-        <p className="text-[9px] md:text-[10px] 2xl:text-[12px] text-center whitespace-nowrap -rotate-90">
+        <p className="text-[7px] md:text-[10px] 2xl:text-[12px] text-center whitespace-nowrap -rotate-90">
           UPLOAD FILES OR FOLDERS BY DROPPING <br />
           THEM ANYWHERE IN THIS WINDOW <br />
         </p>
