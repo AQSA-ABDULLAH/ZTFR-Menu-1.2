@@ -68,7 +68,10 @@ export default function LandingPage() {
         {/* Sidebar */}
         {showSidebar && (
           <div className="absolute left-0 top-0 sidebar">
-            <Sidebar />
+            <Sidebar
+              isSidebarOpen={showSidebar}
+              onClose={() => setShowSidebar(false)}
+            />
           </div>
         )}
 
@@ -143,4 +146,3 @@ export default function LandingPage() {
     </div>
   );
 }
-

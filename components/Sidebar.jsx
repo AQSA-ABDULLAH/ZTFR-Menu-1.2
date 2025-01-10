@@ -1,10 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "../app/globals.css";
 
-function Sidebar() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+function Sidebar({ isSidebarOpen, onClose }) {
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    if (!isSidebarOpen) {
+      setIsAnimating(true); // Start the animation when sidebar closes
+    } else {
+      setIsAnimating(false); // Stop the animation when sidebar opens
+    }
+  }, [isSidebarOpen]);
+
+  const handleClose = () => {
+    setIsAnimating(true); // Start the animation when close button is clicked
+    setTimeout(() => {
+      onClose(); // Close sidebar after animation ends
+    }, 300); // Match the duration of the animation (0.3s)
+  };
 
   const carouselSettings = {
     infinite: true,
@@ -77,19 +93,23 @@ function Sidebar() {
     ],
   };
 
-  if (!isSidebarOpen) {
-    return null;
-  }
-
   return (
-    <div className="bg-black bg-opacity-90 fixed text-white top-0 right-0 h-[100vh] w-screen xl:w-[620px] 2xl:w-[780px] desktop:w-[960px] p-5 z-30 flex flex-col">
+    <div
+      className={`bg-black bg-opacity-90 fixed text-white top-0 right-0 h-screen w-screen xl:w-[620px] 2xl:w-[780px] desktop:w-[960px] p-5 z-30 flex flex-col transition-all duration-300 ease-in-out ${
+        isSidebarOpen
+          ? isAnimating
+            ? "translate-x-full opacity-0 animate-slideOut"
+            : "translate-x-0 opacity-100 animate-slideIn"
+          : "translate-x-full opacity-0 animate-slideOut"
+      }`}
+    >
       <div className="flex flex-row">
         <div className="w-[9rem] 2xl:w-[11rem] desktop:w-[16rem]">
           <div className="flex items-center mb-4 gap-8 tracking-[2px]">
             <img
               src="/assets/Path 27323.png"
               alt="close"
-              onClick={() => setIsSidebarOpen(false)}
+              onClick={handleClose}
               className="cursor-pointer w-3 h-3 2xl:w-6 2xl:h-6"
             />
             <p className="text-[12px] 2xl:text-[14px]">MENU</p>
@@ -210,3 +230,5 @@ function Sidebar() {
 }
 
 export default Sidebar;
+
+
