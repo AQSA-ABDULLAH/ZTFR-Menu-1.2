@@ -7,6 +7,19 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+      },
+      fontFamily: {
+        lato: ["Lato", "sans-serif"],
+      },
+      colors: {
+        gold: "#BE9F56",
+      },
+      screens: {
+        'desktop': '1700px',
+      },
       keyframes: {
         slideIn: {
           "0%": { transform: "translateX(100%)", opacity: "0" },
@@ -23,6 +36,5 @@ export default {
       },
     },
   },
-
   plugins: [],
 };
