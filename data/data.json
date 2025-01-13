@@ -1,18 +1,26 @@
 {
   "media": [
     {
-      "backgroundColor": "#db2325",
-      "cardColor": "#db2325",
-      "textColor": "#D4AF37",
-      "cardtext": "#FFFFFF"
-    },
-    {
       "type": "image",
-      "src": "https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fhomepageimages%2F153.png?alt=media&token=d42fb5e4-1a0d-4a0b-8e0c-3e385a22671e&quot",
+      "src": "https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fhomepageimages%2F97.png?alt=media&token=ec71934e-3d6d-41c7-b6bf-0a83edca9d30&quot",
       "backgroundColor": "#000000",
       "cardColor": "#FFFFFF",
       "textColor": "#FFFFFF",
       "cardtext": "#FFFFFF"
+    },
+    {
+      "type": "image",
+      "src": "https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fhomepageimages%2F17.png?alt=media&token=ed0dc7a7-d37b-4687-93f1-2ada2af9763a",
+      "backgroundColor": "#000000",
+      "cardColor": "#FFFFFF",
+      "textColor": "#FFFFFF",
+      "cardtext": "#FFFFFF"
+    },
+    {
+      "backgroundColor": "#db2325",
+      "cardColor": "#D4AF37",
+      "textColor": "#D4AF37",
+      "cardtext": "#db2325"
     }
   ]
 }

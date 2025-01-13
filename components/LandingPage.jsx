@@ -5,6 +5,7 @@ import ToggleButton from "./ToggleButton";
 import UploadCard from "./UploadCard";
 import Sidebar from "./Sidebar";
 import { media } from "../data/data.json";
+import MySVGIcon from "./Logo";
 
 export default function LandingPage() {
   const [showUploadCard, setShowUploadCard] = useState(false);
@@ -91,11 +92,7 @@ export default function LandingPage() {
         {/* Header Section */}
         <header className="flex justify-between items-center py-8 px-12">
           <div>
-            <img
-              src="/assets/ZTFR.png"
-              alt="ztr-logo"
-              className="max-md:w-[3rem] md:max-2xl:w-[6rem]"
-            />
+          <MySVGIcon currentMedia={currentMedia} />
           </div>
           <div className="flex items-center gap-6">
             <img
@@ -125,7 +122,7 @@ export default function LandingPage() {
           {/* Side Panels */}
           {!showUploadCard && (
             <div onClick={handleToggleClick} className="sidebar-toggle">
-              <ToggleButton />
+              <ToggleButton currentMedia={currentMedia} />
             </div>
           )}
           {showUploadCard && (
@@ -160,9 +157,9 @@ export default function LandingPage() {
           </div>
 
           {/* Sidebar Toggle Button */}
-          <div onClick={handleSidebarToggle} className="sidebar-toggle">
+          <div style={{ backgroundColor: currentMedia.cardColor }} onClick={handleSidebarToggle} className="sidebar-toggle rounded-l-xl">
             {!showUploadCard && (
-              <div className="bg-black text-white flex items-center justify-center w-[28px] h-[150px] md:w-[50px] 2xl:h-[213px] rounded-l-xl cursor-pointer sm:flex">
+              <div className=" text-white flex items-center justify-center w-[28px] h-[150px] md:w-[50px] 2xl:h-[213px] cursor-pointer sm:flex">
                 <img
                   src="/assets/logo.png"
                   alt="logo"
@@ -171,7 +168,7 @@ export default function LandingPage() {
               </div>
             )}
             {showUploadCard && (
-              <div className="bg-black text-white flex items-center justify-center w-[28px] h-[150px] md:w-[50px] 2xl:h-[213px] rounded-l-xl cursor-pointer sm:flex">
+              <div className=" text-white flex items-center justify-center w-[28px] h-[150px] md:w-[50px] 2xl:h-[213px] cursor-pointer sm:flex">
                 <img
                   src="/assets/Path 36196.png"
                   alt="menu"
@@ -183,7 +180,7 @@ export default function LandingPage() {
         </main>
 
         {/* Footer */}
-        <footer className="text-[8px] 2xl:text-[10px] flex justify-between px-12 pb-2 tracking-widest">
+        <footer  style={{ color: currentMedia.textColor }} className="text-[8px] 2xl:text-[10px] flex justify-between px-12 pb-2 tracking-widest">
           <div className="hidden md:block">
             <p>© ZITRANSFER 2023</p>
             <div className="flex gap-4">
@@ -195,6 +192,7 @@ export default function LandingPage() {
             <img
               src="/assets/Path 27216.png"
               alt="lock"
+              style={{ color: currentMedia.textColor }}
               className="md:w-2 md:h-2 2xl:w-3 2xl:h-3"
             />
             <p>
