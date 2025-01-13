@@ -1,100 +1,267 @@
-import React from "react";
+"use client";
 
-function Card() {
+import React, { useState, useEffect } from "react";
+import { FiUpload } from "react-icons/fi";
+
+function Card({ currentMedia }) {
+  const [fileNames, setFileNames] = useState([]);
+  const [position, setPosition] = useState({ x: 100, y: 100 }); // Default position
+  const [dragging, setDragging] = useState(false);
+  const iconColor = currentMedia?.cardColor || "white";
+
+  // Determine default position based on screen size
+  useEffect(() => {
+    const updateDefaultPosition = () => {
+      const width = window.innerWidth;
+
+      if (width >= 1920) {
+        // 2xl screens
+        setPosition({ x: 130, y: 320 });
+      } else if (width >= 1536) {
+        // xl screens
+        setPosition({ x: 110, y: 200 });
+      } else if (width >= 1280) {
+        // xl screens
+        setPosition({ x: 120, y: 120 });
+      } else if (width >= 1024) {
+        // lg screens
+        setPosition({ x: 200, y: 120 });
+      } else {
+        // Mobile screens
+        setPosition({ x: 26, y: 150 });
+      }
+    };
+
+    updateDefaultPosition();
+
+    // Listen for screen size changes (responsive behavior)
+    window.addEventListener("resize", updateDefaultPosition);
+    return () => {
+      window.removeEventListener("resize", updateDefaultPosition);
+    };
+  }, []);
+
+  const handleFileUpload = (event) => {
+    const files = Array.from(event.target.files);
+    const newFiles = files.map((file) => ({
+      name: file.name,
+      size: (file.size / (1024 * 1024)).toFixed(2) + " MB", // Convert size to MB
+      type: file.type || "unknown",
+    }));
+    setFileNames((prevFileNames) => [...prevFileNames, ...newFiles]);
+  };
+
+  const triggerFileInput = () => {
+    const fileInput = document.getElementById("file-upload");
+    if (fileInput) {
+      fileInput.click();
+    }
+  };
+
+  const getLink = () => {
+    console.log("Get Link");
+  };
+
   return (
-    <section
-      className="w-[250px] h-[360px] lg:w-[314px] lg:h-[450px] 3xl:h-[489px] rounded-xl z-70 react-draggable"
+    <div
       style={{
-        color: "rgb(0, 0, 0)",
-        transform: "translate(0px, 0px)",
-        opacity: 1,
+        top: `${position.y}px`,
+        left: `${position.x}px`,
       }}
+      className="w-[240px] md:w-[300px] 2xl:w-[320px] h-[360px] lg:h-[300px] 2xl:h-[489px] fixed cursor-pointer"
     >
-      <div
-        className="w-[250px] h-[360px] lg:w-[314px] lg:h-[450px] 3xl:h-[489px] animate__transition rounded-[20px] absolute top-[50%] left-[150px] lg:left-[240px] translate-x-[-50%] translate-y-[-50%] bg__cut__for__plus"
-        style={{ backgroundColor: "rgb(255, 255, 255)" }}
+      {/* Hidden File Input */}
+      <input
+        id="file-upload"
+        type="file"
+        className="hidden"
+        multiple
+        onChange={handleFileUpload}
+      />
+
+      <section
+        style={{
+          color: currentMedia.cardColor || "white",
+        }}
+        className="absolute translate-y-[1400%] md:translate-y-[1190%] 2xl:translate-y-[1090%] xl:translate-x-[79.5%] 2xl:translate-x-[74.5%] translate-x-[98%]"
       >
-        <div className="absolute top-[9px] lg:top-[26px] no-drag translate-y-[-50%] translate-x-[-50%] left-[220px] lg:left-[285px]">
+        <p className="whitespace-nowrap rotate-90 font-bold text-[5px] md:text-[8px] 2xl:text-[9px] tracking-[1px]">
+          ADVANCED ENCRYPTION STANDARD (AES) 256-BIT
+        </p>
+      </section>
+
+      <section
+        style={{
+          backgroundColor: currentMedia.cardColor || "black",
+          color: currentMedia.cardtext || "white",
+        }}
+        className="ml-[100px] w-[240px] md:w-[200px] 2xl:w-[320px] h-[360px] lg:h-[110px] 2xl:h-[209px] rounded-tr-[20px] fixed cursor-pointer"
+      >
+        <div
+          className="absolute left-[-105px] top-[-2px] cursor-pointer"
+          onClick={triggerFileInput}
+        >
           <svg
-            stroke="currentColor"
-            fill="currentColor"
-            strokeWidth="0"
-            viewBox="0 0 24 24"
-            className="text-[14px] lg:text-[16px] absolute z-[1100] cursor-pointer animate__transition no-drag"
-            height="1em"
-            width="1em"
+            fill={iconColor}
+            className="w-[70px] lg:w-[111px] p-2 animate__transition lg:p-6 cursor-pointer"
+            id="Layer_1"
+            data-name="Layer 1"
             xmlns="http://www.w3.org/2000/svg"
-            style={{ color: "rgb(0, 0, 0)" }}
+            viewBox="0 0 67.56 67.55"
           >
-            <path d="M20 12c0-1.103-.897-2-2-2h-1V7c0-2.757-2.243-5-5-5S7 4.243 7 7v3H6c-1.103 0-2 .897-2 2v8c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-8zM9 7c0-1.654 1.346-3 3-3s3 1.346 3 3v3H9V7z"></path>
+            <path
+              id="Path_27378"
+              data-name="Path 27378"
+              d="M67.56,30.02h-30.02V0h-7.51V30.02H0v7.51H30.02v30.02h7.51v-30.02h30.02v-7.51Z"
+            ></path>
           </svg>
         </div>
 
-        <div className="absolute top-[125px] lg:top-[200px] pl-8 translate-y-[-50%] overflow-y-scroll scrollbar-hide overflow-x-hidden w-[95%] no-drag">
-          <div className="h-[70px] lg:h-[110px] space-y-1">
-            {/* Add your content here */}
+        <div className="pl-2 pt-2 no-drag tracking-[3px]">
+          <div className="flex justify-between w-[200px] 2xl:w-[210px] text-[14px] uppercase">
+            <p className="text-[10px] md:text-[13px] 2xl:text-[15px] font-light">
+              Upload file
+            </p>
+            <img
+              src="/assets/lock-icon.png"
+              alt="lock"
+              className="md:w-9 pr-12 md:pr-5"
+            />
+          </div>
+          <p className="text-[22px] md:text-[40px] leading-[3.8rem] tracking-[4px]">
+            OR
+          </p>
+          <div className="absolute right-12 md:right-[1rem] 2xl:right-5 text-[10px] md:text-[13px] 2xl:text-[15px] font-light leading-[28px]">
+            SELECT A FOLDER
           </div>
         </div>
+      </section>
 
-        <div className="mt-[190px] lg:mt-[270px] 3xl:mt-[300px] flex flex-col gap-y-6">
-          {/* TITLE Input Field */}
-          <div className="pl-8 relative animate__transition pr-4">
+      <section
+        style={{
+          backgroundColor: currentMedia.cardColor || "black",
+          color: currentMedia.cardtext || "white",
+        }}
+        className=" mt-[110px] w-[240px] md:w-[300px] h-[360px] 2xl:w-[320px] lg:h-[300px] 2xl:h-[489px] rounded-b-[20px] fixed cursor-pointer"
+      >
+        {/* Scrollable Section to Display File Names */}
+        <section>
+          {fileNames.length > 0 ? (
+            <div
+              className="absolute 2xl:top-[200px] pl-8 mt-2 w-[95%] no-drag scrollbar-hide tracking-[2px] 
+                    h-[90px] 2xl:h-[120px] overflow-y-scroll"
+            >
+              {fileNames.map((file, index) => (
+                <div key={index} className="flex flex-col text-sm mb-1">
+                  {/* File Icon */}
+                  <div className="flex items-center leading-3">
+                    {file.type.includes("zip") ? (
+                      <span className="text-black pr-3">📁</span>
+                    ) : (
+                      <span></span>
+                    )}
+                    {/* File Name */}
+                    <p className="text-[10px]">{file.name}</p>
+                  </div>
+
+                  {/* File Details */}
+                  <div className="flex items-center gap-4 opacity-70">
+                    <p className="text-[10px]">
+                      {file.size} -{" "}
+                      <span className="uppercase text-[10px]">{file.type}</span>
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="absolute right-[-2.3rem] md:right-[-4.7rem] 2xl:right-[-5.4rem] top-[3%] 2xl:top-[27%] tracking-wider">
+              <div className="flex text-[18px] md:text-[36px] 2xl:text-[40px]">
+                <p>
+                  UP TO{" "}
+                  <span
+                    style={{
+                      color: currentMedia.cardColor || "white",
+                    }}
+                    className="text-black ml-1 md:ml-5 2xl:ml-5"
+                  >
+                    1TB
+                  </span>
+                </p>
+              </div>
+              <div className="absolute right-12 md:right-24 2xl:right-[6.4rem] text-[10px] md:text-[18px] 2xl:text-[20px] mt-[3px] 2xl:mt-[0px] tracking-[2px]">
+                <span>FREE</span>
+              </div>
+            </div>
+          )}
+        </section>
+
+        {/* Input Fields */}
+        <div className="mt-[200px] lg:mt-[120px] 2xl:mt-[300px] flex flex-col gap-y-6 tracking-widest">
+          {/* Title Input */}
+          <div className="pl-8 relative pr-6">
             <input
               type="text"
               id="title"
               placeholder="TITLE"
-              className="language_tracking peer w-full h-8 text-[10px] lg:text-[12px] bg-transparent focus:outline-none border-b-2 placeholder-transparent no-drag"
-              style={{ borderColor: "rgb(0, 0, 0)" }}
+              className="peer w-full h-8 text-[10px] lg:text-[12px] bg-transparent focus:outline-none placeholder-transparent no-drag"
+              style={{
+                borderBottom: `2px solid ${currentMedia.cardtext || "white"}`,
+              }}
             />
+
             <label
               htmlFor="title"
-              className="opacity-50 absolute left-8 -top-5 input_text_size transition-all peer-placeholder-shown:opacity-100 peer-placeholder-shown:top-[0.4rem] peer-placeholder-shown:input_text_size peer-focus:-top-5 peer-focus:opacity-50 peer-focus:input_text_size"
+              className="opacity-50 absolute left-8 -top-5 text-[10px] lg:text-[12px] transition-all peer-placeholder-shown:opacity-100 peer-placeholder-shown:top-[0.4rem] peer-focus:-top-5 peer-focus:opacity-50"
             >
               TITLE
             </label>
-            <span className="absolute top-1/2 -translate-y-1/2 right-4 text-[9px] opacity-50">
-              0/30
-            </span>
           </div>
 
-          {/* NOTE Textarea Field */}
-          <div className="pl-8 relative animate__transition pr-4">
+          {/* Note Input */}
+          <div className="pl-8 relative pr-6">
             <textarea
+              style={{
+                borderBottom: `2px solid ${currentMedia.cardtext || "white"}`,
+              }}
               id="note"
               placeholder="NOTE"
-              className="language_tracking peer cursor-default h-14 lg:h-16 w-full bg-transparent resize-none placeholder-transparent focus:outline-none border-b-2 text-[10px] lg:text-[12px] no-drag scrollbar-hide overflow-y-auto"
-              style={{ borderColor: "rgb(0, 0, 0)" }}
-            />
+              className="peer h-14 lg:h-16 w-full bg-transparent resize-none placeholder-transparent focus:outline-none border-b-2 text-[10px] lg:text-[12px] no-drag scrollbar-hide overflow-y-auto"
+            ></textarea>
             <label
               htmlFor="note"
-              className="opacity-50 absolute left-8 -top-5 input_text_size transition-all peer-placeholder-shown:opacity-100 peer-placeholder-shown:top-2 peer-placeholder-shown:input_text_size peer-focus:-top-5 peer-focus:opacity-50 peer-focus:input_text_size"
+              className="opacity-50 absolute left-8 -top-5 text-[10px] lg:text-[12px] transition-all peer-placeholder-shown:opacity-100 peer-placeholder-shown:top-[0.4rem] peer-focus:-top-5 peer-focus:opacity-50"
             >
               NOTE
             </label>
           </div>
-
-          <div className="relative flex items-center justify-center cursor-pointer">
-            <button className="absolute left-[220px] lg:left-[285px] top-4 no-drag">
-              <svg
-                stroke="currentColor"
-                fill="currentColor"
-                strokeWidth="0"
-                viewBox="0 0 24 24"
-                className="text-[30px] mr-4 animate__transition"
-                height="1em"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path fill="none" d="M0 0h24v24H0z"></path>
-                <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path>
-              </svg>
-            </button>
-          </div>
         </div>
-      </div>
-    </section>
+
+        {/* Bottom Button */}
+        <div className="relative flex justify-center items-center cursor-pointer">
+          {fileNames.length > 0 && (
+            <div className=" flex gap-3 items-center mt-3">
+              <FiUpload className="text-xl 2xl:text-2xl" />
+
+              <button
+                className="text-[17px] 2xl:text-[20px] uppercase tracking-[2px]"
+                onClick={getLink}
+              >
+                Get Link
+              </button>
+            </div>
+          )}
+          <button className="absolute right-6 2xl:left-[285px] top-4 no-drag">
+            <img
+              src="/assets/Group 5526.png"
+              alt=""
+              className="w-[5px] lg:max-2xl:w-[5px]"
+            />
+          </button>
+        </div>
+      </section>
+    </div>
   );
 }
 
 export default Card;
-
