@@ -7,7 +7,6 @@ import Sidebar from "./Sidebar";
 import { media } from "../data/data.json";
 import MySVGIcon from "./Logo";
 import UserIcon from "./User";
-import MyComponent from "./Card";
 
 export default function LandingPage() {
   const [showUploadCard, setShowUploadCard] = useState(false);
@@ -131,8 +130,7 @@ export default function LandingPage() {
           {showUploadCard && (
             <div ref={uploadCardRef}>
               <p className="md:hidden text-[1px]">t</p>
-              {/* <UploadCard /> */}
-              <MyComponent />
+              <UploadCard />
             </div>
           )}
 
