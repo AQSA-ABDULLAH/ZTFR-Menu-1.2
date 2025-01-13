@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import ToggleButton from "./ToggleButton";
 import UploadCard from "./UploadCard";
 import Sidebar from "./Sidebar";
-import { media } from '../data/data.json';
+import { media } from "../data/data.json";
 
 export default function LandingPage() {
   const [showUploadCard, setShowUploadCard] = useState(false);
@@ -12,8 +12,6 @@ export default function LandingPage() {
   const uploadCardRef = useRef(null);
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  
-  
 
   const handleToggleClick = () => {
     setShowUploadCard(!showUploadCard);
@@ -56,7 +54,7 @@ export default function LandingPage() {
     <div className="flex flex-col h-screen justify-between font-sans">
       <section className="relative h-screen flex flex-col justify-between transition-colors duration-1000 bg-center bg-cover">
         {/* Background Media */}
-        {currentMedia.type === "image" ? (
+        {currentMedia.type === "image" && currentMedia.src ? (
           <div
             style={{
               backgroundImage: `url(${currentMedia.src})`,
@@ -70,7 +68,7 @@ export default function LandingPage() {
               backgroundPosition: "center",
             }}
           ></div>
-        ) : (
+        ) : currentMedia.type === "video" && currentMedia.src ? (
           <video
             id="advert-video"
             autoPlay
@@ -81,6 +79,13 @@ export default function LandingPage() {
             className="object-cover w-full h-full bg-black absolute top-0 left-0 z-[-1]"
             src={currentMedia.src}
           ></video>
+        ) : (
+          <div
+            style={{
+              backgroundColor: currentMedia.backgroundColor || "#FF0000", // Fallback color
+            }}
+            className="absolute top-0 left-0 right-0 bottom-0 z-[-1]"
+          ></div>
         )}
 
         {/* Header Section */}
@@ -134,29 +139,20 @@ export default function LandingPage() {
           <div className="flex-1 flex flex-col justify-items-end justify-center tracking-wider">
             <div className="md:justify-items-end justify-items-center">
               <h1
-                className={`text-[16px] md:text-[42px] desktop:text-[62px] pr-6 tracking-[3px] md:tracking-[12px] leading-3 ${
-                  currentMedia.textColor
-                    ? `text-[${currentMedia.textColor}]`
-                    : "text-black"
-                }`}
+                style={{ color: currentMedia.textColor }}
+                className="text-[16px] md:text-[42px] desktop:text-[62px] pr-6 tracking-[3px] md:tracking-[12px] leading-3"
               >
                 LET'S DO
               </h1>
               <h2
-                className={`text-[50px] md:text-[100px] desktop:text-[190px] tracking-[10px] md:tracking-[32px] ${
-                  currentMedia.textColor
-                    ? `text-[${currentMedia.textColor}]`
-                    : "text-black"
-                }`}
+                style={{ color: currentMedia.textColor }}
+                className="text-[50px] md:text-[100px] desktop:text-[190px] tracking-[10px] md:tracking-[32px]"
               >
                 THIS
               </h2>
               <p
-                className={`text-[7px] max-md:w-[76%] text-center md:text-[10px] desktop:text-[12px] tracking-[2px] ${
-                  currentMedia.textColor
-                    ? `text-[${currentMedia.textColor}]`
-                    : "text-black"
-                }`}
+                style={{ color: currentMedia.textColor }}
+                className="text-[7px] max-md:w-[76%] text-center md:text-[10px] desktop:text-[12px] tracking-[2px]"
               >
                 UPLOAD FILES OR FOLDERS BY DROPPING THEM ANYWHERE IN THIS WINDOW
               </p>
