@@ -131,7 +131,7 @@ export default function LandingPage() {
           {showUploadCard && (
             <div ref={uploadCardRef}>
               <p className="md:hidden text-[1px]">t</p>
-              <UploadCard />
+              <UploadCard currentMedia={currentMedia} />
               {/* <Card /> */}
             </div>
           )}

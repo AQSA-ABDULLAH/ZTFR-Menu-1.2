@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { FiUpload } from "react-icons/fi";
 
-export default function UploadCard() {
+export default function UploadCard({ currentMedia }) {
   const [fileNames, setFileNames] = useState([]);
   const [position, setPosition] = useState({ x: 100, y: 100 }); // Default position
   const [dragging, setDragging] = useState(false);
@@ -97,13 +97,16 @@ export default function UploadCard() {
 
   return (
     <div
-      className="bg-white text-black w-[240px] md:w-[300px] h-[360px] 2xl:w-[320px] lg:h-[420px] 2xl:h-[489px] rounded-[20px] fixed cursor-pointer"
-      style={{
-        top: `${position.y}px`,
-        left: `${position.x}px`,
-      }}
-      onMouseDown={handleMouseDown}
-    >
+    style={{
+      backgroundColor: currentMedia.cardColor || "black",
+      color: currentMedia.cardtext || "white",
+      top: `${position.y}px`,
+      left: `${position.x}px`,
+    }}
+    className="bg-white text-black w-[240px] md:w-[300px] h-[360px] 2xl:w-[320px] lg:h-[420px] 2xl:h-[489px] rounded-[20px] fixed cursor-pointer"
+    onMouseDown={handleMouseDown}
+  >
+  
       {/* Top Icon */}
       <div
         className="absolute  no-drag p-3 xl:px-5 xl:py-5 left-[-2px] top-[-2px] cursor-pointer"
