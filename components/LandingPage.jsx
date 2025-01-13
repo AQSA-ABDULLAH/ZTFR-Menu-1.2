@@ -6,6 +6,7 @@ import UploadCard from "./UploadCard";
 import Sidebar from "./Sidebar";
 import { media } from "../data/data.json";
 import MySVGIcon from "./Logo";
+import UserIcon from "./User";
 
 export default function LandingPage() {
   const [showUploadCard, setShowUploadCard] = useState(false);
@@ -95,11 +96,12 @@ export default function LandingPage() {
           <MySVGIcon currentMedia={currentMedia} />
           </div>
           <div className="flex items-center gap-6">
-            <img
+            {/* <img
               src="/assets/user-icon.png"
               alt="user icon"
               className="max-md:w-[0.9rem] md:max-2xl:w-[1rem]"
-            />
+            /> */}
+            <UserIcon currentMedia={currentMedia} />
             <img
               src="/assets/uk-flag.png"
               alt="UK Flag"

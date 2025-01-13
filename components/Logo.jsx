@@ -7,7 +7,7 @@ const MySVGIcon = ({ currentMedia, size = "max-md:w-[3rem] md:max-2xl:w-[6rem]" 
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 135.16 45.92"
-      className={`animate__transition z-40 cursor-pointer ${size}`}
+      className={`z-40 cursor-pointer ${size}`}
     >
       <path
         d="M34.01,0V1.14c0,.45-.15,.9-.45,1.33L4.41,43.16h29.34v2.76H0v-1.2c0-.41,.13-.8,.39-1.17L29.6,2.76H.84V0H34.01Z"
