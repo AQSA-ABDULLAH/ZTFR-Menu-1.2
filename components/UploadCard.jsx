@@ -106,19 +106,14 @@ export default function UploadCard() {
     >
       {/* Top Icon */}
       <div
-        className="absolute no-drag p-3 xl:px-5 xl:py-5 left-[-2px] top-[-2px] cursor-pointer"
+        className="absolute  no-drag p-3 xl:px-5 xl:py-5 left-[-2px] top-[-2px] cursor-pointer"
         onClick={triggerFileInput}
       >
-         <svg
-      className="w-[70px] lg:w-[111px] p-2 lg:p-6 animate__transition cursor-pointer"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 67.56 67.55"
-    >
-      <path
-        d="M67.56,30.02h-30.02V0h-7.51V30.02H0v7.51H30.02v30.02h7.51v-30.02h30.02v-7.51Z"
-      />
-    </svg>
-
+        <img
+          src="/assets/Path 27378.png"
+          alt="add-icon"
+          className="max-2xl:w-14"
+        />
       </div>
       {/* Hidden File Input */}
       <input
@@ -163,7 +158,7 @@ export default function UploadCard() {
             {fileNames.map((file, index) => (
               <div
                 key={index}
-                className="flex flex-col text-sm text-white mb-1"
+                className="flex flex-col text-sm mb-1"
               >
                 {/* File Icon */}
                 <div className="flex items-center leading-3">
