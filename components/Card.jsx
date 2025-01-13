@@ -252,11 +252,16 @@ function Card({ currentMedia }) {
             </div>
           )}
           <button className="absolute right-6 2xl:left-[285px] top-4 no-drag">
-            <img
-              src="/assets/Group 5526.png"
-              alt=""
-              className="w-[5px] lg:max-2xl:w-[5px]"
-            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill={currentMedia?.cardtext || "white"}
+              className="w-6 h-6"
+            >
+              <circle cx="12" cy="4" r="2" />
+              <circle cx="12" cy="12" r="2" />
+              <circle cx="12" cy="20" r="2" />
+            </svg>
           </button>
         </div>
       </section>
