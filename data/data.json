@@ -1,8 +1,16 @@
 {
   "media": [
     {
+      "type": "video",
+      "src": "https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/advertVideos%2FZG%20-%20The%20new%20MacBook%20Pro%20Apple.mp4?alt=media&token=b0f965f2-1ebd-4043-a11f-2c0cdf1a1dc3",
+      "backgroundColor": "#000000",
+      "cardColor": "#FFFFFF",
+      "textColor": "#FFFFFF",
+      "cardtext": "#FFFFFF"
+    },
+    {
       "type": "image",
-      "src": "https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fhomepageimages%2F97.png?alt=media&token=ec71934e-3d6d-41c7-b6bf-0a83edca9d30&quot",
+      "src": "https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fhomepageimages%2F97.png?alt=media&token=ec71934e-3d6d-41c7-b6bf-0a83edca9d30",
       "backgroundColor": "#000000",
       "cardColor": "#FFFFFF",
       "textColor": "#FFFFFF",
@@ -15,6 +23,14 @@
       "cardColor": "#FFFFFF",
       "textColor": "#FFFFFF",
       "cardtext": "#FFFFFF"
+    },
+    {
+      "type": "image",
+      "src": "https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fhomepageimages%2F123.png?alt=media&token=c6478d3b-f77d-4815-a404-ca7a0bbbec74",
+      "backgroundColor": "#333", 
+      "cardColor": "#D4AF37",
+      "textColor": "#D4AF37",
+      "cardtext": "#33474b"
     },
     {
       "backgroundColor": "#db2325",
