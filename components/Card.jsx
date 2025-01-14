@@ -22,7 +22,7 @@ function Card({ currentMedia }) {
         setPosition({ x: 110, y: 200 });
       } else if (width >= 1280) {
         // xl screens
-        setPosition({ x: 120, y: 120 });
+        setPosition({ x: 90, y: 120 });
       } else if (width >= 1024) {
         // lg screens
         setPosition({ x: 200, y: 120 });
@@ -62,6 +62,42 @@ function Card({ currentMedia }) {
     console.log("Get Link");
   };
 
+  const handleMouseDown = (e) => {
+    setDragging(true);
+    setPosition((prevPosition) => ({
+      ...prevPosition,
+      startX: e.clientX - prevPosition.x,
+      startY: e.clientY - prevPosition.y,
+    }));
+  };
+
+  const handleMouseMove = (e) => {
+      if (!dragging) return;
+      setPosition({
+        x: e.clientX - position.startX,
+        y: e.clientY - position.startY,
+      });
+    };
+  
+    const handleMouseUp = () => {
+      setDragging(false);
+    };
+  
+    useEffect(() => {
+      if (dragging) {
+        document.addEventListener("mousemove", handleMouseMove);
+        document.addEventListener("mouseup", handleMouseUp);
+      } else {
+        document.removeEventListener("mousemove", handleMouseMove);
+        document.removeEventListener("mouseup", handleMouseUp);
+      }
+  
+      return () => {
+        document.removeEventListener("mousemove", handleMouseMove);
+        document.removeEventListener("mouseup", handleMouseUp);
+      };
+    }, [dragging]);
+
   return (
     <div
       style={{
@@ -69,6 +105,7 @@ function Card({ currentMedia }) {
         left: `${position.x}px`,
       }}
       className="w-[240px] md:w-[300px] 2xl:w-[320px] h-[360px] lg:h-[300px] 2xl:h-[489px] fixed cursor-pointer"
+      onMouseDown={handleMouseDown}
     >
       {/* Hidden File Input */}
       <input
@@ -149,7 +186,7 @@ function Card({ currentMedia }) {
           backgroundColor: currentMedia.cardColor || "black",
           color: currentMedia.cardtext || "white",
         }}
-        className=" 2xl:mt-[120px] md:mt-[110px] w-[240px] md:w-[300px] h-[360px] 2xl:w-[320px] lg:h-[300px] 2xl:h-[360px] rounded-b-[20px] fixed cursor-pointer"
+        className=" 2xl:mt-[120px] md:mt-[110px] w-[240px] md:w-[300px] 2xl:w-[320px] h-[360px] lg:h-[320px] 2xl:h-[360px] rounded-b-[20px] fixed cursor-pointer"
       >
         {/* Scrollable Section to Display File Names */}
         <section>
@@ -204,7 +241,7 @@ function Card({ currentMedia }) {
         </section>
 
         {/* Input Fields */}
-        <div className="mt-[200px] lg:mt-[120px] 2xl:mt-[170px] flex flex-col gap-y-6 tracking-widest">
+        <div className="mt-[200px] lg:mt-[140px] 2xl:mt-[170px] flex flex-col gap-y-6 tracking-widest">
           {/* Title Input */}
           <div className="pl-8 relative pr-6">
             <input
