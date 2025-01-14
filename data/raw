@@ -111,14 +111,7 @@ opacity: 1; background-color: rgb(255, 255, 255); background-image: url(&quot;ht
 
 
 
-    {
-      "type": "video",
-      "src": "https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/advertVideos%2FZG%20-%20The%20new%20MacBook%20Pro%20Apple.mp4?alt=media&token=b0f965f2-1ebd-4043-a11f-2c0cdf1a1dc3",
-      "backgroundColor": "#000000",
-      "cardColor": "#FFFFFF",
-      "textColor": "#000000",
-      "cardtext": "#FFFFFF"
-    },
+  
     {
       "type": "image",
       "src": "https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fhomepageimages%2F97.png?alt=media&token=ec71934e-3d6d-41c7-b6bf-0a83edca9d30",
