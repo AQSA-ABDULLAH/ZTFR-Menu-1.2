@@ -20,7 +20,7 @@ export default function UploadCard({ currentMedia }) {
       } else if (width >= 1536) {
         // xl screens
         setPosition({ x: 110, y: 200 });
-      }else if (width >= 1280) {
+      } else if (width >= 1280) {
         // xl screens
         setPosition({ x: 120, y: 120 });
       } else if (width >= 1024) {
@@ -97,16 +97,15 @@ export default function UploadCard({ currentMedia }) {
 
   return (
     <div
-    style={{
-      backgroundColor: currentMedia.cardColor || "black",
-      color: currentMedia.cardtext || "white",
-      top: `${position.y}px`,
-      left: `${position.x}px`,
-    }}
-    className="bg-white text-black w-[240px] md:w-[300px] h-[360px] 2xl:w-[320px] lg:h-[420px] 2xl:h-[489px] rounded-[20px] fixed cursor-pointer"
-    onMouseDown={handleMouseDown}
-  >
-  
+      style={{
+        backgroundColor: currentMedia.cardColor || "black",
+        color: currentMedia.cardtext || "white",
+        top: `${position.y}px`,
+        left: `${position.x}px`,
+      }}
+      className="bg-white text-black w-[240px] md:w-[300px] h-[360px] 2xl:w-[320px] lg:h-[420px] 2xl:h-[489px] rounded-[20px] fixed cursor-pointer"
+      onMouseDown={handleMouseDown}
+    >
       {/* Top Icon */}
       <div
         className="absolute  no-drag p-3 xl:px-5 xl:py-5 left-[-2px] top-[-2px] cursor-pointer"
@@ -138,7 +137,9 @@ export default function UploadCard({ currentMedia }) {
             className="md:w-9 pr-12 md:pr-5"
           />
         </div>
-        <p className="text-[22px] md:text-[40px] leading-[3.8rem] tracking-[4px]">OR</p>
+        <p className="text-[22px] md:text-[40px] leading-[3.8rem] tracking-[4px]">
+          OR
+        </p>
         <div className="absolute right-12 md:right-[1.4rem] 2xl:right-5 text-[10px] md:text-[13px] 2xl:text-[15px] font-light leading-[28px]">
           SELECT A FOLDER
         </div>
@@ -153,16 +154,12 @@ export default function UploadCard({ currentMedia }) {
       {/* Scrollable Section to Display File Names */}
       <section>
         {fileNames.length > 0 ? (
-         <div
-         className="absolute top-[125px] lg:top-[180px] 2xl:top-[200px] pl-8 translate-y-[-50%] w-[95%] no-drag scrollbar-hide tracking-[2px] 
+          <div
+            className="absolute top-[125px] lg:top-[180px] 2xl:top-[200px] pl-8 translate-y-[-50%] w-[95%] no-drag scrollbar-hide tracking-[2px] 
                     h-[90px] 2xl:h-[120px] overflow-y-scroll"
-       >
-       
+          >
             {fileNames.map((file, index) => (
-              <div
-                key={index}
-                className="flex flex-col text-sm mb-1"
-              >
+              <div key={index} className="flex flex-col text-sm mb-1">
                 {/* File Icon */}
                 <div className="flex items-center leading-3">
                   {file.type.includes("zip") ? (
@@ -176,7 +173,10 @@ export default function UploadCard({ currentMedia }) {
 
                 {/* File Details */}
                 <div className="flex items-center gap-4 opacity-70">
-                  <p className="text-[10px]">{file.size} - <span className="uppercase text-[10px]">{file.type}</span></p>
+                  <p className="text-[10px]">
+                    {file.size} -{" "}
+                    <span className="uppercase text-[10px]">{file.type}</span>
+                  </p>
                 </div>
               </div>
             ))}

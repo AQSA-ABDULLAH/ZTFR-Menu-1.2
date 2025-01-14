@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { media } from "../data/data.json";
 import "../app/globals.css";
 
 function Sidebar({ isSidebarOpen, onClose }) {
@@ -189,7 +190,7 @@ function Sidebar({ isSidebarOpen, onClose }) {
 
       {/* Carousel section */}
       <div className="flex-grow pt-16 md:pt-3 2xl:pt-[32px]">
-        <Slider {...carouselSettings}>
+        {/* <Slider {...carouselSettings}>
           {[
             "/assets/Group 6408.png",
             "/assets/Group 6407.png",
@@ -206,6 +207,25 @@ function Sidebar({ isSidebarOpen, onClose }) {
               />
             </div>
           ))}
+        </Slider> */}
+        <Slider {...carouselSettings}>
+          {media
+            ?.filter((item) => item.type === "image")
+            .map((item, index) => (
+              <div
+                key={index}
+                className="px-4" // Add horizontal padding (gap) between slides
+              >
+                <img
+                  src={item.src}
+                  alt={`slider-image-${index}`}
+                  className="max-md:w-24 max-md:h-24 md:h-28 2xl:w-36 2xl:h-36 desktop:w-52 desktop:h-52 rounded-[8px]"
+                  style={{
+                    backgroundColor: item.backgroundColor || "transparent",
+                  }}
+                />
+              </div>
+            ))}
         </Slider>
       </div>
 
@@ -230,5 +250,3 @@ function Sidebar({ isSidebarOpen, onClose }) {
 }
 
 export default Sidebar;
-
-

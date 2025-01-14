@@ -1,4 +1,15 @@
 
+    {
+      "type": "image",
+      "src": "",
+      "backgroundColor": "#000000",
+      "cardColor": "#000000",
+      "textColor": "#000000",
+      "cardtext": "#000000"
+    },
+
+  
+  
 
 
 
@@ -6,14 +17,9 @@
 
 
 
-style="opacity: 1; background-color: rgb(28, 52, 76); background-image: url(&quot;https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fhomepageimages%2F109.png?alt=media&token=970cfef2-9f98-427d-be39-626241393809&quot;);"
 
 
 
-style="opacity: 1; background-color: rgb(26, 41, 46); background-image: url(&quot;https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fhomepageimages%2F62.png?alt=media&token=11176d4d-7f21-4d4e-997c-f8e743c5ac04&quot;);"
-
-
-style="opacity: 1; background-color: rgb(255, 255, 255); background-image: url(&quot;https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fhomepageimages%2F57.png?alt=media&token=a9303de6-07e4-430c-ab77-a427bba78537&quot;);"
 
 
 style="opacity: 1; background-color: rgb(255, 255, 255); background-image: url(&quot;https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fhomepageimages%2F19.png?alt=media&token=1cfda956-5414-46ce-9621-eaf9f1a1797b&quot;);"
@@ -105,12 +111,10 @@ opacity: 1; background-color: rgb(255, 255, 255); background-image: url(&quot;ht
 
 
 
+opacity: 1; background-color: rgb(248, 215, 184); background-image: url(&quot;https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fhomepageimages%2F24.png?alt=media&token=2b3d7e76-3906-46f3-8865-8b353806fdc6&quot;);
 
 
-
-
-
-
+style="opacity: 1; background-color: rgb(220, 164, 1); background-image: url(&quot;https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fhomepageimages%2F35.png?alt=media&token=a0b6d6c4-7db0-473e-8350-2c17084e4b22&quot;);"
   
     {
       "type": "image",
