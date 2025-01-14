@@ -94,7 +94,7 @@ export default function LandingPage() {
         {/* Header Section */}
         <header className="flex justify-between items-center py-8 px-12">
           <div>
-          <MySVGIcon currentMedia={currentMedia} />
+            <MySVGIcon currentMedia={currentMedia} />
           </div>
           <div className="flex items-center gap-6">
             {/* <img
@@ -161,7 +161,11 @@ export default function LandingPage() {
           </div>
 
           {/* Sidebar Toggle Button */}
-          <div style={{ backgroundColor: currentMedia.cardColor }} onClick={handleSidebarToggle} className="sidebar-toggle rounded-l-xl">
+          <div
+            style={{ backgroundColor: currentMedia.cardColor }}
+            onClick={handleSidebarToggle}
+            className="sidebar-toggle rounded-l-xl"
+          >
             {!showUploadCard && (
               <div className=" text-white flex items-center justify-center w-[28px] h-[150px] md:w-[50px] 2xl:h-[213px] cursor-pointer sm:flex">
                 <img
@@ -184,7 +188,10 @@ export default function LandingPage() {
         </main>
 
         {/* Footer */}
-        <footer  style={{ color: currentMedia.textColor }} className="text-[8px] 2xl:text-[10px] flex justify-between px-12 pb-2 tracking-widest">
+        <footer
+          style={{ color: currentMedia.textColor }}
+          className="text-[8px] 2xl:text-[10px] flex justify-between px-12 pb-2 tracking-widest"
+        >
           <div className="hidden md:block">
             <p>© ZITRANSFER 2023</p>
             <div className="flex gap-4">
@@ -193,12 +200,25 @@ export default function LandingPage() {
             </div>
           </div>
           <div className="max-md:text-center max-md:pb-4 flex gap-1 items-center">
-            <img
+            {/* <img
               src="/assets/Path 27216.png"
               alt="lock"
               style={{ color: currentMedia.textColor }}
               className="md:w-2 md:h-2 2xl:w-3 2xl:h-3"
-            />
+            /> */}
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill={currentMedia?.textColor || "white"}
+              className="md:w-2 md:h-2 2xl:w-3 2xl:h-3"
+            >
+              <path
+                fillRule="evenodd"
+                d="M12 2a5 5 0 00-5 5v4H6a2 2 0 00-2 2v7a2 2 0 002 2h12a2 2 0 002-2v-7a2 2 0 00-2-2h-1V7a5 5 0 00-5-5zm3 9V7a3 3 0 10-6 0v4h6zm-4 5a1 1 0 112 0v2a1 1 0 11-2 0v-2z"
+                clipRule="evenodd"
+              />
+            </svg>
             <p>
               ZITRANSFER USER ADVANCE ENCRYPTION STANDARD (AES) 256-BIT TO
               PROTECT THE CONFIDENTIALITY OF THE DATA YOU UPLOAD

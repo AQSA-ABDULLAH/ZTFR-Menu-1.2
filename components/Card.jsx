@@ -122,11 +122,18 @@ function Card({ currentMedia }) {
             <p className="text-[10px] md:text-[13px] 2xl:text-[15px] font-light">
               Upload file
             </p>
-            <img
-              src="/assets/lock-icon.png"
-              alt="lock"
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
               className="md:w-9 pr-12 md:pr-5"
-            />
+            >
+              <path
+                fillRule="evenodd"
+                d="M12 2a5 5 0 00-5 5v4H6a2 2 0 00-2 2v7a2 2 0 002 2h12a2 2 0 002-2v-7a2 2 0 00-2-2h-1V7a5 5 0 00-5-5zm3 9V7a3 3 0 10-6 0v4h6zm-4 5a1 1 0 112 0v2a1 1 0 11-2 0v-2z"
+                clipRule="evenodd"
+              />
+            </svg>
           </div>
           <p className="text-[22px] md:text-[40px] leading-[3.8rem] tracking-[4px]">
             OR
