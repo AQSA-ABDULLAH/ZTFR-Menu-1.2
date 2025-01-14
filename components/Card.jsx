@@ -132,7 +132,7 @@ function Card({ currentMedia }) {
           backgroundColor: currentMedia.cardColor || "black",
           color: currentMedia.cardtext || "white",
         }}
-        className="ml-[100px] w-[240px] md:w-[200px] 2xl:w-[220px] h-[360px] lg:h-[110px] 2xl:h-[130px] rounded-tr-[20px] fixed cursor-pointer"
+        className="ml-[100px] w-[150px] md:w-[200px] 2xl:w-[220px] h-[80px] lg:h-[110px] 2xl:h-[130px] rounded-tr-[20px] fixed cursor-pointer"
       >
         <div
           className="absolute left-[-105px] top-[-2px] cursor-pointer"
@@ -163,7 +163,7 @@ function Card({ currentMedia }) {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="md:w-9 pr-12 md:pr-5"
+              className="w-9 md:pr-5"
             >
               <path
                 fillRule="evenodd"
@@ -186,7 +186,7 @@ function Card({ currentMedia }) {
           backgroundColor: currentMedia.cardColor || "black",
           color: currentMedia.cardtext || "white",
         }}
-        className=" 2xl:mt-[120px] md:mt-[110px] w-[240px] md:w-[300px] 2xl:w-[320px] h-[360px] lg:h-[320px] 2xl:h-[360px] rounded-b-[20px] fixed cursor-pointer"
+        className="mt-[90px] 2xl:mt-[120px] md:mt-[110px] w-[240px] md:w-[300px] 2xl:w-[320px] h-[360px] lg:h-[320px] 2xl:h-[360px] rounded-b-[20px] fixed cursor-pointer"
       >
         {/* Scrollable Section to Display File Names */}
         <section>
