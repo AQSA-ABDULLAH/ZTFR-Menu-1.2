@@ -133,6 +133,7 @@ function Sidebar({ isSidebarOpen, onClose, setActiveMedia }) {
                       style={{
                         backgroundColor: item.backgroundColor || "transparent",
                       }}
+                      onClick={() => handleImageClick(item)}
                     />
                   </div>
                 ))}
@@ -195,24 +196,23 @@ function Sidebar({ isSidebarOpen, onClose, setActiveMedia }) {
 
       {/* Carousel section */}
       <div className="flex-grow pt-16 md:pt-5 2xl:pt-[40px]">
-      <Slider {...carouselSettings}>
-      {media
-        ?.filter((item) => item.type === "image")
-        .map((item, index) => (
-          <div key={index} className="px-4">
-            <img
-              src={item.src}
-              alt={`slider-image-${index}`}
-              className="max-md:w-24 max-md:h-24 md:w-28 md:h-24 2xl:w-36 2xl:h-36 desktop:w-56 desktop:h-44 rounded-[8px]"
-              style={{
-                backgroundColor: item.backgroundColor || "transparent",
-              }}
-              onClick={() => handleImageClick(item)} // Set the clicked image as the active one
-            />
-          </div>
-        ))}
-    </Slider>
-
+        <Slider {...carouselSettings}>
+          {media
+            ?.filter((item) => item.type === "image")
+            .map((item, index) => (
+              <div key={index} className="px-4">
+                <img
+                  src={item.src}
+                  alt={`slider-image-${index}`}
+                  className="max-md:w-24 max-md:h-24 md:w-28 md:h-24 2xl:w-36 2xl:h-36 desktop:w-56 desktop:h-44 rounded-[8px]"
+                  style={{
+                    backgroundColor: item.backgroundColor || "transparent",
+                  }}
+                  onClick={() => handleImageClick(item)} // Set the clicked image as the active one
+                />
+              </div>
+            ))}
+        </Slider>
       </div>
 
       {/* Footer section */}

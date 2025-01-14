@@ -1,6 +1,30 @@
 {
   "media": [
     {
+      "type": "video",
+      "src": "https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/advertVideos%2FBL%C3%85VINGAD%20%E2%80%93%20a%20new%20ocean-inspired%20kids%E2%80%99%20collection.mp4?alt=media&token=f65f0904-8881-48cd-94ac-a6205b0677b6",
+      "backgroundColor": "#000000",
+      "cardColor": "#FFFFFF",
+      "textColor": "#FFFFFF",
+      "cardtext": "#000000"
+    },
+    {
+      "type": "image",
+      "src": "https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fhomepageimages%2F128.png?alt=media&token=315c3c55-98de-42db-bc63-2fc2f9e1f18d",
+      "backgroundColor": "#000000",
+      "cardColor": "#FFFFFF",
+      "textColor": "#FFFFFF",
+      "cardtext": "#000000"
+    },
+    {
+      "type": "image",
+      "src": "https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fhomepageimages%2F128.png?alt=media&token=315c3c55-98de-42db-bc63-2fc2f9e1f18d",
+      "backgroundColor": "#000000",
+      "cardColor": "#FFFFFF",
+      "textColor": "#FFFFFF",
+      "cardtext": "#000000"
+    },
+    {
       "type": "image",
       "src": "https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fhomepageimages%2F75.png?alt=media&token=63d7533f-44c9-4a3a-92ad-1b8e3ba631ca",
       "backgroundColor": "#000000",

@@ -46,59 +46,57 @@ export default function LandingPage() {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % media.length);
     }, 10000); // 10 seconds
-  
+
     return () => clearInterval(timer);
   }, [media.length]);
-  
+
   const currentMedia = activeMedia || media[currentIndex];
-  
- // Landing.jsx
-const handleImageClick = (image) => {
-  setActiveMedia(image); // Update active media when an image is clicked
-};
 
-<Sidebar handleImageClick={handleImageClick} />
+  // Landing.jsx
+  const handleImageClick = (image) => {
+    setActiveMedia(image); // Update active media when an image is clicked
+  };
 
+  <Sidebar handleImageClick={handleImageClick} />;
 
   return (
     <div className="flex flex-col h-screen justify-between font-sans">
       <section className="relative h-screen flex flex-col justify-between transition-colors duration-1000 bg-center bg-cover">
         {/* Background Media */}
         {/* Background Media */}
-{currentMedia.type === "image" && currentMedia.src ? (
-  <div
-    style={{
-      backgroundImage: `url(${currentMedia.src})`,
-      position: "absolute",
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      zIndex: -1,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-    }}
-  ></div>
-) : currentMedia.type === "video" && currentMedia.src ? (
-  <video
-    id="advert-video"
-    autoPlay
-    playsInline
-    muted
-    loop
-    poster="/assets/black.jpg"
-    className="object-cover w-full h-full bg-black absolute top-0 left-0 z-[-1]"
-    src={currentMedia.src}
-  ></video>
-) : (
-  <div
-    style={{
-      backgroundColor: currentMedia.backgroundColor || "#FF0000", // Fallback color
-    }}
-    className="absolute top-0 left-0 right-0 bottom-0 z-[-1]"
-  ></div>
-)}
-
+        {currentMedia.type === "image" && currentMedia.src ? (
+          <div
+            style={{
+              backgroundImage: `url(${currentMedia.src})`,
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              zIndex: -1,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          ></div>
+        ) : currentMedia.type === "video" && currentMedia.src ? (
+          <video
+            id="advert-video"
+            autoPlay
+            playsInline
+            muted
+            loop
+            poster="/assets/black.jpg"
+            className="object-cover w-full h-full bg-black absolute top-0 left-0 z-[-1]"
+            src={currentMedia.src}
+          ></video>
+        ) : (
+          <div
+            style={{
+              backgroundColor: currentMedia.backgroundColor || "#FF0000", // Fallback color
+            }}
+            className="absolute top-0 left-0 right-0 bottom-0 z-[-1]"
+          ></div>
+        )}
 
         {/* Header Section */}
         <header className="flex justify-between items-center py-8 px-12">
@@ -178,11 +176,24 @@ const handleImageClick = (image) => {
           >
             {!showUploadCard && (
               <div className=" text-white flex items-center justify-center w-[28px] h-[150px] md:w-[50px] 2xl:h-[213px] cursor-pointer sm:flex">
-                <img
+                {/* <img
                   src="/assets/logo.png"
                   alt="logo"
                   className="max-md:h-12 mr-1"
-                />
+                /> */}
+                <svg
+                  id="Layer_1"
+                  data-name="Layer 1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 92"
+                  fill="#000000"
+                  className="h-[65px] 3xl:h-[92px] absolute left-[6px] lg:left-[10px] 3xl:left-[16px]"
+                >
+                  <path d="M17,0H3C1.34,0,0,1.34,0,3V20H20V3c0-1.66-1.34-3-3-3Z"></path>
+                  <path d="M0,89c0,1.66,1.34,3,3,3h3V22H0V89Z"></path>
+                  <path d="M14,92h3c1.66,0,3-1.34,3-3V22h-6V92Z"></path>
+                  <rect x="7" y="22" width="6" height="70"></rect>
+                </svg>
               </div>
             )}
             {showUploadCard && (
