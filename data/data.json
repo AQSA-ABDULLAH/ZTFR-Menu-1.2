@@ -2,6 +2,14 @@
   "media": [
     {
       "type": "image",
+      "src": "https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fhomepageimages%2F75.png?alt=media&token=63d7533f-44c9-4a3a-92ad-1b8e3ba631ca",
+      "backgroundColor": "#000000",
+      "cardColor": "rgb(255, 255, 0)",
+      "textColor": "rgb(255, 255, 0)",
+      "cardtext": "#000000"
+    },
+    {
+      "type": "image",
       "src": "https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fhomepageimages%2F19.png?alt=media&token=1cfda956-5414-46ce-9621-eaf9f1a1797b",
       "backgroundColor": "#000000",
       "cardColor": "#000000",

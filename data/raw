@@ -8,21 +8,22 @@
       "cardtext": "#000000"
     },
 
+       
+
+
   
   
 
 
 
+background-color: rgb(255, 255, 0); color: rgb(0, 0, 0);
+
+opacity: 1; background-color: rgb(0, 0, 0); background-image: url(&quot;https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fhomepageimages%2F75.png?alt=media&token=63d7533f-44c9-4a3a-92ad-1b8e3ba631ca&quot;);
 
 
 
 
 
-
-
-
-
-style="opacity: 1; background-color: rgb(255, 255, 255); background-image: url(&quot;https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fhomepageimages%2F19.png?alt=media&token=1cfda956-5414-46ce-9621-eaf9f1a1797b&quot;);"
 
 
     {

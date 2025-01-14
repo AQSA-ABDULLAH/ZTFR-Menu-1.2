@@ -211,7 +211,7 @@ export default function LandingPage() {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill={currentMedia?.textColor || "white"}
-              className="md:w-2 md:h-2 2xl:w-3 2xl:h-3"
+              className="w-2 h-2 2xl:w-3 2xl:h-3"
             >
               <path
                 fillRule="evenodd"
