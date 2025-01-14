@@ -95,7 +95,7 @@ function Card({ currentMedia }) {
           backgroundColor: currentMedia.cardColor || "black",
           color: currentMedia.cardtext || "white",
         }}
-        className="ml-[100px] w-[240px] md:w-[200px] 2xl:w-[320px] h-[360px] lg:h-[110px] 2xl:h-[209px] rounded-tr-[20px] fixed cursor-pointer"
+        className="ml-[100px] w-[240px] md:w-[200px] 2xl:w-[220px] h-[360px] lg:h-[110px] 2xl:h-[130px] rounded-tr-[20px] fixed cursor-pointer"
       >
         <div
           className="absolute left-[-105px] top-[-2px] cursor-pointer"
@@ -138,7 +138,7 @@ function Card({ currentMedia }) {
           <p className="text-[22px] md:text-[40px] leading-[3.8rem] tracking-[4px]">
             OR
           </p>
-          <div className="absolute right-12 md:right-[1rem] 2xl:right-5 text-[10px] md:text-[13px] 2xl:text-[15px] font-light leading-[28px]">
+          <div className="absolute right-12 md:right-[1rem] 2xl:right-3 text-[10px] md:text-[13px] 2xl:text-[15px] font-light leading-[28px]">
             SELECT A FOLDER
           </div>
         </div>
@@ -149,13 +149,13 @@ function Card({ currentMedia }) {
           backgroundColor: currentMedia.cardColor || "black",
           color: currentMedia.cardtext || "white",
         }}
-        className=" mt-[110px] w-[240px] md:w-[300px] h-[360px] 2xl:w-[320px] lg:h-[300px] 2xl:h-[489px] rounded-b-[20px] fixed cursor-pointer"
+        className=" 2xl:mt-[120px] md:mt-[110px] w-[240px] md:w-[300px] h-[360px] 2xl:w-[320px] lg:h-[300px] 2xl:h-[360px] rounded-b-[20px] fixed cursor-pointer"
       >
         {/* Scrollable Section to Display File Names */}
         <section>
           {fileNames.length > 0 ? (
             <div
-              className="absolute 2xl:top-[200px] pl-8 mt-2 w-[95%] no-drag scrollbar-hide tracking-[2px] 
+              className="absolute pl-8 mt-2 2xl:mt-6 w-[95%] no-drag scrollbar-hide tracking-[2px] 
                     h-[90px] 2xl:h-[120px] overflow-y-scroll"
             >
               {fileNames.map((file, index) => (
@@ -182,7 +182,7 @@ function Card({ currentMedia }) {
               ))}
             </div>
           ) : (
-            <div className="absolute right-[-2.3rem] md:right-[-4.7rem] 2xl:right-[-5.4rem] top-[3%] 2xl:top-[27%] tracking-wider">
+            <div className="absolute right-[-2.3rem] md:right-[-4.7rem] 2xl:right-[-5.4rem] top-[3%] tracking-wider">
               <div className="flex text-[18px] md:text-[36px] 2xl:text-[40px]">
                 <p>
                   UP TO{" "}
@@ -204,7 +204,7 @@ function Card({ currentMedia }) {
         </section>
 
         {/* Input Fields */}
-        <div className="mt-[200px] lg:mt-[120px] 2xl:mt-[300px] flex flex-col gap-y-6 tracking-widest">
+        <div className="mt-[200px] lg:mt-[120px] 2xl:mt-[170px] flex flex-col gap-y-6 tracking-widest">
           {/* Title Input */}
           <div className="pl-8 relative pr-6">
             <input
