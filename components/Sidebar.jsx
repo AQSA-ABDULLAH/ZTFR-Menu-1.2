@@ -5,8 +5,13 @@ import "slick-carousel/slick/slick-theme.css";
 import { media } from "../data/data.json";
 import "../app/globals.css";
 
-function Sidebar({ isSidebarOpen, onClose }) {
+function Sidebar({ isSidebarOpen, onClose, setActiveMedia }) {
   const [isAnimating, setIsAnimating] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleImageClick = (image) => {
+    setActiveMedia(image); // Update active media when an image is clicked
+  };
 
   useEffect(() => {
     if (!isSidebarOpen) {
@@ -116,23 +121,6 @@ function Sidebar({ isSidebarOpen, onClose }) {
             <p className="text-[12px] 2xl:text-[14px]">MENU</p>
           </div>
           <section className="hidden md:block">
-            {/* <Slider {...verticalCarouselSettings}>
-              {[
-                "/assets/Group 6411.png",
-                "/assets/Group 6408.png",
-                "/assets/Group 6410.png",
-                "/assets/Group 6409.png",
-              ].map((imagePath, index) => (
-                <div key={index}>
-                  <img
-                    src={imagePath}
-                    alt={`slider-image-${index}`}
-                    className="max-md:w-24 max-md:h-24 md:w-28 md:h-28 2xl:w-32 2xl:h-32 desktop:w-52 desktop:h-52 mb-5"
-                  />
-                </div>
-              ))}
-            </Slider> */}
-
             <Slider {...verticalCarouselSettings}>
               {media
                 ?.filter((item) => item.type === "image")
@@ -207,40 +195,24 @@ function Sidebar({ isSidebarOpen, onClose }) {
 
       {/* Carousel section */}
       <div className="flex-grow pt-16 md:pt-5 2xl:pt-[40px]">
-        {/* <Slider {...carouselSettings}>
-          {[
-            "/assets/Group 6408.png",
-            "/assets/Group 6407.png",
-            "/assets/Group 6406.png",
-            "/assets/Group 6405.png",
-            "/assets/Group 6406.png", // Repeated intentionally, based on your original code
-            "/assets/Group 6405.png", // Repeated intentionally, based on your original code
-          ].map((imagePath, index) => (
-            <div key={index}>
-              <img
-                src={imagePath}
-                alt={`slider-image-${index}`}
-                className="max-md:w-24 max-md:h-24 md:w-28 md:h-28 2xl:w-36 2xl:h-36 desktop:w-52 desktop:h-52"
-              />
-            </div>
-          ))}
-        </Slider> */}
-        <Slider {...carouselSettings}>
-          {media
-            ?.filter((item) => item.type === "image")
-            .map((item, index) => (
-              <div key={index} className="px-4">
-                <img
-                  src={item.src}
-                  alt={`slider-image-${index}`}
-                  className="max-md:w-24 max-md:h-24 md:w-28 md:h-24 2xl:w-36 2xl:h-36 desktop:w-56 desktop:h-44 rounded-[8px]"
-                  style={{
-                    backgroundColor: item.backgroundColor || "transparent",
-                  }}
-                />
-              </div>
-            ))}
-        </Slider>
+      <Slider {...carouselSettings}>
+      {media
+        ?.filter((item) => item.type === "image")
+        .map((item, index) => (
+          <div key={index} className="px-4">
+            <img
+              src={item.src}
+              alt={`slider-image-${index}`}
+              className="max-md:w-24 max-md:h-24 md:w-28 md:h-24 2xl:w-36 2xl:h-36 desktop:w-56 desktop:h-44 rounded-[8px]"
+              style={{
+                backgroundColor: item.backgroundColor || "transparent",
+              }}
+              onClick={() => handleImageClick(item)} // Set the clicked image as the active one
+            />
+          </div>
+        ))}
+    </Slider>
+
       </div>
 
       {/* Footer section */}

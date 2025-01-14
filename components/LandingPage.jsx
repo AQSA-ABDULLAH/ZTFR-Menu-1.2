@@ -2,7 +2,6 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import ToggleButton from "./ToggleButton";
-import UploadCard from "./UploadCard";
 import Sidebar from "./Sidebar";
 import { media } from "../data/data.json";
 import MySVGIcon from "./Logo";
@@ -13,7 +12,7 @@ export default function LandingPage() {
   const [showUploadCard, setShowUploadCard] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
   const uploadCardRef = useRef(null);
-
+  const [activeMedia, setActiveMedia] = useState(media[0]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleToggleClick = () => {
@@ -47,49 +46,59 @@ export default function LandingPage() {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % media.length);
     }, 10000); // 10 seconds
-
+  
     return () => clearInterval(timer);
   }, [media.length]);
+  
+  const currentMedia = activeMedia || media[currentIndex];
+  
+ // Landing.jsx
+const handleImageClick = (image) => {
+  setActiveMedia(image); // Update active media when an image is clicked
+};
 
-  const currentMedia = media[currentIndex];
+<Sidebar handleImageClick={handleImageClick} />
+
 
   return (
     <div className="flex flex-col h-screen justify-between font-sans">
       <section className="relative h-screen flex flex-col justify-between transition-colors duration-1000 bg-center bg-cover">
         {/* Background Media */}
-        {currentMedia.type === "image" && currentMedia.src ? (
-          <div
-            style={{
-              backgroundImage: `url(${currentMedia.src})`,
-              position: "absolute",
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              zIndex: -1,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          ></div>
-        ) : currentMedia.type === "video" && currentMedia.src ? (
-          <video
-            id="advert-video"
-            autoPlay
-            playsInline
-            muted
-            loop
-            poster="/assets/black.jpg"
-            className="object-cover w-full h-full bg-black absolute top-0 left-0 z-[-1]"
-            src={currentMedia.src}
-          ></video>
-        ) : (
-          <div
-            style={{
-              backgroundColor: currentMedia.backgroundColor || "#FF0000", // Fallback color
-            }}
-            className="absolute top-0 left-0 right-0 bottom-0 z-[-1]"
-          ></div>
-        )}
+        {/* Background Media */}
+{currentMedia.type === "image" && currentMedia.src ? (
+  <div
+    style={{
+      backgroundImage: `url(${currentMedia.src})`,
+      position: "absolute",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      zIndex: -1,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}
+  ></div>
+) : currentMedia.type === "video" && currentMedia.src ? (
+  <video
+    id="advert-video"
+    autoPlay
+    playsInline
+    muted
+    loop
+    poster="/assets/black.jpg"
+    className="object-cover w-full h-full bg-black absolute top-0 left-0 z-[-1]"
+    src={currentMedia.src}
+  ></video>
+) : (
+  <div
+    style={{
+      backgroundColor: currentMedia.backgroundColor || "#FF0000", // Fallback color
+    }}
+    className="absolute top-0 left-0 right-0 bottom-0 z-[-1]"
+  ></div>
+)}
+
 
         {/* Header Section */}
         <header className="flex justify-between items-center py-8 px-12">
@@ -118,6 +127,7 @@ export default function LandingPage() {
               <Sidebar
                 isSidebarOpen={showSidebar}
                 onClose={() => setShowSidebar(false)}
+                setActiveMedia={setActiveMedia}
               />
             </div>
           )}
