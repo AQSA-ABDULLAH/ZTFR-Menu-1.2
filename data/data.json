@@ -18,14 +18,6 @@
     },
     {
       "type": "image",
-      "src": "https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fhomepageimages%2F128.png?alt=media&token=315c3c55-98de-42db-bc63-2fc2f9e1f18d",
-      "backgroundColor": "#000000",
-      "cardColor": "#FFFFFF",
-      "textColor": "#FFFFFF",
-      "cardtext": "#000000"
-    },
-    {
-      "type": "image",
       "src": "https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fhomepageimages%2F75.png?alt=media&token=63d7533f-44c9-4a3a-92ad-1b8e3ba631ca",
       "backgroundColor": "#000000",
       "cardColor": "rgb(255, 255, 0)",
