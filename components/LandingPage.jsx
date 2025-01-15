@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
@@ -15,6 +16,9 @@ export default function LandingPage() {
   const [activeMedia, setActiveMedia] = useState(media[0]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Interval duration state
+  const [intervalDuration, setIntervalDuration] = useState(5000); // Default to 5 seconds
+
   const handleToggleClick = () => {
     setShowUploadCard(!showUploadCard);
   };
@@ -24,7 +28,7 @@ export default function LandingPage() {
   };
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = event => {
       if (
         uploadCardRef.current &&
         !uploadCardRef.current.contains(event.target) &&
@@ -42,27 +46,32 @@ export default function LandingPage() {
     };
   }, []);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % media.length);
-    }, 10000); // 10 seconds
-
-    return () => clearInterval(timer);
-  }, [media.length]);
-
   const currentMedia = activeMedia || media[currentIndex];
 
-  // Landing.jsx
-  const handleImageClick = (image) => {
+  useEffect(() => {
+    let timer;
+    if (media.length > 0) {
+      timer = setInterval(() => {
+        setCurrentIndex((prevIndex) => {
+          const newIndex = (prevIndex + 1) % media.length;
+          setActiveMedia(media[newIndex]); // Sync activeMedia with the new index
+          return newIndex;
+        });
+      }, intervalDuration);
+    }
+  
+    return () => clearInterval(timer); // Cleanup the interval on unmount or dependency change
+  }, [intervalDuration, media.length]);
+  
+  
+
+  const handleImageClick = image => {
     setActiveMedia(image); // Update active media when an image is clicked
   };
-
-  <Sidebar handleImageClick={handleImageClick} />;
 
   return (
     <div className="flex flex-col h-screen justify-between font-sans">
       <section className="relative h-screen flex flex-col justify-between transition-colors duration-1000 bg-center bg-cover">
-        {/* Background Media */}
         {/* Background Media */}
         {currentMedia.type === "image" && currentMedia.src ? (
           <div
@@ -75,7 +84,7 @@ export default function LandingPage() {
               bottom: 0,
               zIndex: -1,
               backgroundSize: "cover",
-              backgroundPosition: "center",
+              backgroundPosition: "center"
             }}
           ></div>
         ) : currentMedia.type === "video" && currentMedia.src ? (
@@ -92,7 +101,7 @@ export default function LandingPage() {
         ) : (
           <div
             style={{
-              backgroundColor: currentMedia.backgroundColor || "#FF0000", // Fallback color
+              backgroundColor: currentMedia.backgroundColor || "#FF0000"
             }}
             className="absolute top-0 left-0 right-0 bottom-0 z-[-1]"
           ></div>
@@ -104,11 +113,6 @@ export default function LandingPage() {
             <MySVGIcon currentMedia={currentMedia} />
           </div>
           <div className="flex items-center gap-6">
-            {/* <img
-              src="/assets/user-icon.png"
-              alt="user icon"
-              className="max-md:w-[0.9rem] md:max-2xl:w-[1rem]"
-            /> */}
             <UserIcon currentMedia={currentMedia} />
             <img
               src="/assets/uk-flag.png"
@@ -130,7 +134,6 @@ export default function LandingPage() {
             </div>
           )}
 
-          {/* Side Panels */}
           {!showUploadCard && (
             <div onClick={handleToggleClick} className="sidebar-toggle">
               <ToggleButton currentMedia={currentMedia} />
@@ -138,8 +141,6 @@ export default function LandingPage() {
           )}
           {showUploadCard && (
             <div ref={uploadCardRef}>
-              <p className="md:hidden text-[1px]">t</p>
-              {/* <UploadCard currentMedia={currentMedia} /> */}
               <Card currentMedia={currentMedia} />
             </div>
           )}
@@ -175,12 +176,7 @@ export default function LandingPage() {
             className="sidebar-toggle rounded-l-xl"
           >
             {!showUploadCard && (
-              <div className=" text-white flex items-center justify-center w-[28px] h-[150px] md:w-[50px] 2xl:h-[213px] cursor-pointer sm:flex">
-                {/* <img
-                  src="/assets/logo.png"
-                  alt="logo"
-                  className="max-md:h-12 mr-1"
-                /> */}
+              <div className="text-white flex items-center justify-center w-[28px] h-[150px] md:w-[50px] 2xl:h-[213px] cursor-pointer sm:flex">
                 <svg
                   id="Layer_1"
                   data-name="Layer 1"
@@ -197,7 +193,7 @@ export default function LandingPage() {
               </div>
             )}
             {showUploadCard && (
-              <div className=" text-white flex items-center justify-center w-[28px] h-[150px] md:w-[50px] 2xl:h-[213px] cursor-pointer sm:flex">
+              <div className="text-white flex items-center justify-center w-[28px] h-[150px] md:w-[50px] 2xl:h-[213px] cursor-pointer sm:flex">
                 <img
                   src="/assets/Path 36196.png"
                   alt="menu"
@@ -208,45 +204,33 @@ export default function LandingPage() {
           </div>
         </main>
 
-        {/* Footer */}
-        <footer
-          style={{ color: currentMedia.textColor }}
-          className="text-[8px] 2xl:text-[10px] flex justify-between px-12 pb-2 tracking-widest"
-        >
-          <div className="hidden md:block">
-            <p>© ZITRANSFER 2023</p>
-            <div className="flex gap-4">
-              <p>All Rights Reserved</p>
-              <p>ZITRANSFER IS PART OF THE ZIMO GROUP</p>
+          {/* Footer */}
+          <footer
+            style={{ color: currentMedia.textColor }}
+            className="text-[8px] 2xl:text-[10px] flex justify-between px-12 pb-2 tracking-widest"
+          >
+            <div className="hidden md:block">
+              <p>© ZITRANSFER 2023</p>
+              <div className="flex gap-4">
+                <p>All Rights Reserved</p>
+                <p>ZITRANSFER IS PART OF THE ZIMO GROUP</p>
+              </div>
             </div>
-          </div>
-          <div className="max-md:text-center max-md:pb-4 flex gap-1 items-center">
-            {/* <img
-              src="/assets/Path 27216.png"
-              alt="lock"
-              style={{ color: currentMedia.textColor }}
-              className="md:w-2 md:h-2 2xl:w-3 2xl:h-3"
-            /> */}
-
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill={currentMedia?.textColor || "white"}
-              className="w-2 h-2 2xl:w-3 2xl:h-3"
-            >
-              <path
-                fillRule="evenodd"
-                d="M12 2a5 5 0 00-5 5v4H6a2 2 0 00-2 2v7a2 2 0 002 2h12a2 2 0 002-2v-7a2 2 0 00-2-2h-1V7a5 5 0 00-5-5zm3 9V7a3 3 0 10-6 0v4h6zm-4 5a1 1 0 112 0v2a1 1 0 11-2 0v-2z"
-                clipRule="evenodd"
+            <div className="max-md:text-center max-md:pb-4 flex gap-1 items-center">
+              <img
+                src="/assets/Path 27216.png"
+                alt="lock"
+                style={{ color: currentMedia.textColor }}
+                className="md:w-2 md:h-2 2xl:w-3 2xl:h-3"
               />
-            </svg>
-            <p>
-              ZITRANSFER USER ADVANCE ENCRYPTION STANDARD (AES) 256-BIT TO
-              PROTECT THE CONFIDENTIALITY OF THE DATA YOU UPLOAD
-            </p>
-          </div>
-        </footer>
-      </section>
-    </div>
-  );
-}
+              <p>
+                ZITRANSFER USER ADVANCE ENCRYPTION STANDARD (AES) 256-BIT TO
+                PROTECT THE CONFIDENTIALITY OF THE DATA YOU UPLOAD
+              </p>
+            </div>
+          </footer>
+        </section>
+      </div>
+    );
+  }
+
