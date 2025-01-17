@@ -5,7 +5,7 @@ import { FiUpload } from "react-icons/fi";
 
 export default function UploadCard({ currentMedia }) {
   const [fileNames, setFileNames] = useState([]);
-  const [position, setPosition] = useState({ x: 100, y: 100 }); // Default position
+  const [position, setPosition] = useState({ x, y }); // Default position
   const [dragging, setDragging] = useState(false);
 
   // Determine default position based on screen size
@@ -14,7 +14,11 @@ export default function UploadCard({ currentMedia }) {
       const width = window.innerWidth;
       const height = window.innerHeight;
 
-      if (width >= 1920) {
+      if (width >= 2560) {
+        // 2xl screens
+        setPosition({ x: 230, y: 520 });
+      }
+      else if (width >= 1920) {
         // 2xl screens
         setPosition({ x: 130, y: 320 });
       } else if (width >= 1536) {

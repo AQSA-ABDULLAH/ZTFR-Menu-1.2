@@ -31,13 +31,19 @@ function Sidebar({ isSidebarOpen, onClose, setActiveMedia }) {
   const carouselSettings = {
     infinite: true,
     speed: 2000,
-    slidesToShow: 4,
+    slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 0,
     arrows: false,
     cssEase: "linear",
     responsive: [
+      {
+        breakpoint: 1920,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
       {
         breakpoint: 1366,
         settings: {
@@ -68,7 +74,7 @@ function Sidebar({ isSidebarOpen, onClose, setActiveMedia }) {
   const verticalCarouselSettings = {
     infinite: true,
     speed: 2000,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     vertical: true,
     verticalSwiping: true,
@@ -79,13 +85,7 @@ function Sidebar({ isSidebarOpen, onClose, setActiveMedia }) {
     rtl: true,
     responsive: [
       {
-        breakpoint: 1536,
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-      {
-        breakpoint: 1366,
+        breakpoint: 1920,
         settings: {
           slidesToShow: 3,
         },
@@ -101,7 +101,7 @@ function Sidebar({ isSidebarOpen, onClose, setActiveMedia }) {
 
   return (
     <div
-      className={`bg-black bg-opacity-90 fixed text-white top-0 right-0 h-screen w-screen xl:w-[620px] 2xl:w-[780px] desktop:w-[960px] p-5 z-30 flex flex-col transition-all duration-300 ease-in-out ${
+      className={`bg-black bg-opacity-90 fixed text-white top-0 right-0 h-screen w-screen xl:w-[620px] 2xl:w-[780px] desktop:w-[960px] lcd:w-[1500px] p-5 z-30 flex flex-col transition-all duration-300 ease-in-out ${
         isSidebarOpen
           ? isAnimating
             ? "translate-x-full opacity-0 animate-slideOut"
@@ -110,7 +110,7 @@ function Sidebar({ isSidebarOpen, onClose, setActiveMedia }) {
       }`}
     >
       <div className="flex flex-row">
-        <div className="w-[9rem] 2xl:w-[11rem] desktop:w-[16rem]">
+        <div className="w-[9rem] 2xl:w-[11rem] desktop:w-[16rem] lcd:w-[29rem]">
           <div className="flex items-center mb-4 gap-8 tracking-[2px]">
             <img
               src="/assets/Path 27323.png"
@@ -129,7 +129,7 @@ function Sidebar({ isSidebarOpen, onClose, setActiveMedia }) {
                     <img
                       src={item.src}
                       alt={`slider-image-${index}`}
-                      className="max-md:w-24 max-md:h-24 md:w-28 md:h-24 2xl:w-32 2xl:h-32 desktop:w-52 desktop:h-48 rounded-[12px]"
+                      className="max-md:w-24 max-md:h-24 md:w-28 md:h-24 2xl:w-32 2xl:h-32 desktop:w-52 desktop:h-48 lcd:w-72 lcd:h-56 rounded-[12px]"
                       style={{
                         backgroundColor: item.backgroundColor || "transparent",
                       }}
@@ -147,25 +147,25 @@ function Sidebar({ isSidebarOpen, onClose, setActiveMedia }) {
               <img
                 src="/assets/Group 6113.png"
                 alt="ZIT logo"
-                className="xl:max-2xl:w-44 2xl:my-2 desktop:my-8"
+                className="xl:max-2xl:w-44 lcd:w-96 2xl:my-2 desktop:my-8 lcd:my-12 "
               />
               <img
                 src="/assets/Group 6421.png"
                 alt="middle-large-image"
-                className=" my-5 xl:h-[14.5rem] 2xl:h-[18.5rem] desktop:h-[25rem]"
+                className=" my-5 xl:h-[14.5rem] 2xl:h-[18.5rem] desktop:h-[25rem] lcd:h-[36rem]"
               />
             </div>
-            <div className="mt-8 flex flex-col justify-between items-end text-[12px] md:text-[10px] 2xl:text-[16px] tracking-[2px] max-md:space-y-3">
+            <div className="mt-8 flex flex-col justify-between items-end text-[12px] md:text-[10px] 2xl:text-[16px] lcd:text-[22px] tracking-[2px] max-md:space-y-3">
               <div className="flex gap-10 items-center">
                 <img
                   src="/assets/Group 2867.png"
                   alt="user-icon"
-                  className="h-4 2xl:h-7"
+                  className="h-4 2xl:h-7 lcd:h-10"
                 />
                 <img
                   src="/assets/Group 5511.png"
                   alt="UK-Flag"
-                  className="xl:max-2xl:w-7"
+                  className="xl:max-2xl:w-7 lcd:w-20"
                 />
               </div>
               <p>FEATURES</p>
@@ -179,16 +179,16 @@ function Sidebar({ isSidebarOpen, onClose, setActiveMedia }) {
               <p>NEWSROOM/PRESS</p>
             </div>
           </div>
-          <div className="flex items-center gap-10 2xl:gap-16 max-md:pt-4">
+          <div className="flex items-center gap-10 2xl:gap-16 lcd:gap-24 max-md:pt-4 lcd:pt-8">
             <img
               src="/assets/Group 6422.png"
               alt="image"
-              className="xl:max-2xl:w-58 xl:h-32 2xl:max-desktop:h-36 2xl:max-desktop:w-72 desktop:w-full desktop:h-full hidden md:block"
+              className="xl:max-2xl:w-58 xl:h-32 2xl:max-desktop:h-36 2xl:max-desktop:w-72 desktop:w-full desktop:h-full lcd:h-80 hidden md:block"
             />
             <img
               src="/assets/Group 6420.png"
               alt="double-image"
-              className="h-[6.5rem] 2xl:h-[7rem] desktop:h-[9rem]"
+              className="h-[6.5rem] 2xl:h-[7rem] desktop:h-[9rem] lcd:h-[13rem]"
             />
           </div>
         </div>
@@ -204,7 +204,7 @@ function Sidebar({ isSidebarOpen, onClose, setActiveMedia }) {
                 <img
                   src={item.src}
                   alt={`slider-image-${index}`}
-                  className="max-md:w-24 max-md:h-24 md:w-28 md:h-24 2xl:w-36 2xl:h-36 desktop:w-56 desktop:h-44 rounded-[8px]"
+                  className="max-md:w-24 max-md:h-24 md:w-28 md:h-24 2xl:w-36 2xl:h-36 desktop:w-56 desktop:h-44 lcd:w-72 lcd:h-56 rounded-[8px]"
                   style={{
                     backgroundColor: item.backgroundColor || "transparent",
                   }}

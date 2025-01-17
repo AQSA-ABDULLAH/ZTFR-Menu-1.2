@@ -19,6 +19,7 @@ export default {
       },
       screens: {
         'desktop': '1700px',
+        'lcd': '2560px',
       },
       keyframes: {
         slideIn: {
