@@ -9,12 +9,24 @@
       "cardtext": "#000000"
     },
     {
+      "backgroundColor": "#db2325",
+      "cardColor": "#D4AF37",
+      "textColor": "#D4AF37",
+      "cardtext": "#db2325"
+    },
+    {
       "type": "image",
       "src": "https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fhomepageimages%2F128.png?alt=media&token=315c3c55-98de-42db-bc63-2fc2f9e1f18d",
       "backgroundColor": "#000000",
       "cardColor": "#FFFFFF",
       "textColor": "#FFFFFF",
       "cardtext": "#000000"
+    },
+    {
+      "backgroundColor": "#FFFFFF",
+      "cardColor": "#000000",
+      "textColor": "#000000",
+      "cardtext": "#FFFFFF"
     },
     {
       "type": "image",
@@ -104,12 +116,6 @@
       "cardColor": "#D4AF37",
       "textColor": "#D4AF37",
       "cardtext": "#33474b"
-    },
-    {
-      "backgroundColor": "#db2325",
-      "cardColor": "#D4AF37",
-      "textColor": "#D4AF37",
-      "cardtext": "#db2325"
     }
   ]
 }
