@@ -14,7 +14,10 @@ function Card({ currentMedia }) {
     const updateDefaultPosition = () => {
       const width = window.innerWidth;
 
-      if (width >= 1920) {
+      if (width >= 2560) {
+        // 2xl screens
+        setPosition({ x: 130, y: 500 });
+      } else if (width >= 1920) {
         // 2xl screens
         setPosition({ x: 130, y: 320 });
       } else if (width >= 1536) {

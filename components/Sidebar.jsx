@@ -39,7 +39,7 @@ function Sidebar({ isSidebarOpen, onClose, setActiveMedia }) {
     cssEase: "linear",
     responsive: [
       {
-        breakpoint: 1920,
+        breakpoint: 2560,
         settings: {
           slidesToShow: 4,
         },
@@ -47,7 +47,7 @@ function Sidebar({ isSidebarOpen, onClose, setActiveMedia }) {
       {
         breakpoint: 1366,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 4,
         },
       },
       {
@@ -85,7 +85,7 @@ function Sidebar({ isSidebarOpen, onClose, setActiveMedia }) {
     rtl: true,
     responsive: [
       {
-        breakpoint: 1920,
+        breakpoint: 2560,
         settings: {
           slidesToShow: 3,
         },

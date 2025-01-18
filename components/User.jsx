@@ -6,7 +6,7 @@ export default function UserIcon({ currentMedia }) {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 21.09 25.5"
       fill={iconColor} // Use cardColor for the fill color
-      className="max-md:w-[0.9rem] md:w-[1rem] desktop:w-[1.5rem] cursor-pointer hover:scale-110 transition duration-150"
+      className="w-[12px] desktop:w-[20px] cursor-pointer hover:scale-110 transition duration-150"
     >
       <g id="Group_2867" data-name="Group 2867">
         <g id="Group_2661" data-name="Group 2661">

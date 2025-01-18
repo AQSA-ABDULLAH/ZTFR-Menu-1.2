@@ -23,7 +23,8 @@ export default function LandingPage() {
   };
 
   const handleSidebarToggle = () => {
-    setShowSidebar(!showSidebar);
+    setShowSidebar(showSidebar);
+
   };
 
   useEffect(() => {
@@ -105,24 +106,22 @@ export default function LandingPage() {
         )}
 
         {/* Header Section */}
-        <header className="flex justify-between pt-4 px-5 pb-5 lg:p-6 w-full relative z-10 max-h-[60px] tracking-[2px]">
+        <header className="flex justify-between items-center py-8 px-12">
           <div>
             <MySVGIcon currentMedia={currentMedia} />
           </div>
           <div className="flex items-center gap-6">
             <UserIcon currentMedia={currentMedia} />
-            <div className="w-[30px] h-[30px] 3xl:w-[50px] 3xl:h-[50px] cursor-pointer rounded-md 3xl:rounded-xl overflow-hidden">
-              <img
-                src="/assets/uk-flag.png"
-                alt="UK Flag"
-                className="w-full h-full object-cover"
-              />
-            </div>
+            <img
+              src="/assets/uk-flag.png"
+              alt="UK Flag"
+              className="max-md:w-[2rem] md:max-2xl:w-[2.4rem]"
+            />
           </div>
         </header>
 
-        <main className="w-[100%] flex justify-between">
-          {/* Sidebar */}
+        <main className=" w-[100%] flex justify-between">
+            {/* Sidebar */}
           {showSidebar && (
             <div className="absolute left-0 top-0 sidebar">
               <Sidebar
@@ -146,9 +145,8 @@ export default function LandingPage() {
               )}
             </div>
           </section>
-
           <section className="flex-1">
-            <div className="flex-1 flex flex-col justify-items-end justify-center tracking-wider">
+            <div className="flex flex-col justify-items-end justify-center tracking-wider">
               <div className="md:justify-items-end justify-items-center">
                 <h1
                   style={{ color: currentMedia.textColor }}
@@ -172,32 +170,35 @@ export default function LandingPage() {
               </div>
             </div>
           </section>
-
           <section className="flex-1">
-            {/* Sidebar Toggle Button */}
-            <div
-              style={{ backgroundColor: currentMedia.cardColor }}
-              onClick={handleSidebarToggle}
-              className="sidebar-toggle rounded-l-xl absolute right-0"
-            >
-              {!showUploadCard && (
-                <div className="text-white flex items-center justify-center w-[28px] h-[150px] md:w-[50px] 2xl:h-[213px] cursor-pointer sm:flex">
-                  <img
-                    src="/assets/logo.png"
-                    alt="menu"
-                    className="max-md:h-12 mr-1"
-                  />
-                </div>
-              )}
-              {showUploadCard && (
-                <div className="text-white flex items-center justify-center w-[28px] h-[150px] md:w-[50px] 2xl:h-[213px] cursor-pointer sm:flex">
-                  <img
-                    src="/assets/Path 36196.png"
-                    alt="menu"
-                    className="max-md:h-12 mr-1"
-                  />
-                </div>
-              )}
+            <div className="absolute right-0">
+              <div
+                style={{ backgroundColor: currentMedia.cardColor }}
+                onClick={handleSidebarToggle} // Updated function here
+                className="sidebar-toggle rounded-l-xl text-white flex items-center justify-center w-[28px] h-[150px] md:w-[50px] 2xl:h-[213px] cursor-pointer sm:flex"
+              >
+                {!showSidebar && (
+                  <div>
+                    <img
+                      src="/assets/logo.png"
+                      alt="menu"
+                      className="max-md:h-12 mr-1"
+                    />
+                  </div>
+                )}
+                {showSidebar && (
+                  <div>
+                    <img
+                      src="/assets/Path 36196.png"
+                      alt="menu"
+                      className="max-md:h-12 mr-1"
+                    />
+                  </div>
+                )}
+              </div>
+
+              {/* Sidebar Component */}
+              {showSidebar && <Sidebar />}
             </div>
           </section>
         </main>
@@ -237,3 +238,114 @@ export default function LandingPage() {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<main className="flex max-lg:justify-between items-center lg:gap-[18rem] xl:gap-[22rem] 2xl:gap-[26rem] desktop:gap-[36rem] lcd:gap-[56rem] relative">
+          {/* Sidebar */}
+          {showSidebar && (
+            <div className="absolute left-0 top-0 sidebar">
+              <Sidebar
+                isSidebarOpen={showSidebar}
+                onClose={() => setShowSidebar(false)}
+                setActiveMedia={setActiveMedia}
+              />
+            </div>
+          )}
+
+          {!showUploadCard && (
+            <div onClick={handleToggleClick} className="sidebar-toggle">
+              <ToggleButton currentMedia={currentMedia} />
+            </div>
+          )}
+          {showUploadCard && (
+            <div ref={uploadCardRef}>
+              <Card currentMedia={currentMedia} />
+            </div>
+          )}
+
+          {/* Main Content */}
+          <div className="flex-1 flex flex-col justify-items-end justify-center tracking-wider">
+            <div className="md:justify-items-end justify-items-center">
+              <h1
+                style={{ color: currentMedia.textColor }}
+                className="text-[16px] md:text-[42px] desktop:text-[62px] pr-6 tracking-[3px] md:tracking-[12px] leading-3"
+              >
+                LET'S DO
+              </h1>
+              <h2
+                style={{ color: currentMedia.textColor }}
+                className="text-[50px] md:text-[100px] desktop:text-[190px] tracking-[10px] md:tracking-[32px]"
+              >
+                THIS
+              </h2>
+              <p
+                style={{ color: currentMedia.textColor }}
+                className="text-[7px] max-md:w-[76%] text-center md:text-[10px] desktop:text-[12px] tracking-[2px]"
+              >
+                UPLOAD FILES OR FOLDERS BY DROPPING THEM ANYWHERE IN THIS WINDOW
+              </p>
+            </div>
+          </div>
+
+          {/* Sidebar Toggle Button */}
+          <div
+            style={{ backgroundColor: currentMedia.cardColor }}
+            onClick={handleSidebarToggle}
+            className="sidebar-toggle rounded-l-xl"
+          >
+            {!showUploadCard && (
+              <div className="text-white flex items-center justify-center w-[28px] h-[150px] md:w-[50px] 2xl:h-[213px] cursor-pointer sm:flex">
+                <img
+                  src="/assets/logo.png"
+                  alt="menu"
+                  className="max-md:h-12 mr-1"
+                />
+              </div>
+            )}
+            {showUploadCard && (
+              <div className="text-white flex items-center justify-center w-[28px] h-[150px] md:w-[50px] 2xl:h-[213px] cursor-pointer sm:flex">
+                <img
+                  src="/assets/Path 36196.png"
+                  alt="menu"
+                  className="max-md:h-12 mr-1"
+                />
+              </div>
+            )}
+          </div>
+        </main>

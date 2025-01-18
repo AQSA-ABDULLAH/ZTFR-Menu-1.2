@@ -2,7 +2,7 @@
 
 import React from "react";
 
-const MySVGIcon = ({ currentMedia, size = "max-md:w-[3rem] md:w-[6rem] desktop:w-[8rem]" }) => {
+const MySVGIcon = ({ currentMedia, size = "w-[88px] desktop:w-[147px]" }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
