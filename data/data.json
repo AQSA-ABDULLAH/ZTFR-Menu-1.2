@@ -1,5 +1,13 @@
 {
   "media": [
+       {
+      "type": "image",
+      "src": "https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fhomepageimages%2F10.png?alt=media&token=0634fea2-5b0d-48bd-ad38-11ddca3bfdb9&quot",
+      "backgroundColor": "#000000",
+      "cardColor": "#800020",
+      "textColor": "#800020",
+      "cardtext": "#FFFFFF"
+    },
     {
       "type": "video",
       "src": "https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/advertVideos%2FBL%C3%85VINGAD%20%E2%80%93%20a%20new%20ocean-inspired%20kids%E2%80%99%20collection.mp4?alt=media&token=f65f0904-8881-48cd-94ac-a6205b0677b6",

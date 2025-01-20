@@ -148,24 +148,26 @@ export default function LandingPage() {
             )}
           </section>
 
-          <section className="flex-1">
-            <div className="flex-1 flex flex-col justify-items-end justify-center tracking-wider">
-              <div className="md:justify-items-end justify-items-center">
+          <section className="">
+            <div className="flex flex-col justify-items-end justify-center tracking-wider">
+              <div className="justify-items-center">
+                <div className="justify-items-end ">
                 <h1
                   style={{ color: currentMedia.textColor }}
-                  className="text-[20px] 2xl:text-[44px] 3xl:text-[51px] md:pr-6 tracking-[3px] md:tracking-[12px] leading-3"
+                  className="font-lato uppercase mr-2 md:text-[38px] 2xl:text-[44px] 3xl:text-[51px] tracking-[2px]"
                 >
                   LET'S DO
                 </h1>
                 <h2
                   style={{ color: currentMedia.textColor }}
-                  className="text-[50px] md:text-[100px] desktop:text-[190px] tracking-[10px] md:tracking-[32px]"
+                  className="font-lato text-[50px] md:text-[100px] md:mt-[-32px] desktop:text-[190px] tracking-[10px] md:tracking-[2px]"
                 >
                   THIS
                 </h2>
+                </div>
                 <p
                   style={{ color: currentMedia.textColor }}
-                  className="text-[7px] max-desktop:w-[122%] text-center md:text-[12px] tracking-[2px]"
+                  className="text-[7px] max-sm:w-[80%] text-center md:text-[12px] tracking-[2px]"
                 >
                   UPLOAD FILES OR FOLDERS BY DROPPING THEM ANYWHERE IN THIS
                   WINDOW
