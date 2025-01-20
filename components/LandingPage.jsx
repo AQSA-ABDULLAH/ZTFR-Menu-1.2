@@ -8,7 +8,6 @@ import MySVGIcon from "./Logo";
 import UserIcon from "./User";
 import Card from "./Card";
 import Logo2 from "./Logo2";
-import Menu from "./Menu";
 
 export default function LandingPage() {
   const [showUploadCard, setShowUploadCard] = useState(false);
