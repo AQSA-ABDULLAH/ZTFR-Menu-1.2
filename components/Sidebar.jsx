@@ -129,7 +129,7 @@ function Sidebar({ isSidebarOpen, onClose, setActiveMedia }) {
                     <img
                       src={item.src}
                       alt={`slider-image-${index}`}
-                      className="max-md:w-24 max-md:h-24 md:w-28 md:h-24 2xl:w-32 2xl:h-32 desktop:w-52 desktop:h-48 lcd:w-72 lcd:h-56 rounded-[12px]"
+                      className="max-md:w-24 max-md:h-24 md:w-28 md:h-24 2xl:w-32 2xl:h-32 desktop:w-52 desktop:h-48 lcd:w-72 lcd:h-56 rounded-[20px]"
                       style={{
                         backgroundColor: item.backgroundColor || "transparent",
                       }}
@@ -204,7 +204,7 @@ function Sidebar({ isSidebarOpen, onClose, setActiveMedia }) {
                 <img
                   src={item.src}
                   alt={`slider-image-${index}`}
-                  className="max-md:w-24 max-md:h-24 md:w-28 md:h-24 2xl:w-36 2xl:h-36 desktop:w-56 desktop:h-44 lcd:w-72 lcd:h-56 rounded-[8px]"
+                  className="max-md:w-24 max-md:h-24 md:w-28 md:h-24 2xl:w-36 2xl:h-36 desktop:w-56 desktop:h-44 lcd:w-72 lcd:h-56 rounded-[20px]"
                   style={{
                     backgroundColor: item.backgroundColor || "transparent",
                   }}

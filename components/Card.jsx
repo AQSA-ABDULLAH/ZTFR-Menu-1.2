@@ -135,7 +135,7 @@ function Card({ currentMedia }) {
           backgroundColor: currentMedia.cardColor || "black",
           color: currentMedia.cardtext || "white",
         }}
-        className="ml-[80px] md:ml-[100px] w-[160px] md:w-[200px] 2xl:w-[220px] h-[80px] lg:h-[110px] 2xl:h-[130px] rounded-tr-[20px] fixed cursor-pointer"
+        className="ml-[80px] md:ml-[100px] w-[160px] md:w-[200px] 2xl:w-[220px] h-[80px] lg:h-[120px] 2xl:h-[130px] rounded-tr-[20px] fixed cursor-pointer"
       >
         <div
           className="absolute left-[-105px] top-[-2px] cursor-pointer"
@@ -166,7 +166,7 @@ function Card({ currentMedia }) {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="w-4 md:w-9 md:pr-5"
+              className="w-4 md:w-10 md:pr-6 2xl:w-7 2xl:pr-2"
             >
               <path
                 fillRule="evenodd"
@@ -195,8 +195,8 @@ function Card({ currentMedia }) {
         <section>
           {fileNames.length > 0 ? (
             <div
-              className="absolute pl-8 mt-2 2xl:mt-6 w-[95%] no-drag scrollbar-hide tracking-[2px] 
-                    h-[90px] 2xl:h-[120px] overflow-y-scroll"
+              className="absolute pl-8 mt-2 md:mt-4 2xl:mt-6 w-[95%] no-drag scrollbar-hide tracking-[2px] 
+                    h-[90px] md:h-[100px] 2xl:h-[120px] overflow-y-scroll"
             >
               {fileNames.map((file, index) => (
                 <div key={index} className="flex flex-col text-sm mb-1">
@@ -222,21 +222,21 @@ function Card({ currentMedia }) {
               ))}
             </div>
           ) : (
-            <div className="absolute right-[-2.3rem] md:right-[-4.7rem] 2xl:right-[-5.4rem] top-[3%] tracking-wider">
-              <div className="flex text-[18px] md:text-[36px] 2xl:text-[40px]">
+            <div className="absolute right-[-2.3rem] md:right-[-4.6rem] 2xl:right-[-5.4rem] 2xl:top-[3%] tracking-wider">
+              <div className="flex text-[18px] md:text-[40px]">
                 <p>
                   UP TO{" "}
                   <span
                     style={{
                       color: currentMedia.cardColor || "white",
                     }}
-                    className="text-black ml-1 md:ml-5 2xl:ml-5"
+                    className="text-black ml-1 md:ml-2 2xl:ml-5"
                   >
                     1TB
                   </span>
                 </p>
               </div>
-              <div className="absolute right-12 md:right-24 2xl:right-[6.4rem] text-[10px] md:text-[18px] 2xl:text-[20px] mt-[3px] 2xl:mt-[0px] tracking-[2px]">
+              <div className="absolute right-12 md:right-[5.6rem] 2xl:right-[6.4rem] text-[10px] md:text-[18px] 2xl:text-[20px] mt-[3px] 2xl:mt-[0px] tracking-[2px]">
                 <span>FREE</span>
               </div>
             </div>
@@ -298,7 +298,7 @@ function Card({ currentMedia }) {
               </button>
             </div>
           )}
-          <button className="absolute right-6 2xl:left-[285px] top-4 no-drag">
+          <button className="absolute right-2 2xl:left-[285px] top-4 no-drag">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
