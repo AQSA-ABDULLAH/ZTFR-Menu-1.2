@@ -191,11 +191,6 @@ export default function LandingPage() {
               )}
               {showUploadCard && (
                 <div className="text-white flex items-center justify-center w-[28px] h-[150px] md:w-[50px] 2xl:h-[213px] cursor-pointer sm:flex">
-                  {/* <img
-                    src="/assets/Path 36196.svg"
-                    alt="menu"
-                    className="max-md:h-12 mr-1"
-                  /> */}
                   <div style={{ transform: "rotate(-90deg)" }}>
                     <p className="text-[22px] md:text-[28px] tracking-[3px] md:tracking-[5px]" style={{ color: currentMedia.cardtext }}>MENU</p>
                   </div>
