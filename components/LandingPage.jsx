@@ -7,6 +7,8 @@ import { media } from "../data/data.json";
 import MySVGIcon from "./Logo";
 import UserIcon from "./User";
 import Card from "./Card";
+import Logo2 from "./Logo2";
+import Menu from "./Menu";
 
 export default function LandingPage() {
   const [showUploadCard, setShowUploadCard] = useState(false);
@@ -152,7 +154,7 @@ export default function LandingPage() {
               <div className="md:justify-items-end justify-items-center">
                 <h1
                   style={{ color: currentMedia.textColor }}
-                  className="text-[16px] md:text-[42px] desktop:text-[62px] pr-6 tracking-[3px] md:tracking-[12px] leading-3"
+                  className="text-[32px] 2xl:text-[44px] 3xl:text-[51px] pr-6 tracking-[3px] md:tracking-[12px] leading-3"
                 >
                   LET'S DO
                 </h1>
@@ -164,7 +166,7 @@ export default function LandingPage() {
                 </h2>
                 <p
                   style={{ color: currentMedia.textColor }}
-                  className="text-[7px] max-md:w-[76%] text-center md:text-[10px] desktop:text-[12px] tracking-[2px]"
+                  className="text-[7px] max-md:w-[76%] text-center desktop:text-[12px] tracking-[2px]"
                 >
                   UPLOAD FILES OR FOLDERS BY DROPPING THEM ANYWHERE IN THIS
                   WINDOW
@@ -182,20 +184,22 @@ export default function LandingPage() {
             >
               {!showUploadCard && (
                 <div className="text-white flex items-center justify-center w-[28px] h-[150px] md:w-[50px] 2xl:h-[213px] cursor-pointer sm:flex">
-                  <img
-                    src="/assets/logo.png"
-                    alt="menu"
-                    className="max-md:h-12 mr-1"
-                  />
+                  <div style={{ transform: "rotate(90deg)" }}>
+                    <Logo2 currentMedia={currentMedia} />
+                  </div>
                 </div>
               )}
               {showUploadCard && (
                 <div className="text-white flex items-center justify-center w-[28px] h-[150px] md:w-[50px] 2xl:h-[213px] cursor-pointer sm:flex">
-                  <img
-                    src="/assets/Path 36196.png"
+                  {/* <img
+                    src="/assets/Path 36196.svg"
                     alt="menu"
                     className="max-md:h-12 mr-1"
-                  />
+                  /> */}
+
+                  <div>
+                    <Menu currentMedia={currentMedia} />
+                  </div>
                 </div>
               )}
             </div>

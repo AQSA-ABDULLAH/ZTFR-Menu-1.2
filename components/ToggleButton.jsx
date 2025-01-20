@@ -35,12 +35,12 @@ function ToggleButton({ currentMedia }) {
       </div>
 
       {/* Advanced encryption text */}
-      <div className="absolute translate-y-[1450%] md:translate-y-[1200%] md:translate-x-[1%] translate-x-[-27%]">
+      <div className="absolute translate-y-[1450%] md:translate-y-[1400%] 2xl:translate-y-[1200%] 2xl:translate-x-[1%] md:translate-x-[14%] translate-x-[-27%]">
         <p
         style={{
           color: currentMedia.cardColor || "white", // Adjust text color if needed
         }}
-         className="whitespace-nowrap rotate-90 font-bold text-black text-[6px] md:text-[10px]">
+         className="whitespace-nowrap rotate-90 font-bold text-black text-[5px] md:text-[7px] 2xl:text-[10px]">
           ADVANCED ENCRYPTION STANDARD (AES) 256-BIT
         </p>
       </div>
