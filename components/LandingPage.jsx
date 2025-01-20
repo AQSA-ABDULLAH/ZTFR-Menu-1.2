@@ -141,12 +141,12 @@ export default function LandingPage() {
                   <ToggleButton currentMedia={currentMedia} />
                 </div>
               )}
+            </div>
+            {showUploadCard && (
+              <div ref={uploadCardRef}>
+                <Card currentMedia={currentMedia} />
               </div>
-              {showUploadCard && (
-                <div ref={uploadCardRef}>
-                  <Card currentMedia={currentMedia} />
-                </div>
-              )}
+            )}
           </section>
 
           <section className="flex-1">
@@ -196,9 +196,8 @@ export default function LandingPage() {
                     alt="menu"
                     className="max-md:h-12 mr-1"
                   /> */}
-
-                  <div>
-                    <Menu currentMedia={currentMedia} />
+                  <div style={{ transform: "rotate(-90deg)" }}>
+                    <p className="text-[22px] md:text-[28px] tracking-[3px] md:tracking-[5px]" style={{ color: currentMedia.cardtext }}>MENU</p>
                   </div>
                 </div>
               )}
