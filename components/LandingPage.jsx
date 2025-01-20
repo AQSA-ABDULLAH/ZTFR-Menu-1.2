@@ -69,7 +69,7 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="flex flex-col h-screen justify-between font-sans">
+    <div className="flex flex-col h-[100vh] justify-between font-sans">
       <section className="relative h-screen flex flex-col justify-between transition-colors duration-1000 bg-center bg-cover">
         {/* Background Media */}
         {currentMedia.type === "image" && currentMedia.src ? (
@@ -135,18 +135,18 @@ export default function LandingPage() {
             </div>
           )}
           <section className="flex-1">
-            <div className="absolute top-[20%] 2xl:top-[30%]">
+            <div className="absolute z-[100] -translate-y-1/2 top-1/2">
               {!showUploadCard && (
                 <div onClick={handleToggleClick} className="sidebar-toggle">
                   <ToggleButton currentMedia={currentMedia} />
                 </div>
               )}
+              </div>
               {showUploadCard && (
                 <div ref={uploadCardRef}>
                   <Card currentMedia={currentMedia} />
                 </div>
               )}
-            </div>
           </section>
 
           <section className="flex-1">
@@ -154,7 +154,7 @@ export default function LandingPage() {
               <div className="md:justify-items-end justify-items-center">
                 <h1
                   style={{ color: currentMedia.textColor }}
-                  className="text-[32px] 2xl:text-[44px] 3xl:text-[51px] pr-6 tracking-[3px] md:tracking-[12px] leading-3"
+                  className="text-[20px] 2xl:text-[44px] 3xl:text-[51px] md:pr-6 tracking-[3px] md:tracking-[12px] leading-3"
                 >
                   LET'S DO
                 </h1>
@@ -166,7 +166,7 @@ export default function LandingPage() {
                 </h2>
                 <p
                   style={{ color: currentMedia.textColor }}
-                  className="text-[7px] max-md:w-[76%] text-center desktop:text-[12px] tracking-[2px]"
+                  className="text-[7px] max-desktop:w-[122%] text-center md:text-[12px] tracking-[2px]"
                 >
                   UPLOAD FILES OR FOLDERS BY DROPPING THEM ANYWHERE IN THIS
                   WINDOW

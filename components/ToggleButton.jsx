@@ -7,16 +7,16 @@ function ToggleButton({ currentMedia }) {
         backgroundColor: currentMedia.cardColor || "black",
         color: currentMedia.cardtext || "white", 
       }}
-      className="w-[50px] md:w-[60px] lg:w-[157px] h-[330px] md:h-[400px] 2xl:h-[489px] rounded-r-[20px] relative cursor-pointer z-20 tracking-[2px]"
+      className="w-[50px] md:w-[60px] lg:w-[157px] h-[290px] md:h-[400px] 2xl:h-[489px] rounded-r-[20px] relative cursor-pointer z-20 tracking-wider md:tracking-[2px]"
     >
       {/* Icon */}
-      <div className="absolute top-[20px] md:top-[24px] left-[35px] md:left-[125px]">
+      <div className="absolute top-[10px] md:top-[24px] left-[32px] md:left-[125px]">
         {/* <img src="/assets/lock-icon.png" alt="lock" className="w-2 2xl:w-4" /> */}
         <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill={currentMedia?.cardtext || "white"}
-              className="md:w-4 md:h-4"
+              className="w-3 h-3 md:w-4 md:h-4"
             >
               <path
                 fillRule="evenodd"
