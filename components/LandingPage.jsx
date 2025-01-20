@@ -106,7 +106,7 @@ export default function LandingPage() {
         )}
 
         {/* Header Section */}
-        <header className="flex justify-between pt-4 px-5 pb-5 lg:p-6 w-full relative z-10 max-h-[60px] tracking-[2px]">
+        <header className="flex justify-between px-12 py-8  w-full relative z-10 h-[60px] tracking-[2px]">
           <div>
             <MySVGIcon currentMedia={currentMedia} />
           </div>
@@ -154,7 +154,7 @@ export default function LandingPage() {
                 <div className="justify-items-end ">
                 <h1
                   style={{ color: currentMedia.textColor }}
-                  className="font-lato uppercase mr-2 md:text-[38px] 2xl:text-[44px] 3xl:text-[51px] tracking-[2px]"
+                  className="font-lato uppercase mr-2 md:text-[33px] desktop:text-[44px] tracking-[2px]"
                 >
                   LET'S DO
                 </h1>
@@ -204,7 +204,7 @@ export default function LandingPage() {
         {/* Footer */}
         <footer
           style={{ color: currentMedia.textColor }}
-          className="text-[8px] 2xl:text-[10px] flex justify-between px-12 pb-2 tracking-widest"
+          className="text-[8px] desktop:text-[10px] flex justify-between px-12 pb-2 tracking-widest"
         >
           <div className="hidden md:block">
             <p>© ZITRANSFER 2023</p>
