@@ -16,10 +16,35 @@ export const metadata = {
   description: "Learn how to optimize your Next.js website for SEO.",
   keywords: "seo app, nextjs seo complete checklist, nextjs seo tutorial",
   openGraph: {
-    title: "Nextjs SEO App",
+    title: { default: "ZTFR", template: "%s - ZTFR" },
     description: "Learn how to optimize your Next.js website for SEO.",
     images:
       "https://ik.imagekit.io/dminhvu/assets/nextjs-seo/thumbnail.png?tr=f-png",
+  },
+  facebook: {
+    title: { default: "ZTFR", template: "%s - ZTFR" },
+    description: "Learn how to optimize your Next.js website for SEO.",
+    images: [
+      {
+        url: "https://ik.imagekit.io/dminhvu/assets/nextjs-seo/thumbnail.png?tr=f-png",
+        width: 1200,
+        height: 630,
+        alt: "Next.js SEO Thumbnail",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: { default: "ZTFR", template: "%s - ZTFR" },
+    description: "Learn how to optimize your Next.js website for SEO.",
+    images: [
+      {
+        url: "https://ik.imagekit.io/dminhvu/assets/nextjs-seo/thumbnail.png?tr=f-png",
+        width: 1200,
+        height: 630,
+        alt: "Next.js SEO Thumbnail",
+      },
+    ],
   },
 };
 
